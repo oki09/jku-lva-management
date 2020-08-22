@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Helpers\KusssAuthenticationHelper;
 use App\Helpers\Util;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
@@ -9,15 +10,22 @@ use App\User;
 
 class LoginController extends Controller
 {
+
+    public function __construct()
+    {
+        $this->middleware('guest')->except('logout');
+        $this->middleware('guest:admin')->except('logout');
+        $this->middleware('guest:user')->except('logout');
+    }
+
     /**
      * Handle an authentication attempt.
      *
-     * @return Response
      */
-    public function login()
+    public function userLogin()
     {
         $credentials = request()->validate([
-            'studentId' => 'required|starts_with:k,K|size:9',
+            'studentId' => 'required|starts_with:k,K',
             'password' => 'required'
         ]);
         $studentId = $credentials['studentId'];
@@ -25,27 +33,37 @@ class LoginController extends Controller
 
         $user = User::find($studentId);
 
-        /* if the user is not found in the database, check the credentials in KUSSS
-        Only needed for authorization purposes
-        if ($user === null) {
-            $sessionID = KusssAuthenticationHelper::getSessionId();
-            $response = KusssAuthenticationHelper::authenticate($sessionID, $studentId, $password);
-
+        /* If the user is not found in the database, check the credentials in KUSSS
+        Only needed for authorization purposes */
+        if (!isset($user)) {
+            $cookie = KusssAuthenticationHelper::getCookie();
+            $response = KusssAuthenticationHelper::authenticate($cookie, $studentId, $password);
             if ($response) {
-                $user = User::create(['studentId' => $studentId, 'password' => Hash::make($password)])->save();
+                $user = User::create(['studentId' => $studentId, 'password' => Hash::make($password)]);
+                $user->save();
             } else {
-                redirect()->back()->withInput()->with('error', __('Username - Password combination is wrong'));
+                return redirect()->back()->withInput()->with('error', __('Username - Password combination could not be found in the KUSSS system'));
             }
-        }*/
-
-        if ($user === null) {
-            $user = User::create(['studentId' => $studentId, 'password' => Hash::make($password)]);
-            $user->save();
         }
 
         // The user is already in the database
-        if (Auth::attempt(['studentId' => $user->studentId, 'password' => $password])) {
-            return redirect()->intended('/')->with('totalEcts', Util::getTotalEcts(Auth::id()));
+        if (Auth::guard('user')->attempt(['studentId' => $user->studentId, 'password' => $password])) {
+            return redirect()->route('calendar.index')->with('totalEcts', Util::getTotalEcts(Auth::id()));
+        }
+        return redirect()->back()->withInput()->with('error', __('Username - Password combination is wrong'));
+    }
+
+    public function adminLogin()
+    {
+        $credentials = request()->validate([
+            'adminId' => 'required|starts_with:k,K',
+            'password' => 'required'
+        ]);
+        $adminId = $credentials['adminId'];
+        $password = $credentials['password'];
+
+        if (Auth::guard('admin')->attempt(['adminId' => $adminId, 'password' => $password])) {
+            return redirect()->route('admin.index');
         }
         return redirect()->back()->withInput()->with('error', __('Username - Password combination is wrong'));
     }
@@ -54,6 +72,6 @@ class LoginController extends Controller
     {
         session()->flush();
         Auth::logout();
-        return redirect()->route('login');
+        return redirect()->route('welcome');
     }
 }

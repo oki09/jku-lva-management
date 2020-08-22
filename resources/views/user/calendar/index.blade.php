@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('user.layouts.app')
 
 @section('content')
     <div id="loader" class="spinner-border text-primary" role="status">
@@ -11,19 +11,19 @@
             const calendarEl = document.getElementById('calendar');
 
             const calendar = new FullCalendar.Calendar(calendarEl, {
-                height: 600,
+                height: 700,
                 timeZone: 'UTC',
-                initialDate: '{{env('CALENDAR_START_DATE')}}',
+                initialDate: '{{config('app.semesterStart')}}',
                 lazyFetching: true,
                 slotEventOverlap: true,
                 allDaySlot: false,
                 slotMinTime: '08:00:00',
                 slotMaxTime: '20:00:00',
                 slotLabelInterval: '00:30',
-                weekends: false,
+                hiddenDays: [0],
                 headerToolbar: {
                     right: 'timeGridWeek,dayGridMonth',
-                    center: 'title',
+                    center: '',
                     left: 'prev,next'
                 },
                 initialView: 'timeGridWeek',

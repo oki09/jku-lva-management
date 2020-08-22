@@ -16,14 +16,10 @@
     <!-- Bootstrap core CSS -->
     <link href="{{ asset('css/bootstrap.min.css') }}" rel="stylesheet">
     <link href="{{ asset('fonts/font-awesome/font-awesome.min.css') }}" rel="stylesheet">
-    <link rel="stylesheet" href="{{ asset('css/custom.css') }}">
-    <link href="{{ asset('css/calendar/main.min.css') }}" rel="stylesheet">
-    <link href="{{ asset('css/roundedToggleSwitch.css') }}" rel="stylesheet">
+    <link rel="stylesheet" href="{{ asset('css/admin/main.css') }}">
 
     <script src="{{ asset('js/jquery-3.4.1.min.js') }}"></script>
     <script src="{{ asset('js/bootstrap.bundle.min.js') }}"></script>
-    <script src="{{ asset('js/calendar/main.min.js') }}"></script>
-    <script src="{{ asset('js/calendar/locale/de.js') }}"></script>
 
     <script>
         const base_url = "{{url('/')}}";
@@ -35,36 +31,13 @@
     <!-- Sidebar Holder -->
     <nav id="sidebar">
         <div class="sidebar-header">
-            <img class="mb-4" src="{{ asset("/images/jku.png") }}" alt="" width="100px" height="100px"><br>
-            Gesamt-ECTS: {{session('totalEcts')}}
+            Test
         </div>
 
         <ul class="list-unstyled components">
             <p>{{__('Menü')}}</p>
             <li>
-                <a href="{{ route('calendar.index') }}">{{ __('Kalender') }}</a>
-            </li>
-            <li>
-                <a id="lvaSection" aria-expanded="false">{{ __('LVA-Verwaltung') }}</a>
-                <ul class="list-unstyled" id="lvaManagement">
-                    <li>
-                        <a href="{{ route('lva.index') }}">{{ __('Meine LVAs') }}</a>
-                    </li>
-                    <li>
-                        <a href="{{ route('lva.create') }}">{{ __('LVA hinzufügen') }}</a>
-                    </li>
-                </ul>
-            </li>
-            <li>
-                <a id="infoSection" aria-expanded="false">{{ __('Info') }}</a>
-                <ul class="list-unstyled" id="infoItems">
-                    <li>
-                        <a href="{{route('info.contact')}}">{{ __('Kontakt') }}</a>
-                    </li>
-                    <li>
-                        <a href="{{route('info.privacy')}}">{{ __('Datenschutzerklärung') }}</a>
-                    </li>
-                </ul>
+                <a href="{{ route('admin.index') }}">{{ __('Users') }}</a>
             </li>
         </ul>
     </nav>
@@ -80,9 +53,10 @@
                     <span></span>
                 </button>
                 <ul class="ml-auto nav navbar-nav">
-                    <li class="nav-item">
-                        <a href="{{route('logout')}}">Logout</a>
-                    </li>
+                    <form class="form-inline my-2 my-lg-0" method="POST" action="{{route('logout.admin')}}">
+                        @csrf
+                        <button class="btn btn-outline-dark my-2 my-sm-0" type="submit">Logout</button>
+                    </form>
                 </ul>
             </div>
         </nav>

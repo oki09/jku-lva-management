@@ -20,7 +20,7 @@ class LvaController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('auth');
+        $this->middleware('auth:user');
     }
 
     /**
@@ -31,7 +31,7 @@ class LvaController extends Controller
     public function index()
     {
         $lvas = User::find(Auth::id())->courses;
-        return view('lva.index', compact('lvas'));
+        return view('user.lva.index', compact('lvas'));
     }
 
     /**
@@ -49,9 +49,9 @@ class LvaController extends Controller
                 'lvaEcts' => request('lvaEcts'),
                 'lvaSlotsUrl' => request('lvaSlotsUrl')
             ];
-            return !$this->lvaExists($lvaData['lvaNr']) ? view('lva.ajaxData', compact('lvaData')) : '<p class="alert-danger">Kurs bereits hinzugefügt</p>';
+            return !$this->lvaExists($lvaData['lvaNr']) ? view('user.lva.ajaxData', compact('lvaData')) : '<p class="alert-danger">Kurs bereits hinzugefügt</p>';
         }
-        return view('lva.create');
+        return view('user.lva.create');
     }
 
     /**

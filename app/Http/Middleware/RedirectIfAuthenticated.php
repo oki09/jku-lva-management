@@ -11,15 +11,19 @@ class RedirectIfAuthenticated
     /**
      * Handle an incoming request.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \Closure  $next
-     * @param  string|null  $guard
+     * @param \Illuminate\Http\Request $request
+     * @param \Closure $next
+     * @param string|null $guard
      * @return mixed
      */
     public function handle($request, Closure $next, $guard = null)
     {
-        if (Auth::guard($guard)->check()) {
-            return redirect(RouteServiceProvider::HOME);
+        if ($guard == 'user' && Auth::guard($guard)->check()) {
+            return redirect()->intended(route('calendar.index'));
+        }
+
+        if ($guard == 'admin' && Auth::guard($guard)->check()) {
+            return redirect()->intended(route('admin.index'));
         }
 
         return $next($request);

@@ -13,24 +13,36 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::view('/login', 'auth.login')->name('login');
-Route::post('/login', 'LoginController@login')->name('login');
+Route::view('/', 'main.welcome')->name('welcome');
+
+Route::view('/login/user', 'user.auth.login')->name('login.user');
+Route::post('/login/user', 'LoginController@userLogin')->name('login.user');
+
+Route::view('/login/admin', 'admin.auth.login')->name('login.admin');
+Route::post('/login/admin', 'LoginController@adminLogin')->name('login.admin');
 
 
-Route::middleware(['auth'])->group(function () {
-    Route::view('/', 'calendar.index')->name('calendar.index');
+Route::middleware(['auth:user'])->prefix('user')->group(function () {
+    Route::view('/', 'user.calendar.index')->name('calendar.index');
     Route::get('/calendar/events', 'CalendarController@getEvents')->name('calendar.events');
 
-    Route::get('/lva/delete', 'LvaController@destroy')->name('lva.destroy');
-    Route::get('/lva/create', 'LvaController@create')->name('lva.create');
-    Route::get('/lva', 'LvaController@index')->name('lva.index');
-    Route::post('/lva/disable', 'LvaController@disable')->name('lva.disable');
-    Route::post('/lva', 'LvaController@store')->name('lva.store');
+    Route::get('/lvas/delete', 'LvaController@destroy')->name('lva.destroy');
+    Route::get('/lvas/create', 'LvaController@create')->name('lva.create');
+    Route::get('/lvas', 'LvaController@index')->name('lva.index');
+    Route::post('/lvas/disable', 'LvaController@disable')->name('lva.disable');
+    Route::post('/lvas', 'LvaController@store')->name('lva.store');
 
-    Route::get('/logout', 'LoginController@logout')->name('logout');
+    Route::post('/logout', 'LoginController@logout')->name('logout.user');
 
     Route::get('/proxy', 'LvaController@proxyRequests')->name('proxy');
 
-    Route::view('/contact', 'info.contact')->name('info.contact');
-    Route::view('/privacy', 'info.privacy')->name('info.privacy');
+    Route::view('/contact', 'user.info.contact')->name('info.contact');
+    Route::view('/privacy', 'user.info.privacy')->name('info.privacy');
+});
+
+Route::middleware(['auth:admin'])->prefix('admin')->name('admin.')->group(function () {
+    Route::get('/', 'AdminController@index')->name('index');
+    Route::get('/{user}/delete', 'AdminController@destroy')->name('destroyUser');
+    Route::post('/changeSemesterStart', 'AdminController@changeSemesterStart')->name('changeSemester');
+    Route::post('/logout', 'LoginController@logout')->name('logout');
 });

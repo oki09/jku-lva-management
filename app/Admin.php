@@ -4,17 +4,11 @@ namespace App;
 
 use Jenssegers\Mongodb\Auth\User as Authenticatable;
 
-class User extends Authenticatable
+class Admin extends Authenticatable
 {
+    protected $guard = 'admin';
 
-    protected $guard = 'user';
-
-    protected $primaryKey = 'studentId';
-
-    public function courses()
-    {
-        return $this->embedsMany(Course::class);
-    }
+    protected $primaryKey = 'adminId';
 
     /**
      * The attributes that are mass assignable.
@@ -22,7 +16,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'studentId', 'password'
+        'adminId', 'password'
     ];
 
     /**

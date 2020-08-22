@@ -1,7 +1,72 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="BranchesTreeState">
+    <expand>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+    </expand>
+    <select />
+  </component>
   <component name="ChangeListManager">
-    <list default="true" id="08676cd1-d91e-4e08-868d-15111cd024f8" name="Default Changelist" comment="" />
+    <list default="true" id="08676cd1-d91e-4e08-868d-15111cd024f8" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/app/Admin.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Http/Controllers/AdminController.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/css/user/main.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/css/welcome.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/images/logo_black.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/images/logo_white.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/images/lva-list.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/images/rsz_lvalist.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/images/rsz_timetable.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/images/timetable.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/admin/auth/login.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/admin/layouts/app.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/admin/users/index.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/main/welcome.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/user/layouts/auth.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/jku-app.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/jku-app.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Helpers/KusssAuthenticationHelper.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Helpers/KusssAuthenticationHelper.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/CalendarController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/CalendarController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/LoginController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/LoginController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/LvaController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/LvaController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Middleware/Authenticate.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Middleware/Authenticate.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Middleware/RedirectIfAuthenticated.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Middleware/RedirectIfAuthenticated.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Providers/RouteServiceProvider.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Providers/RouteServiceProvider.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/User.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/app.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/app.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/auth.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/auth.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/css/calendar/main.min.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/user/calendar/main.min.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/css/custom.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/admin/main.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/css/roundedToggleSwitch.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/user/roundedToggleSwitch.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/css/signin.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/signin.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/lang/de.json" beforeDir="false" afterPath="$PROJECT_DIR$/resources/lang/de.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/auth/login.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/user/auth/login.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/calendar/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/user/calendar/index.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/info/contact.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/user/info/contact.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/info/privacy.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/user/info/privacy.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/layouts/app.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/user/layouts/app.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/layouts/auth.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/layouts/auth.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/lva/ajaxData.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/user/lva/ajaxData.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/lva/create.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/user/lva/create.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/lva/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/user/lva/index.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/main/dashboard.blade.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -10,6 +75,9 @@
   <component name="ComposerSettings" doNotAsk="true" synchronizationState="SYNCHRONIZE">
     <pharConfigPath>$PROJECT_DIR$/composer.json</pharConfigPath>
     <execution />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="PackageJsonUpdateNotifier">
     <dismissed value="$PROJECT_DIR$/package.json" />
@@ -108,26 +176,43 @@
       <path value="$PROJECT_DIR$/vendor/psr/log" />
       <path value="$PROJECT_DIR$/vendor/psr/container" />
       <path value="$PROJECT_DIR$/vendor/scrivo/highlight.php" />
+      <path value="$PROJECT_DIR$/vendor/psr/http-client" />
+      <path value="$PROJECT_DIR$/vendor/psr/http-message" />
+      <path value="$PROJECT_DIR$/vendor/ralouphie/getallheaders" />
+      <path value="$PROJECT_DIR$/vendor/guzzlehttp/guzzle" />
+      <path value="$PROJECT_DIR$/vendor/guzzlehttp/promises" />
+      <path value="$PROJECT_DIR$/vendor/guzzlehttp/psr7" />
     </include_path>
   </component>
   <component name="ProjectId" id="1g5Yyy8XLIcVbSQxbWDe7SnG5hu" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/public/css/calendar" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/public/images" />
     <property name="nodejs_package_manager_path" value="npm" />
   </component>
   <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/public/images" />
+      <recent name="$PROJECT_DIR$/public/css/admin" />
+      <recent name="$PROJECT_DIR$/public/css/user" />
+      <recent name="$PROJECT_DIR$/resources/views/main" />
+      <recent name="$PROJECT_DIR$/resources/views/admin/users" />
+    </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/public/images" />
+      <recent name="$PROJECT_DIR$/resources/views/admin" />
+      <recent name="$PROJECT_DIR$/resources/views/layouts/admin" />
+      <recent name="$PROJECT_DIR$/resources/views/auth/admin" />
       <recent name="$PROJECT_DIR$/public/css/calendar" />
-      <recent name="$PROJECT_DIR$/public/js/calendar/locale" />
-      <recent name="$PROJECT_DIR$/public/js/calendar" />
-      <recent name="$PROJECT_DIR$/public/css/calendar/timegrid" />
-      <recent name="$PROJECT_DIR$/public/js/calendar/timegrid" />
     </key>
   </component>
   <component name="RunManager">
@@ -145,12 +230,28 @@
       <option name="presentableId" value="Default" />
       <updated>1597406178729</updated>
       <workItem from="1597406179824" duration="28552000" />
-      <workItem from="1597677472538" duration="9452000" />
+      <workItem from="1597677472538" duration="12915000" />
+      <workItem from="1597834265906" duration="1000" />
+      <workItem from="1597916887405" duration="31334000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
   </component>
   <component name="WindowStateProjectService">
     <state x="458" y="212" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1597665488676">
@@ -163,13 +264,18 @@
     </state>
     <state x="498" y="183" key="NewPhpClassDialog/0.0.1440.900/1440.0.1920.1080/-1920.0.1920.1080@0.0.1440.900" timestamp="1597665452768" />
     <state x="498" y="183" key="NewPhpClassDialog/0.0.1440.900@0.0.1440.900" timestamp="1597407029530" />
-    <state x="539" y="380" key="NewPhpFileDialog" timestamp="1597732543530">
+    <state x="539" y="380" key="NewPhpFileDialog" timestamp="1598018110445">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
     <state x="539" y="380" key="NewPhpFileDialog/0.0.1440.900/1440.0.1920.1080/-1920.0.1920.1080@0.0.1440.900" timestamp="1597732543530" />
-    <state x="421" y="176" width="598" height="548" key="find.popup" timestamp="1597688962223">
+    <state x="539" y="380" key="NewPhpFileDialog/0.0.1440.900@0.0.1440.900" timestamp="1598018110445" />
+    <state x="421" y="226" width="598" height="548" key="find.popup" timestamp="1598092097172">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state x="421" y="176" width="598" height="548" key="find.popup/0.0.1440.900@0.0.1440.900" timestamp="1597688962223" />
+    <state x="421" y="226" width="598" height="548" key="find.popup/0.0.1440.900@0.0.1440.900" timestamp="1598092097172" />
+    <state x="385" y="196" width="670" height="676" key="search.everywhere.popup" timestamp="1598028678616">
+      <screen x="0" y="0" width="1440" height="900" />
+    </state>
+    <state x="385" y="196" width="670" height="676" key="search.everywhere.popup/0.0.1440.900@0.0.1440.900" timestamp="1598028678616" />
   </component>
 </project>
