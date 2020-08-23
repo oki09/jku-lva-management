@@ -1,6 +1,6 @@
 @if(isset($lvaData))
-    @if(empty($lvaData['lvaNr']))
-        <p class="alert-danger">Kurs konnte nicht gefunden werden</p>
+    @if(empty($lvaData->lvaNr))
+        <p class="alert-danger">{{__('Course not found')}}</p>
     @else
         <table class="table table-hover table-striped w-full table-sm">
             <thead>
@@ -11,9 +11,9 @@
             </thead>
             <tbody>
             <tr>
-                <th>{{$lvaData['lvaNr']}}</th>
-                <td>{{$lvaData['lvaName']}}</td>
-                <td>{{$lvaData['lvaEcts']}}</td>
+                <th>{{$lvaData->lvaNr}}</th>
+                <td>{{$lvaData->lvaName}}</td>
+                <td>{{$lvaData->lvaEcts}}</td>
                 <td>
                     <button id="addLvaBtn" class="btn btn-outline-primary"><i class="fas fa-plus"></i></button>
                 </td>
@@ -23,12 +23,13 @@
     @endif
     <script>
         $('#addLvaBtn').on('click', function () {
-            let slotsUrl = '{{ env('KUSSS_PREFIX') . $lvaData['lvaSlotsUrl']}}';
+            let slotsUrl = '{{ env('KUSSS_PREFIX') . $lvaData->lvaSlotsUrl}}';
             slotsUrl = slotsUrl.replaceAll('&amp;', '&');
             $.get({
                 url: getProxyRequestUrl(slotsUrl),
                 success(response) {
                     const html = $($.parseHTML(response));
+                    const capacity = html.find("tr.priorityhighlighted td").eq(3).text().trim();
                     const slotsTable = html.find("div.contentcell>table>tbody>tr>td>table>tbody>tr>td>table>tbody>tr>td>table>tbody tr");
                     const totalLength = slotsTable.length;
                     let slots = [];
@@ -50,9 +51,10 @@
                         url: '{{route('lva.store')}}',
                         headers: {'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')},
                         data: JSON.stringify({
-                            nr: '{{$lvaData['lvaNr']}}',
-                            title: '{{$lvaData['lvaName']}}',
-                            ects: '{{$lvaData['lvaEcts']}}',
+                            nr: '{{$lvaData->lvaNr}}',
+                            title: '{{$lvaData->lvaName}}',
+                            ects: '{{$lvaData->lvaEcts}}',
+                            capacity: capacity,
                             slots: slots
                         }),
                         success() {

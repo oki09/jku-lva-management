@@ -13,7 +13,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::view('/', 'main.welcome')->name('welcome');
+Route::view('/', 'main.home')->name('home');
 
 Route::view('/login/user', 'user.auth.login')->name('login.user');
 Route::post('/login/user', 'LoginController@userLogin')->name('login.user');
@@ -21,8 +21,11 @@ Route::post('/login/user', 'LoginController@userLogin')->name('login.user');
 Route::view('/login/admin', 'admin.auth.login')->name('login.admin');
 Route::post('/login/admin', 'LoginController@adminLogin')->name('login.admin');
 
+Route::view('/contact', 'main.contact')->name('info.contact');
+Route::view('/privacy', 'main.privacy')->name('info.privacy');
 
-Route::middleware(['auth:user'])->prefix('user')->group(function () {
+
+Route::middleware(['layouts:user'])->prefix('user')->group(function () {
     Route::view('/', 'user.calendar.index')->name('calendar.index');
     Route::get('/calendar/events', 'CalendarController@getEvents')->name('calendar.events');
 
@@ -35,12 +38,9 @@ Route::middleware(['auth:user'])->prefix('user')->group(function () {
     Route::post('/logout', 'LoginController@logout')->name('logout.user');
 
     Route::get('/proxy', 'LvaController@proxyRequests')->name('proxy');
-
-    Route::view('/contact', 'user.info.contact')->name('info.contact');
-    Route::view('/privacy', 'user.info.privacy')->name('info.privacy');
 });
 
-Route::middleware(['auth:admin'])->prefix('admin')->name('admin.')->group(function () {
+Route::middleware(['layouts:admin'])->prefix('admin')->name('admin.')->group(function () {
     Route::get('/', 'AdminController@index')->name('index');
     Route::get('/{user}/delete', 'AdminController@destroy')->name('destroyUser');
     Route::post('/changeSemesterStart', 'AdminController@changeSemesterStart')->name('changeSemester');

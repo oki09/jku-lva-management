@@ -14,13 +14,13 @@ class AdminController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('auth:admin');
+        $this->middleware('layouts:admin');
     }
 
     public function index()
     {
         $users = User::all();
-        return view('admin.users.index', compact('users'));
+        return view('admin.index', compact('users'));
     }
 
     public function destroy(User $user)

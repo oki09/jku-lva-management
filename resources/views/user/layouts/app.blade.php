@@ -16,6 +16,7 @@
     <!-- Bootstrap core CSS -->
     <link href="{{ asset('css/bootstrap.min.css') }}" rel="stylesheet">
     <link href="{{ asset('fonts/font-awesome/font-awesome.min.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/home.css') }}" rel="stylesheet">
     <link href="{{ asset('css/user/main.css') }}" rel="stylesheet">
     <link href="{{ asset('css/user/roundedToggleSwitch.css') }}" rel="stylesheet">
     <link href="{{ asset('css/user/calendar/main.min.css') }}" rel="stylesheet">
@@ -27,9 +28,9 @@
 </head>
 
 <body>
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+<nav id="navbarUserMenu" class="navbar navbar-expand-lg navbar-dark bg-dark">
     <div class="container">
-        <a class="navbar-brand" href="{{route('welcome')}}"><img src="{{asset('images/logo_white.png')}}" width="80px"></a>
+        <a class="navbar-brand" href="{{route('home')}}"><img src="{{asset('images/logo_white.png')}}" width="80px"></a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive"
                 aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -56,18 +57,6 @@
                         <a class="dropdown-item" href="{{route('lva.create')}}">LVA hinzufügen</a>
                     </div>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="{{route('info.contact')}}">
-                        <i class="fa fa-calendar"></i>
-                        Kontakt
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="{{route('info.privacy')}}">
-                        <i class="fa fa-calendar"></i>
-                        Datenschutz
-                    </a>
-                </li>
             </ul>
             <ul class="navbar-nav">
                 <form class="form-inline my-2 my-lg-0" method="POST" action="{{route('logout.user')}}">
@@ -78,15 +67,17 @@
         </div>
     </div>
 </nav>
-<main class="container mt-2 content">
+<main role="main" class="container mt-2 content">
     @yield('content')
 </main>
-<!-- Footer -->
 <footer class="py-2 bg-dark">
-    <div class="container">
-        <p class="m-0 text-center text-white">Copyright &copy; Oktay Akgül 2020</p>
+    <div class="container text-white text-center">
+        <p class="footerLinks m-0">
+            <a href="{{route('info.contact')}}">Kontakt</a> |
+            <a href="{{route('info.privacy')}}">Datenschutzerklärung</a> |
+            Copyright &copy; Oktay Akgül 2020
+        </p>
     </div>
-    <!-- /.container -->
 </footer>
 </body>
 

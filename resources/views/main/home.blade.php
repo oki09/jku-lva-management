@@ -1,60 +1,5 @@
-<!doctype html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
-
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
-    <!-- CSRF Token -->
-    <meta name="csrf-token" content="{{ csrf_token() }}">
-
-    {{-- favicon --}}
-    <link rel="icon" href="{{asset('favicon.ico')}}" type="image/x-icon"/>
-
-    <title>{{ config('app.name', 'Laravel') }}</title>
-
-    <!-- Fonts -->
-    <link rel="dns-prefetch" href="//fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
-
-    <!-- Styles -->
-    <link href="{{ asset('css/bootstrap.min.css') }}" rel="stylesheet">
-    <link href="{{ asset('css/welcome.css') }}" rel="stylesheet">
-
-    <script src="{{ asset('js/jquery-3.4.1.min.js') }}"></script>
-    <script src="{{ asset('js/bootstrap.bundle.min.js') }}"></script>
-
-</head>
-
-<body>
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-    <div class="container">
-        <a class="navbar-brand" href="{{route('welcome')}}"><img src="{{asset('images/logo_white.png')}}" width="80px"></a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive"
-                aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarResponsive">
-            <ul class="navbar-nav ml-auto">
-                <li class="nav-item active">
-                    <a class="nav-link" href="{{route('welcome')}}">{{__('Home')}}
-                        <span class="sr-only">(current)</span>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="{{route('calendar.index')}}">
-                        {{__('Zum Dashboard')}}
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="{{route('admin.index')}}">{{__('Admin Dashboard')}}</a>
-                </li>
-            </ul>
-        </div>
-    </div>
-</nav>
-<!-- Page Content -->
-<div class="container content">
+@extends('layouts.main')
+@section('content')
 
     <!-- Jumbotron Header -->
     <header class="jumbotron my-4">
@@ -65,7 +10,7 @@ who wished a system where they could create and manage their planned timetables 
 actual JKU course registration time in a digital manner. Why paper and pen, if there are smartphones and computers right? The main
 idea is to detect course overlaps beforehand and give other students the opportunity to plan their semester efficiently.
 We call this the CMSS (Course Management System for Students).')}}</p>
-        <a href="{{route('calendar.index')}}" class="btn btn-primary btn-lg">{{__('Start now!')}}</a>
+        <a href="{{route('calendar.index')}}" class="btn btn-primary btn-lg col-md-2 col-12">{{__('Start now!')}}</a>
     </header>
 
     <!-- Page Features -->
@@ -106,18 +51,4 @@ This could provide students a second guess of whether they really want to attend
             </div>
         </div>
     </div>
-    <!-- /.row -->
-
-</div>
-<!-- /.container -->
-
-<!-- Footer -->
-<footer class="py-2 bg-dark">
-    <div class="container">
-        <p class="m-0 text-center text-white">Copyright &copy; Oktay Akgül 2020</p>
-    </div>
-    <!-- /.container -->
-</footer>
-</body>
-
-</html>
+@endsection

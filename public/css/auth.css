@@ -1,28 +1,13 @@
-html, body {
-    height: 100%;
-}
-
-body {
-    display: flex;
-    flex-direction: column;
-}
-
-.content {
-    flex: 1 0 auto;
-    justify-content: center;
-    align-items: center;
-}
-
-footer {
-    flex-shrink: 0;
-}
-
-
 .form-signin {
+    text-align: center;
     width: 100%;
-    max-width: 330px;
+    max-width: 360px;
     padding: 15px;
     margin: auto;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
 }
 
 .form-signin .checkbox {

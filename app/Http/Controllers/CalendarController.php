@@ -14,17 +14,19 @@ class CalendarController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('auth:user');
+        $this->middleware('layouts:user');
     }
 
     public function getEvents()
     {
         $events = [];
         $lvas = User::find(Auth::id())->courses;
+        $cnt = 0;
         foreach ($lvas as $lva) {
             if ($lva->isDisabled == 'true') {
                 foreach ($lva->slots as $slot) {
                     array_push($events, [
+                        'id' => $cnt++,
                         'start' => $slot->start,
                         'end' => $slot->end,
                         'title' => $lva->title

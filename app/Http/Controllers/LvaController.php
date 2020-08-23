@@ -7,9 +7,9 @@ use App\Helpers\Util;
 use App\Helpers\WkoMiddlewareHelper;
 use App\User;
 use GuzzleHttp\Exception\InvalidArgumentException;
+use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Http\Response;
 use Illuminate\Support\Facades\Auth;
-use function GuzzleHttp\json_encode;
 
 class LvaController extends Controller
 {
@@ -20,7 +20,7 @@ class LvaController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('auth:user');
+        $this->middleware('layouts:user');
     }
 
     /**
@@ -30,7 +30,8 @@ class LvaController extends Controller
      */
     public function index()
     {
-        $lvas = User::find(Auth::id())->courses;
+        $courses = User::find(Auth::id())->courses;
+        $lvas = $this->getWorkload($courses);
         return view('user.lva.index', compact('lvas'));
     }
 
@@ -43,13 +44,13 @@ class LvaController extends Controller
     public function create()
     {
         if (request()->ajax()) {
-            $lvaData = [
+            $lvaData = (object) [
                 'lvaNr' => request('lvaNr'),
                 'lvaName' => request('lvaName'),
                 'lvaEcts' => request('lvaEcts'),
                 'lvaSlotsUrl' => request('lvaSlotsUrl')
             ];
-            return !$this->lvaExists($lvaData['lvaNr']) ? view('user.lva.ajaxData', compact('lvaData')) : '<p class="alert-danger">Kurs bereits hinzugefügt</p>';
+            return !$this->lvaExists($lvaData->lvaNr) ? view('user.lva.ajaxData', compact('lvaData')) : '<p class="alert-danger">Course already added</p>';
         }
         return view('user.lva.create');
     }
@@ -66,7 +67,9 @@ class LvaController extends Controller
         $lva = $user->courses()->create([
             'nr' => $data['nr'],
             'title' => $data['title'],
-            'ects' => $data['ects']
+            'ects' => $data['ects'],
+            'capacity' => $data['capacity'],
+            'isDisabled' => true
         ]);
         foreach ($data['slots'] as $slot) {
             $lva->slots()->create([
@@ -129,5 +132,22 @@ class LvaController extends Controller
         $user = User::find(Auth::id());
         $lva = $user->courses()->where('nr', $lvaNr)->first();
         return isset($lva);
+    }
+
+    private function getWorkload($courses) {
+        $lvas = new Collection();
+        foreach ($courses as $lva) {
+            $otherUsers = User::where([
+                ['courses.nr', '=', $lva->nr],
+                ['studentId', '!=', Auth::id()]
+            ])->get();
+            try {
+                $lva->workload = round($otherUsers->count() / $lva->capacity * 100, PHP_ROUND_HALF_UP);
+            } catch (Exception $e) {
+                $lva->workload = 0;
+            }
+            $lvas->push($lva);
+        }
+        return $lvas;
     }
 }

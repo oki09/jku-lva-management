@@ -13,52 +13,35 @@
 
     <title>{{ config('app.name', 'Laravel') }}</title>
 
-    <!-- Fonts -->
-    <link rel="dns-prefetch" href="//fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
-
     <!-- Styles -->
     <link href="{{ asset('css/bootstrap.min.css') }}" rel="stylesheet">
 
     <script src="{{ asset('js/jquery-3.4.1.min.js') }}"></script>
     <script src="{{ asset('js/bootstrap.bundle.min.js') }}"></script>
 
-
-    <style>
-        .bd-placeholder-img {
-            font-size: 1.125rem;
-            text-anchor: middle;
-            -webkit-user-select: none;
-            -moz-user-select: none;
-            -ms-user-select: none;
-            user-select: none;
-        }
-
-        @media (min-width: 768px) {
-            .bd-placeholder-img-lg {
-                font-size: 3.5rem;
-            }
-        }
-    </style>
     <!-- Custom styles for this template -->
-    <link href="{{ asset('css/signin.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/home.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/auth.css') }}" rel="stylesheet">
 </head>
 
 <body>
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
     <div class="container">
-        <a class="navbar-brand" href="{{route('welcome')}}">CMSS</a>
+        <a class="navbar-brand" href="{{route('home')}}"><img src="{{asset('images/logo_white.png')}}" width="80px"></a>
     </div>
 </nav>
-<div class="text-center container content">
+<div class="container content">
     @yield("content")
 </div>
-<!-- Footer -->
+
 <footer class="py-2 bg-dark">
-    <div class="container">
-        <p class="m-0 text-center text-white">Copyright &copy; Oktay Akgül 2020</p>
+    <div class="container text-white text-center">
+        <p class="footerLinks m-0">
+            <a href="{{route('info.contact')}}">Kontakt</a> |
+            <a href="{{route('info.privacy')}}">Datenschutzerklärung</a> |
+            Copyright &copy; Oktay Akgül 2020
+        </p>
     </div>
-    <!-- /.container -->
 </footer>
 </body>
 

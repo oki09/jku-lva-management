@@ -1,18 +1,16 @@
 @extends('user.layouts.app')
 
 @section('content')
-    <div class="m-auto">
-        <div class="form-row text-center">
-            <div class="mr-4">
-                <input id="lvaNr" type="text" class="form-control" placeholder="LVA-Nr.">
-            </div>
-            <div>
-                <button id="searchBtn" type="button" class="btn btn-outline-primary" disabled>{{__('Suchen')}}</button>
-            </div>
+    <div class="form-row mt-5">
+        <div class="col-md-9 mb-3">
+            <input id="lvaNr" type="text" class="form-control" placeholder="LVA-Nr.">
         </div>
-        <div id="searchResults" class="mt-3">
-            @include('user.lva.ajaxData')
+        <div class="col-md-3">
+            <button id="searchBtn" type="button" class="btn w-100 btn-outline-primary" disabled>{{__('Search')}}</button>
         </div>
+    </div>
+    <div id="searchResults" class="mt-3">
+        @include('user.lva.ajaxData')
     </div>
 
     <script>

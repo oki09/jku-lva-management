@@ -42,7 +42,7 @@ class LoginController extends Controller
                 $user = User::create(['studentId' => $studentId, 'password' => Hash::make($password)]);
                 $user->save();
             } else {
-                return redirect()->back()->withInput()->with('error', __('Username - Password combination could not be found in the KUSSS system'));
+                return redirect()->back()->withInput()->with('error', __('Invalid student id or password!'));
             }
         }
 
@@ -50,7 +50,7 @@ class LoginController extends Controller
         if (Auth::guard('user')->attempt(['studentId' => $user->studentId, 'password' => $password])) {
             return redirect()->route('calendar.index')->with('totalEcts', Util::getTotalEcts(Auth::id()));
         }
-        return redirect()->back()->withInput()->with('error', __('Username - Password combination is wrong'));
+        return redirect()->back()->withInput()->with('error', __('Invalid student id or password!'));
     }
 
     public function adminLogin()
@@ -72,6 +72,6 @@ class LoginController extends Controller
     {
         session()->flush();
         Auth::logout();
-        return redirect()->route('welcome');
+        return redirect()->route('home');
     }
 }

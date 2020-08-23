@@ -53,7 +53,7 @@
                     <span></span>
                 </button>
                 <ul class="ml-auto nav navbar-nav">
-                    <form class="form-inline my-2 my-lg-0" method="POST" action="{{route('logout.admin')}}">
+                    <form class="form-inline my-2 my-lg-0" method="POST" action="{{route('admin.logout')}}">
                         @csrf
                         <button class="btn btn-outline-dark my-2 my-sm-0" type="submit">Logout</button>
                     </form>
