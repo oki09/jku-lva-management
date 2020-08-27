@@ -25,12 +25,15 @@
     <script src="{{ asset('js/bootstrap.bundle.min.js') }}"></script>
     <script src="{{ asset('js/calendar/main.min.js') }}"></script>
     <script src="{{ asset('js/calendar/locale/de.js') }}"></script>
+    <script src="{{ asset('js/moment.min.js') }}"></script>
 </head>
 
 <body>
-<nav id="navbarUserMenu" class="navbar navbar-expand-lg navbar-dark bg-dark">
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
     <div class="container">
-        <a class="navbar-brand" href="{{route('home')}}"><img src="{{asset('images/logo_white.png')}}" width="80px"></a>
+        <a class="navbar-brand" href="{{route('home')}}"><img src="{{asset('images/logo_white.png')}}" width="60px"
+                                                              class="mr-3"><small>ECTS: {{session('totalEcts')}}</small>
+        </a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive"
                 aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -40,7 +43,7 @@
                 <li class="nav-item">
                     <a class="nav-link" href="{{route('calendar.index')}}">
                         <i class="fa fa-calendar"></i>
-                        Kalendar
+                        {{__('Calendar')}}
                         <span class="sr-only">(current)</span>
                     </a>
                 </li>
@@ -50,11 +53,11 @@
                        aria-haspopup="true" aria-expanded="false">
                         <i class="fa fa-book">
                         </i>
-                        LVA-Management
+                        {{__('Course-Management')}}
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item" href="{{route('lva.index')}}">Meine LVAs</a>
-                        <a class="dropdown-item" href="{{route('lva.create')}}">LVA hinzufügen</a>
+                        <a class="dropdown-item" href="{{route('lva.index')}}">{{__('My courses')}}</a>
+                        <a class="dropdown-item" href="{{route('lva.create')}}">{{__('Add course')}}</a>
                     </div>
                 </li>
             </ul>
@@ -67,14 +70,14 @@
         </div>
     </div>
 </nav>
-<main role="main" class="container mt-2 content">
+<main role="main" class="container my-2 content">
     @yield('content')
 </main>
 <footer class="py-2 bg-dark">
     <div class="container text-white text-center">
         <p class="footerLinks m-0">
-            <a href="{{route('info.contact')}}">Kontakt</a> |
-            <a href="{{route('info.privacy')}}">Datenschutzerklärung</a> |
+            <a href="{{route('info.contact')}}">{{__('Contact')}}</a> |
+            <a href="{{route('info.privacy')}}">{{__('Privacy')}}</a> |
             Copyright &copy; Oktay Akgül 2020
         </p>
     </div>

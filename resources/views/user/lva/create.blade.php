@@ -1,20 +1,17 @@
 @extends('user.layouts.app')
 
 @section('content')
-    <div class="form-row mt-5">
-        <div class="col-md-9 mb-3">
-            <input id="lvaNr" type="text" class="form-control" placeholder="LVA-Nr.">
-        </div>
-        <div class="col-md-3">
-            <button id="searchBtn" type="button" class="btn w-100 btn-outline-primary" disabled>{{__('Search')}}</button>
-        </div>
+    <p class="text-info">{{__('Here you can explore the courses you plan to attend. Just type in the course id or any term like you would do in the KUSSS system.')}}</p>
+    <div class="form-group form-inline">
+        <input id="lvaNr" type="text" class="form-control col-9 mr-3" placeholder="LVA-Nr.">
+        <button id="searchBtn" type="submit" class="btn btn-outline-primary col-2" disabled>{{__('Search')}}</button>
     </div>
-    <div id="searchResults" class="mt-3">
+    <div id="searchResults">
         @include('user.lva.ajaxData')
     </div>
 
     <script>
-        $(document).ready(function () {
+        $(function () {
             $('#lvaNr').on('keyup', function () {
                 if ($(this).val() == '') {
                     $('#searchBtn').prop('disabled', true);
@@ -24,19 +21,37 @@
             });
 
             $('#searchBtn').on('click', function () {
-                let url = 'https://www.kusss.jku.at/kusss/coursecatalogue-searchlvareg.action?sortParam0courses=lvaName&asccourses=true&abhart=all&lvasearch=' + $('#lvaNr').val().trim();
+                let searchQuery = $('#lvaNr').val().trim();
+                searchQuery = searchQuery.replaceAll(' ', '+');
+                let url = 'https://www.kusss.jku.at/kusss/coursecatalogue-searchlvareg.action?sortParam0courses=lvaName&asccourses=true&abhart=all&lvasearch=' + searchQuery;
                 url = '{{ route('proxy') }}?url=' + encodeURIComponent(url);
                 $.get({
                     url: url,
                     success: function (response) {
                         const html = $($.parseHTML(response));
-                        const lvaNr = html.find("div.contentcell>table>tbody>tr>td>b>a").text().trim();
-                        let lvaSlotsUrl = html.find("div.contentcell>table>tbody>tr>td>b>a").attr('href');
-                        lvaSlotsUrl = encodeURIComponent(lvaSlotsUrl);
-                        const lvaName = html.find("div.contentcell>table>tbody>tr>td>a>b").text().trim();
-                        const lvaEcts = html.find("div.contentcell>table>tbody>tr>td[align=\"center\"]:nth-child(7)").text().trim();
-                        $.get({
-                            url: '{{route('lva.create')}}?lvaNr=' + lvaNr + '&lvaName=' + lvaName + '&lvaEcts=' + lvaEcts + '&lvaSlotsUrl=' + lvaSlotsUrl,
+                        const foundLvas = html.find("div.contentcell>table>tbody tr");
+                        let lvaList = [];
+                        foundLvas.each(function (i) {
+                            if (i > 2) {
+                                const lvaNr = $(this).find('td>b>a').text().trim();
+                                if (lvaNr) {
+                                    const lvaSlotsUrl = encodeURIComponent($(this).find('td>b>a').attr('href'));
+                                    const lvaName = $(this).find('td>a>b').text().trim();
+                                    const lvaEcts = $(this).find("td[align=\"center\"]:nth-child(7)").text().trim();
+                                    lvaList.push({
+                                        lvaNr: lvaNr,
+                                        lvaSlotsUrl: lvaSlotsUrl,
+                                        lvaName: lvaName,
+                                        lvaEcts: lvaEcts
+                                    });
+                                }
+                            }
+
+                        });
+                        $.post({
+                            headers: {'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')},
+                            url: '{{route('lva.getLvaList')}}',
+                            data: JSON.stringify(lvaList),
                             success: function (data) {
                                 const $data = $(data);
                                 $('#searchResults').hide().html($data).fadeIn();
@@ -45,13 +60,7 @@
                     },
                     error: function (error) {
                         console.log(error);
-                        $.get({
-                            url: '{{route('lva.create')}}?lvaNr=&lvaName=&lvaEcts=&lvaSlotsUrl=',
-                            success: function (data) {
-                                const $data = $(data);
-                                $('#searchResults').hide().html($data).fadeIn();
-                            }
-                        });
+                        alert("Fehler");
                     }
                 });
             });

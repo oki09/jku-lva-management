@@ -1,61 +1,42 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="BranchesTreeState">
-    <expand>
-      <path>
-        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
-        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
-      </path>
-      <path>
-        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
-        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
-      </path>
-      <path>
-        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
-        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
-        <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
-      </path>
-    </expand>
-    <select>
-      <path>
-        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
-        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
-        <item name="BRANCH:master" type="e8cecc67:BranchNodeDescriptor" />
-      </path>
-    </select>
+    <expand />
+    <select />
   </component>
   <component name="ChangeListManager">
     <list default="true" id="08676cd1-d91e-4e08-868d-15111cd024f8" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/public/fonts/DIN-Regular.woff" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/fonts/DIN-Regular.woff2" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/lang/de/validation.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/layouts/main.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Http/Controllers/ContactController.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Http/Controllers/PrivacyController.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/css/maintenance.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/js/calendar/locale/en-gb.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/js/moment.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/errors/503.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/main/privacyLang/de.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/main/privacyLang/en.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Course.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Course.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/AdminController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/AdminController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/CalendarController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/CalendarController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/LoginController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/LoginController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/LvaController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/LvaController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Kernel.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Kernel.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/css/signin.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/auth.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Middleware/CheckForMaintenanceMode.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Middleware/CheckForMaintenanceMode.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/css/auth.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/auth.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/css/home.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/home.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/css/user/main.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/user/main.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/css/welcome.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/home.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/lang/en/validation.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/lang/en/validation.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/css/user/roundedToggleSwitch.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/user/roundedToggleSwitch.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/lang/de.json" beforeDir="false" afterPath="$PROJECT_DIR$/resources/lang/de.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/lang/de/validation.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/lang/de/validation.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/admin/auth/login.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/auth/login.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/layouts/app.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/layouts/app.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/layouts/auth.blade.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/users/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/index.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/main/welcome.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/main/home.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/layouts/auth.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/auth.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/layouts/main.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/main.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/main/contact.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/main/contact.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/main/home.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/main/home.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/main/privacy.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/main/privacy.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/user/auth/login.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/user/auth/login.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/user/calendar/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/user/calendar/index.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/user/info/contact.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/main/contact.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/user/info/privacy.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/main/privacy.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/user/layouts/app.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/user/layouts/app.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/user/layouts/auth.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/auth.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/user/lva/ajaxData.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/user/lva/ajaxData.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/user/lva/create.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/user/lva/create.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/user/lva/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/user/lva/index.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/api.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/api.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -187,23 +168,23 @@
     <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/resources/lang/de" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/public/js/calendar/locale" />
     <property name="nodejs_package_manager_path" value="npm" />
   </component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/public/js/calendar/locale" />
+      <recent name="$PROJECT_DIR$/resources/views/main/privacyLang" />
+      <recent name="$PROJECT_DIR$/public/js" />
+      <recent name="$PROJECT_DIR$/resources/lang/de" />
+      <recent name="$PROJECT_DIR$/public/fonts" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/resources/views/main" />
       <recent name="$PROJECT_DIR$/resources/views/admin" />
       <recent name="$PROJECT_DIR$/resources/views/layouts" />
       <recent name="$PROJECT_DIR$/public/images" />
       <recent name="$PROJECT_DIR$/public/css/admin" />
-    </key>
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/resources/lang/de" />
-      <recent name="$PROJECT_DIR$/public/fonts" />
-      <recent name="$PROJECT_DIR$/public/images" />
-      <recent name="$PROJECT_DIR$/resources/views/admin" />
-      <recent name="$PROJECT_DIR$/resources/views/layouts/admin" />
     </key>
   </component>
   <component name="RunManager">
@@ -223,7 +204,11 @@
       <workItem from="1597406179824" duration="28552000" />
       <workItem from="1597677472538" duration="12915000" />
       <workItem from="1597834265906" duration="1000" />
-      <workItem from="1597916887405" duration="45227000" />
+      <workItem from="1597916887405" duration="53215000" />
+      <workItem from="1598281857120" duration="12071000" />
+      <workItem from="1598365612091" duration="877000" />
+      <workItem from="1598383146437" duration="2996000" />
+      <workItem from="1598523289061" duration="16901000" />
     </task>
     <servers />
   </component>
@@ -257,6 +242,7 @@
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
@@ -277,10 +263,18 @@
     </state>
     <state x="539" y="380" key="NewPhpFileDialog/0.0.1440.900/1440.0.1920.1080/-1920.0.1920.1080@0.0.1440.900" timestamp="1597732543530" />
     <state x="539" y="380" key="NewPhpFileDialog/0.0.1440.900@0.0.1440.900" timestamp="1598120591583" />
-    <state x="421" y="226" width="598" height="548" key="find.popup" timestamp="1598092097172">
+    <state x="343" y="67" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser" timestamp="1598538820853">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state x="421" y="226" width="598" height="548" key="find.popup/0.0.1440.900@0.0.1440.900" timestamp="1598092097172" />
+    <state x="343" y="67" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser/0.0.1440.900@0.0.1440.900" timestamp="1598538820853" />
+    <state x="518" y="371" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1598533114748">
+      <screen x="0" y="0" width="1440" height="900" />
+    </state>
+    <state x="518" y="371" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1440.900@0.0.1440.900" timestamp="1598533114748" />
+    <state x="421" y="229" width="598" height="548" key="find.popup" timestamp="1598543330918">
+      <screen x="0" y="0" width="1440" height="900" />
+    </state>
+    <state x="421" y="229" width="598" height="548" key="find.popup/0.0.1440.900@0.0.1440.900" timestamp="1598543330918" />
     <state x="385" y="196" width="670" height="676" key="search.everywhere.popup" timestamp="1598028678616">
       <screen x="0" y="0" width="1440" height="900" />
     </state>

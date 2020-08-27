@@ -2,143 +2,84 @@
     position: absolute;
     left: 50%;
     top: 50%;
-    z-index: 1;
+    z-index: 1000;
 }
 
 .dot-red {
-    height: 25px;
-    width: 25px;
+    height: 12px;
+    width: 12px;
     background-color: red;
     border-radius: 50%;
     display: inline-block;
 }
 
 .dot-yellow {
-    height: 25px;
-    width: 25px;
+    height: 12px;
+    width: 12px;
     background-color: yellow;
     border-radius: 50%;
     display: inline-block;
 }
 
 .dot-green {
-    height: 25px;
-    width: 25px;
+    height: 12px;
+    width: 12px;
     background-color: green;
     border-radius: 50%;
     display: inline-block;
 }
 
-.navbar-icon-top .navbar-nav .nav-link > .fa {
-    position: relative;
-    width: 36px;
-    font-size: 24px;
+.fc {
+    font-size: 0.85em !important;
 }
 
-.navbar-icon-top .navbar-nav .nav-link > .fa > .badge {
-    font-size: 0.75rem;
-    position: absolute;
-    right: 0;
-    font-family: sans-serif;
+.btn {
+    font-size: 0.9em;
 }
 
-.navbar-icon-top .navbar-nav .nav-link > .fa {
-    top: 3px;
-    line-height: 12px;
+.form-control {
+    font-size: 1.1em !important;
 }
 
-.navbar-icon-top .navbar-nav .nav-link > .fa > .badge {
-    top: -10px;
+.table td, .table th {
+    text-align: center;
+    vertical-align: middle;
 }
 
-@media (min-width: 576px) {
-    .navbar-icon-top.navbar-expand-sm .navbar-nav .nav-link {
-        text-align: center;
-        display: table-cell;
-        height: 70px;
-        vertical-align: middle;
-        padding-top: 0;
-        padding-bottom: 0;
+@media all and (min-width: 600px) {
+    .dot-red {
+        height: 24px;
+        width: 24px;
+        background-color: red;
+        border-radius: 50%;
+        display: inline-block;
     }
 
-    .navbar-icon-top.navbar-expand-sm .navbar-nav .nav-link > .fa {
-        display: block;
-        width: 48px;
-        margin: 2px auto 4px auto;
-        top: 0;
-        line-height: 24px;
+    .dot-yellow {
+        height: 24px;
+        width: 24px;
+        background-color: yellow;
+        border-radius: 50%;
+        display: inline-block;
     }
 
-    .navbar-icon-top.navbar-expand-sm .navbar-nav .nav-link > .fa > .badge {
-        top: -7px;
-    }
-}
-
-@media (min-width: 768px) {
-    .navbar-icon-top.navbar-expand-md .navbar-nav .nav-link {
-        text-align: center;
-        display: table-cell;
-        height: 70px;
-        vertical-align: middle;
-        padding-top: 0;
-        padding-bottom: 0;
+    .dot-green {
+        height: 24px;
+        width: 24px;
+        background-color: green;
+        border-radius: 50%;
+        display: inline-block;
     }
 
-    .navbar-icon-top.navbar-expand-md .navbar-nav .nav-link > .fa {
-        display: block;
-        width: 48px;
-        margin: 2px auto 4px auto;
-        top: 0;
-        line-height: 24px;
+    .fc {
+        font-size: 1em !important;
     }
 
-    .navbar-icon-top.navbar-expand-md .navbar-nav .nav-link > .fa > .badge {
-        top: -7px;
-    }
-}
-
-@media (min-width: 992px) {
-    .navbar-icon-top.navbar-expand-lg .navbar-nav .nav-link {
-        text-align: center;
-        display: table-cell;
-        height: 70px;
-        vertical-align: middle;
-        padding-top: 0;
-        padding-bottom: 0;
+    .form-control {
+        font-size: 1.1em !important;
     }
 
-    .navbar-icon-top.navbar-expand-lg .navbar-nav .nav-link > .fa {
-        display: block;
-        width: 48px;
-        margin: 2px auto 4px auto;
-        top: 0;
-        line-height: 24px;
-    }
-
-    .navbar-icon-top.navbar-expand-lg .navbar-nav .nav-link > .fa > .badge {
-        top: -7px;
-    }
-}
-
-@media (min-width: 1200px) {
-    .navbar-icon-top.navbar-expand-xl .navbar-nav .nav-link {
-        text-align: center;
-        display: table-cell;
-        height: 70px;
-        vertical-align: middle;
-        padding-top: 0;
-        padding-bottom: 0;
-    }
-
-    .navbar-icon-top.navbar-expand-xl .navbar-nav .nav-link > .fa {
-        display: block;
-        width: 48px;
-        margin: 2px auto 4px auto;
-        top: 0;
-        line-height: 24px;
-    }
-
-    .navbar-icon-top.navbar-expand-xl .navbar-nav .nav-link > .fa > .badge {
-        top: -7px;
+    .btn {
+        font-size: 1em;
     }
 }

@@ -15,6 +15,7 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/bootstrap.min.css') }}" rel="stylesheet">
+    <link href="{{ asset('fonts/font-awesome/font-awesome.min.css') }}" rel="stylesheet">
     <link href="{{ asset('css/home.css') }}" rel="stylesheet">
 
     <script src="{{ asset('js/jquery-3.4.1.min.js') }}"></script>
@@ -23,9 +24,9 @@
 </head>
 
 <body>
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+<nav class="navbar navbar-expand-sm navbar-dark bg-dark">
     <div class="container">
-        <a class="navbar-brand" href="{{route('home')}}"><img src="{{asset('images/logo_white.png')}}" width="70px"></a>
+        <a class="navbar-brand" href="{{route('home')}}"><img src="{{asset('images/logo_white.png')}}" width="60px"></a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive"
                 aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -33,17 +34,15 @@
         <div class="collapse navbar-collapse" id="navbarResponsive">
             <ul class="navbar-nav ml-auto">
                 <li class="nav-item active">
-                    <a class="nav-link" href="{{route('home')}}">{{__('Home')}}
+                    <a class="nav-link" href="{{route('home')}}"><i class="fas fa-home"></i>
+                        Home
                         <span class="sr-only">(current)</span>
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="{{route('calendar.index')}}">
-                        {{__('Zum Dashboard')}}
+                    <a class="nav-link" href="{{route('calendar.index')}}"><i class="fas fa-columns"></i>
+                        {{__('My Dashboard')}}
                     </a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="{{route('admin.index')}}">{{__('Admin Dashboard')}}</a>
                 </li>
             </ul>
         </div>
@@ -55,8 +54,8 @@
 <footer class="py-2 bg-dark">
     <div class="container text-white text-center">
         <p class="footerLinks m-0">
-            <a href="{{route('info.contact')}}">Kontakt</a> |
-            <a href="{{route('info.privacy')}}">Datenschutzerklärung</a> |
+            <a href="{{route('info.contact')}}">{{__('Contact')}}</a> |
+            <a href="{{route('info.privacy')}}">{{__('Privacy')}}</a> |
             Copyright &copy; Oktay Akgül 2020
         </p>
     </div>

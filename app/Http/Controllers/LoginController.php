@@ -48,7 +48,8 @@ class LoginController extends Controller
 
         // The user is already in the database
         if (Auth::guard('user')->attempt(['studentId' => $user->studentId, 'password' => $password])) {
-            return redirect()->route('calendar.index')->with('totalEcts', Util::getTotalEcts(Auth::id()));
+            session()->put('totalEcts', Util::getTotalEcts(Auth::id()));
+            return redirect()->route('calendar.index');
         }
         return redirect()->back()->withInput()->with('error', __('Invalid student id or password!'));
     }

@@ -8,7 +8,7 @@
             {{__('Please use your KUSSS credentials')}}
             <span><a href="#" class="popup" data-toggle="tooltip"
                      title="{{__('The first time you log in, your credentials will be sent to the KUSSS system for verifying your identity. After this step your data is stored in our database in order to make the login process faster')}}">
-                    ?
+                    <i class="far fa-question-circle"></i>
                 </a>
             </span>
         </h5>
@@ -17,22 +17,21 @@
                 {{ session('error') }}
             </div>
         @endif
-        <label for="studentId" class="sr-only">Student ID</label>
+        <label for="studentId" class="sr-only">{{__('Student ID')}}</label>
         <input id="studentId" type="text" class="form-control @error('studentId') is-invalid @enderror" name="studentId"
-               value="{{ old('studentId') }}" placeholder="{{__('Student ID')}}" autocomplete="studentId"
-               autofocus>
+               value="{{ old('studentId') }}" placeholder="{{__('Student ID')}}" autofocus>
         @error('studentId')
-        <div class="invalid-feedback">{{ $message }}</div>
+        <p class="invalid-feedback">{{ $message }}</p>
         @enderror
 
-        <label for="password" class="sr-only">Passwort</label>
+        <label for="password" class="sr-only">{{__('Password')}}</label>
         <input id="password" type="password" class="form-control @error('password') is-invalid @enderror"
                name="password" placeholder="{{__('Password')}}" autocomplete="current-password">
         @error('password')
-        <div class="invalid-feedback">{{ $message }}</div>
+        <p class="invalid-feedback">{{ $message }}</p>
         @enderror
 
-        <button class="btn btn-lg btn-primary btn-block" type="submit">{{ __('Login') }}</button>
+        <button class="btn btn-lg btn-primary btn-block" type="submit">Login</button>
     </form>
     <script>
         $(document).ready(function () {

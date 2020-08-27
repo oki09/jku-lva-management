@@ -4,8 +4,8 @@
 .switch {
     position: relative;
     display: inline-block;
-    width: 45px;
-    height: 20px;
+    width: 41px;
+    height: 15px;
 }
 
 /* Hide default HTML checkbox */
@@ -31,10 +31,10 @@
 .slider:before {
     position: absolute;
     content: "";
-    height: 12px;
-    width: 12px;
-    left: 3px;
-    bottom: 4px;
+    height: 11px;
+    width: 11px;
+    left: 2px;
+    bottom: 2px;
     background-color: white;
     -webkit-transition: .4s;
     transition: .4s;
@@ -62,3 +62,19 @@ input:checked + .slider:before {
 .slider.round:before {
     border-radius: 50%;
 }
+
+/* for tablets, larger desktops, etc. */
+@media all and (min-width: 600px) {
+    .switch {
+        width: 45px;
+        height: 20px;
+    }
+
+    .slider:before {
+        height: 12px;
+        width: 12px;
+        left: 3px;
+        bottom: 4px;
+    }
+}
+

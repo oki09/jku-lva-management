@@ -15,14 +15,14 @@
                value="{{ old('adminId') }}" placeholder="Admin ID" autocomplete="adminId"
                autofocus>
         @error('adminId')
-        <div class="invalid-feedback">{{ $message }}</div>
+        <p class="invalid-feedback">{{ $message }}</p>
         @enderror
 
         <label for="password" class="sr-only">Passwort</label>
         <input id="password" type="password" class="form-control @error('password') is-invalid @enderror"
                name="password" placeholder="Passwort" autocomplete="current-password">
         @error('password')
-        <div class="invalid-feedback">{{ $message }}</div>
+        <p class="invalid-feedback">{{ $message }}</p>
         @enderror
 
         <button class="btn btn-lg btn-primary btn-block" type="submit">{{ __('Login') }}</button>

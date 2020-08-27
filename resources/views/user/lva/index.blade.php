@@ -1,21 +1,24 @@
 @extends('user.layouts.app')
 
 @section('content')
-    <div>
+    <div class="overflow-auto" style="height: 80vh">
         @if(count($lvas) > 0)
             <table class="table table-hover table-striped w-full table-sm responsive">
                 <thead>
-                <th style="width: 30px">{{__('Nr.')}}</th>
-                <th>{{__('Name')}}</th>
-                <th style="width: 30px">{{__('ECTS')}}</th>
-                <th style="text-align: center">{{__('LVA deaktiviert')}}
+                <th>Nr.</th>
+                <th>Name</th>
+                <th>ECTS</th>
+                <th>{{__('Course disabled')}}
                     <a class="popup" href="#" data-toggle="tooltip"
-                       title="{{__('Disabled courses do not appear in the calendar')}}">?</a>
+                       title="{{__('Disabled courses do not appear in the calendar')}}"><i
+                            class="far fa-question-circle"></i></a>
                 </th>
-                <th>{{__('Workload')}}
+                <th class="text-center">{{__('Workload')}}
                     <a class="popup" href="#" data-toggle="tooltip"
-                       title="{{__('The ample indicator shows the planned workload of the course.
-Green -> Course capacity is under 80%, Yellow -> Course capacity is between 80 and 95%, Red -> Course capacity is over 95%')}}">?</a>
+                       title="{{__('The ample indicator shows the relation between the capacity and the number of students intend to do this course.
+Green: <80%, Yellow: >=80% AND <95%, Red: >=95%')}}">
+                        <i class="far fa-question-circle"></i>
+                    </a>
                 </th>
                 <th></th>
                 </thead>
@@ -25,7 +28,7 @@ Green -> Course capacity is under 80%, Yellow -> Course capacity is between 80 a
                         <th class="lvaNr">{{$lva->nr}}</th>
                         <td>{{$lva->title}}</td>
                         <td>{{$lva->ects}}</td>
-                        <td style="text-align: center">
+                        <td>
                             <label class="switch">
                                 <input type="checkbox" class="disablingLva"
                                        @if($lva->isDisabled == 'true') checked @endif>
@@ -41,7 +44,8 @@ Green -> Course capacity is under 80%, Yellow -> Course capacity is between 80 a
                                 <span class="dot-green"></span>
                             @endif
                         </td>
-                        <td><a href="{{route('lva.destroy', ['lva' => $lva->nr])}}">
+                        <td>
+                            <a href="{{route('lva.destroy', ['lva' => $lva->nr])}}">
                                 <i class="fas fa-trash-o text-danger"></i>
                             </a>
                         </td>
@@ -50,24 +54,28 @@ Green -> Course capacity is under 80%, Yellow -> Course capacity is between 80 a
                 </tbody>
             </table>
             <script>
-                $('.disablingLva').on('click', function () {
-                    const lvaNr = $(this).closest('tr').find('.lvaNr').text();
-                    const checked = $(this).prop('checked');
-                    $.post({
-                        url: '{{route('lva.disable')}}',
-                        data: {
-                            lvaNr: lvaNr,
-                            disabling: checked
-                        },
-                        headers: {'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')},
-                        error(error) {
-                            console.log(error);
-                        }
+                $(function () {
+                    $('.disablingLva').on('click', function () {
+                        const lvaNr = $(this).closest('tr').find('.lvaNr').text();
+                        const checked = $(this).prop('checked');
+                        console.log(checked);
+                        $.post({
+                            url: '{{route('lva.disable')}}',
+                            data: {
+                                lvaNr: lvaNr,
+                                disabling: checked
+                            },
+                            headers: {'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')},
+                            error(error) {
+                                console.log(error);
+                            }
+                        });
                     });
                 });
+
             </script>
         @else
-            <p class="alert-info">{{__('It seems like you did not add courses to your dashboard. Go to LVA-Management > Add LVA for adding your courses.')}}</p>
+            <p class="alert-info text-center mt-3">{{__('It seems like you did not add courses to your dashboard. Go to Course-Management > Add course to add your courses.')}}</p>
         @endif
     </div>
     <script>

@@ -22,7 +22,10 @@ Route::view('/login/admin', 'admin.auth.login')->name('login.admin');
 Route::post('/login/admin', 'LoginController@adminLogin')->name('login.admin');
 
 Route::view('/contact', 'main.contact')->name('info.contact');
-Route::view('/privacy', 'main.privacy')->name('info.privacy');
+Route::post('/contact', 'ContactController@submitFeedback')->name('info.contact');
+Route::get('/privacy', 'PrivacyController@show')->name('info.privacy');
+
+
 
 
 Route::middleware(['layouts:user'])->prefix('user')->group(function () {
@@ -34,6 +37,7 @@ Route::middleware(['layouts:user'])->prefix('user')->group(function () {
     Route::get('/lvas', 'LvaController@index')->name('lva.index');
     Route::post('/lvas/disable', 'LvaController@disable')->name('lva.disable');
     Route::post('/lvas', 'LvaController@store')->name('lva.store');
+    Route::post('/lvas/getLvaList', 'LvaController@getLvaList')->name('lva.getLvaList');
 
     Route::post('/logout', 'LoginController@logout')->name('logout.user');
 
