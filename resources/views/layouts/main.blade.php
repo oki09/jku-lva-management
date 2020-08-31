@@ -2,7 +2,8 @@
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 
 <head>
-    <script data-ad-client="ca-pub-7068331585141884" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <script data-ad-client="ca-pub-7068331585141884" async
+            src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
 
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -23,6 +24,23 @@
     <script src="{{ asset('js/jquery-3.4.1.min.js') }}"></script>
     <script src="{{ asset('js/bootstrap.bundle.min.js') }}"></script>
 
+
+    <link rel="stylesheet" type="text/css" href="https://cdn.wpcc.io/lib/1.0.2/cookieconsent.min.css"/>
+    <script src="https://cdn.wpcc.io/lib/1.0.2/cookieconsent.min.js" defer></script>
+    <script>
+        window.addEventListener("load", function () {
+            window.wpcc.init({
+                "border": "thin",
+                "corners": "small",
+                "colors": {
+                    "popup": {"background": "#f6f6f6", "text": "#000000", "border": "#555555"},
+                    "button": {"background": "#555555", "text": "#ffffff"}
+                },
+                "position": "bottom",
+                "content": {"href": "https://okihub.io/privacy"}
+            })
+        });
+    </script>
 </head>
 
 <body>
@@ -64,9 +82,6 @@
         </p>
     </div>
 </footer>
-<script type="text/javascript" id="cookieinfo"
-        src="//cookieinfoscript.com/js/cookieinfo.min.js">
-</script>
 </body>
 
 </html>
