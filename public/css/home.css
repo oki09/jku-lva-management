@@ -17,10 +17,6 @@ html, body {
     font-size: 0.85rem !important;
 }
 
-.dropdown-menu, .navbar-toggler {
-    font-size: 0.85em !important;
-}
-
 body {
     display: flex;
     flex-direction: column;
@@ -60,10 +56,6 @@ footer {
     font-size: 0.9625em;
 }
 
-h4.card-title {
-    font-size: 1.3em;
-}
-
 /* for tablets, larger desktops, etc. */
 @media all and (min-width: 600px) {
     html, body {
@@ -80,13 +72,5 @@ h4.card-title {
 
     .btn-lg {
         font-size: 1.15em;
-    }
-
-    .dropdown-menu, .navbar-toggler {
-        font-size: 1em !important;
-    }
-
-    h4.card-title {
-        font-size: 1.5em;
     }
 }

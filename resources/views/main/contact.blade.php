@@ -5,6 +5,7 @@
 feedback form should not work for some reasons, then you can also send your inquiry manually to')}}
         <mark><a href="mailto: {{env('MAIL_TO_ADDRESS')}}"> {{env('MAIL_TO_ADDRESS')}}</a></mark>.
     </p>
+    <p>{{__('If your are interested in the technical details, the code is on GitHub')}}</p>
     <form method="POST" action="{{route('info.contact')}}">
         @csrf
         <div class="form-group">

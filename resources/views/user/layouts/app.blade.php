@@ -23,9 +23,9 @@
 
     <script src="{{ asset('js/jquery-3.4.1.min.js') }}"></script>
     <script src="{{ asset('js/bootstrap.bundle.min.js') }}"></script>
+    <script src="{{ asset('js/moment.min.js') }}"></script>
     <script src="{{ asset('js/calendar/main.min.js') }}"></script>
     <script src="{{ asset('js/calendar/locale/de.js') }}"></script>
-    <script src="{{ asset('js/moment.min.js') }}"></script>
 </head>
 
 <body>
@@ -76,12 +76,24 @@
 <footer class="py-2 bg-dark">
     <div class="container text-white text-center">
         <p class="footerLinks m-0">
+            <a href="https://github.com/oki09/jku-lva-management" target="_blank">GitHub</a> |
             <a href="{{route('info.contact')}}">{{__('Contact')}}</a> |
             <a href="{{route('info.privacy')}}">{{__('Privacy')}}</a> |
             Copyright &copy; Oktay Akgül 2020
         </p>
     </div>
 </footer>
+<div id="loader" class="spinner-border text-primary" role="status">
+    <span class="sr-only">Loading...</span>
+</div>
+<script>
+    $(document).ajaxStart(function () {
+        $('#loader').show();
+    });
+    $(document).ajaxStop(function () {
+        $('#loader').hide();
+    });
+</script>
 </body>
 
 </html>

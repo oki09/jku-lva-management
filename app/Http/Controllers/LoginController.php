@@ -28,7 +28,7 @@ class LoginController extends Controller
             'studentId' => 'required|starts_with:k,K',
             'password' => 'required'
         ]);
-        $studentId = $credentials['studentId'];
+        $studentId = strtolower($credentials['studentId']);
         $password = $credentials['password'];
 
         $user = User::find($studentId);

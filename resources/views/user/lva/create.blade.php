@@ -3,8 +3,8 @@
 @section('content')
     <p class="text-info">{{__('Here you can explore the courses you plan to attend. Just type in the course id or any term like you would do in the KUSSS system.')}}</p>
     <div class="form-group form-inline">
-        <input id="lvaNr" type="text" class="form-control col-9 mr-3" placeholder="LVA-Nr.">
-        <button id="searchBtn" type="submit" class="btn btn-outline-primary col-2" disabled>{{__('Search')}}</button>
+        <input id="lvaNr" type="text" class="form-control col-md-10 mr-sm-2" placeholder="Suchbegriff" autofocus>
+        <button id="searchBtn" type="submit" class="btn btn-outline-primary col-md-1" disabled>{{__('Search')}}</button>
     </div>
     <div id="searchResults">
         @include('user.lva.ajaxData')
@@ -12,6 +12,15 @@
 
     <script>
         $(function () {
+            //https://stackoverflow.com/questions/23415360/jquery-how-to-edit-html-text-only-for-current-level
+            $.fn.ownText = function() {
+                return this.eq(0).contents().filter(function() {
+                    return this.nodeType === 3 // && $.trim(this.nodeValue).length;
+                }).map(function() {
+                    return this.nodeValue;
+                }).get().join('');
+            }
+
             $('#lvaNr').on('keyup', function () {
                 if ($(this).val() == '') {
                     $('#searchBtn').prop('disabled', true);
@@ -23,7 +32,7 @@
             $('#searchBtn').on('click', function () {
                 let searchQuery = $('#lvaNr').val().trim();
                 searchQuery = searchQuery.replaceAll(' ', '+');
-                let url = 'https://www.kusss.jku.at/kusss/coursecatalogue-searchlvareg.action?sortParam0courses=lvaName&asccourses=true&abhart=all&lvasearch=' + searchQuery;
+                let url = '{{env('KUSSS_LVA_SEARCH')}}'.replaceAll('&amp;', '&') + searchQuery;
                 url = '{{ route('proxy') }}?url=' + encodeURIComponent(url);
                 $.get({
                     url: url,
@@ -36,7 +45,8 @@
                                 const lvaNr = $(this).find('td>b>a').text().trim();
                                 if (lvaNr) {
                                     const lvaSlotsUrl = encodeURIComponent($(this).find('td>b>a').attr('href'));
-                                    const lvaName = $(this).find('td>a>b').text().trim();
+                                    let lvaName = $(this).find('td>a>b').text().trim();
+                                    if(lvaName === 'Special Topics') lvaName = $(this).find('td:nth-child(2)').ownText().trim();
                                     const lvaEcts = $(this).find("td[align=\"center\"]:nth-child(7)").text().trim();
                                     lvaList.push({
                                         lvaNr: lvaNr,

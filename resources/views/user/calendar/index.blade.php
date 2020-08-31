@@ -1,9 +1,6 @@
 @extends('user.layouts.app')
 
 @section('content')
-    <div id="loader" class="spinner-border text-primary" role="status">
-        <span class="sr-only">Loading...</span>
-    </div>
     <div id="calendar"></div>
 
     <script>
@@ -22,15 +19,14 @@
                 lazyFetching: true,
                 slotEventOverlap: true,
                 expandRows: true,
-                height: '100%',
-                contentHeight: '100%',
+                height: '80vh',
                 allDaySlot: false,
                 slotMinTime: '08:00:00',
                 slotMaxTime: '21:00:00',
                 slotLabelInterval: '00:30',
                 hiddenDays: [0],
                 headerToolbar: {
-                    right: 'timeGridWeek,dayGridMonth',
+                    right: 'timeGridWeek,listMonth',
                     center: '',
                     left: 'prev,next'
                 },
@@ -69,17 +65,14 @@
                     if (eventToCheck.id != events[i].id) {
                         // check if eventToCheck is between an event
                         if (moment(eventToCheck.start).isSameOrAfter(events[i].start) && moment(eventToCheck.start).isSameOrBefore(events[i].end)) {
-                            console.log("intersection between " + eventToCheck.title + ' and ' + events[i].title);
                             return true;
                         }
                         // check if eventToCheck is between an event
                         if (moment(eventToCheck.end).isSameOrAfter(events[i].start) && moment(eventToCheck.end).isSameOrBefore(events[i].end)) {
-                            console.log("intersection between " + eventToCheck.title + ' and ' + events[i].title);
                             return true;
                         }
                         // check if eventToCheck is between an event
                         if (moment(eventToCheck.start).isSameOrAfter(events[i].start) && moment(eventToCheck.end).isSameOrBefore(events[i].end)) {
-                            console.log("intersection between " + eventToCheck.title + ' and ' + events[i].title);
                             return true;
                         }
                     }
