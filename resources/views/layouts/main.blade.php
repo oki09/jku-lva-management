@@ -64,7 +64,8 @@
         </p>
     </div>
 </footer>
-<script type="text/javascript" id="cookieinfo" src="{{route('info.contact')}}" data-font-family="DIN">
+<script type="text/javascript" id="cookieinfo"
+        src="//cookieinfoscript.com/js/cookieinfo.min.js">
 </script>
 </body>
 
