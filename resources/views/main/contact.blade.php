@@ -1,11 +1,9 @@
 @extends('layouts.main')
 
 @section('content')
-    <p class="text-info mt-2">{{__('Have you detected bugs or encountered features that you wish, then simply drop us a message below. If the
-feedback form should not work for some reasons, then you can also send your inquiry manually to')}}
+    <p class="text-info mt-2">{{__('Have you detected bugs or encountered features that you wish, then simply drop us a message below. If the feedback form should not work for some reasons, then you can also send your inquiry manually to')}}
         <mark><a href="mailto: {{env('MAIL_TO_ADDRESS')}}"> {{env('MAIL_TO_ADDRESS')}}</a></mark>.
     </p>
-    <p>{{__('If your are interested in the technical details, the code is on GitHub')}}</p>
     <form method="POST" action="{{route('info.contact')}}">
         @csrf
         <div class="form-group">
@@ -38,7 +36,11 @@ feedback form should not work for some reasons, then you can also send your inqu
         </div>
         <button id="submitBtn" class="btn btn-outline-primary" type="submit">{{__('Submit')}}</button>
     </form>
-    @if(session('isSent'))
-        <p class="text-success mt-2">Thank you for your feedback. Your message will soon arrive at the admins.</p>
+    @if(session()->has('isSent'))
+        @if(session('isSent'))
+            <p class="text-success mt-2">{{__('Thank you for your feedback. Your message will soon arrive at the admins.')}}</p>
+        @else
+            <p class="text-danger mt-2">{{__('Something went wrong. This incident will be reported to the admins.')}}</p>
+        @endif
     @endif
 @endsection

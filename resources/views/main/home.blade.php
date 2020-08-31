@@ -9,7 +9,7 @@ Especially, if the JKU publishes the list of available semester courses, there i
 or plan the semester without wasting many hours of the day. Without wasting too much words, feel free to explore this
 CMSS (Course Management System for Students) application and if you have any feedback or feature wishes then contact us
 on the')}}
-            <a href="{{route('info.contact')}}"> {{__('Contact')}} </a>{{__('. Thank you for your support and happy planning!')}}
+            <a href="{{route('info.contact')}}"> {{__('Contact')}}</a>{{__('. Thank you for your support and happy planning!')}}
         </p>
         <a href="{{route('calendar.index')}}" class="btn btn-primary btn-lg col-md-2 col-12">{{__('Start now!')}}</a>
     </header>

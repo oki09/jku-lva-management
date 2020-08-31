@@ -13,10 +13,10 @@
     <script>
         $(function () {
             //https://stackoverflow.com/questions/23415360/jquery-how-to-edit-html-text-only-for-current-level
-            $.fn.ownText = function() {
-                return this.eq(0).contents().filter(function() {
+            $.fn.ownText = function () {
+                return this.eq(0).contents().filter(function () {
                     return this.nodeType === 3 // && $.trim(this.nodeValue).length;
-                }).map(function() {
+                }).map(function () {
                     return this.nodeValue;
                 }).get().join('');
             }
@@ -46,7 +46,7 @@
                                 if (lvaNr) {
                                     const lvaSlotsUrl = encodeURIComponent($(this).find('td>b>a').attr('href'));
                                     let lvaName = $(this).find('td>a>b').text().trim();
-                                    if(lvaName === 'Special Topics') lvaName = $(this).find('td:nth-child(2)').ownText().trim();
+                                    if (lvaName === 'Special Topics') lvaName = $(this).find('td:nth-child(2)').ownText().trim();
                                     const lvaEcts = $(this).find("td[align=\"center\"]:nth-child(7)").text().trim();
                                     lvaList.push({
                                         lvaNr: lvaNr,
@@ -65,12 +65,28 @@
                             success: function (data) {
                                 const $data = $(data);
                                 $('#searchResults').hide().html($data).fadeIn();
+                            },
+                            error: function (error) {
+                                const $data = '<p class="alert-danger">' + error.errorText + '</p>';
+                                $('#searchResults').hide().html($data).fadeIn();
+                            },
+                            beforeSend: function () {
+                                $('#loader').show();
+                            },
+                            complete: function () {
+                                $('#loader').hide();
                             }
                         });
                     },
                     error: function (error) {
-                        console.log(error);
-                        alert("Fehler");
+                        const $data = '<p class="alert-danger">' + error.errorText + '</p>';
+                        $('#searchResults').hide().html($data).fadeIn();
+                    },
+                    beforeSend: function () {
+                        $('#loader').show();
+                    },
+                    complete: function () {
+                        $('#loader').hide();
                     }
                 });
             });

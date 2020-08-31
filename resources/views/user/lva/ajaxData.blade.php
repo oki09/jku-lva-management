@@ -40,7 +40,14 @@
                     storeSelectedLva(row, slots, capacity);
                 },
                 error(error) {
-                    console.log(error);
+                    const $data = '<p class="alert-danger">' + error.errorText + '</p>';
+                    $('#successHandler').hide().html($data).fadeIn();
+                },
+                beforeSend: function () {
+                    $('#loader').show();
+                },
+                complete: function () {
+                    $('#loader').hide();
                 }
             });
         });
@@ -57,14 +64,19 @@
                     slots: slots
                 }),
                 success() {
-                    //TODO
                     const addBtn = row.find('.successHandler');
                     const successBtn = $('<button class="btn btn-success"><i class="far fa-check-square"></i></button>');
                     addBtn.hide().html(successBtn).fadeIn();
                 },
                 error(error) {
-                    console.log(error);
-                    console.log("Adding failed");
+                    const $data = '<p class="alert-danger">' + error.errorText + '</p>';
+                    $('#successHandler').hide().html($data).fadeIn();
+                },
+                beforeSend: function () {
+                    $('#loader').show();
+                },
+                complete: function () {
+                    $('#loader').hide();
                 }
             });
         }

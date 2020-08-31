@@ -6,26 +6,18 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="08676cd1-d91e-4e08-868d-15111cd024f8" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/public/images/course_list.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/images/responsive.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/images/timetable_month.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/images/timetable_week.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/LoginController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/LoginController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/css/home.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/home.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/favicon.ico" beforeDir="false" afterPath="$PROJECT_DIR$/public/favicon.ico" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/images/jku.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/images/lva-list.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/images/rsz_lvalist.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/images/rsz_timetable.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/images/timetable.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/css/user/main.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/user/main.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/lang/de.json" beforeDir="false" afterPath="$PROJECT_DIR$/resources/lang/de.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/layouts/main.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/main.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/main/contact.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/main/contact.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/main/home.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/main/home.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/user/calendar/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/user/calendar/index.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/user/auth/login.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/user/auth/login.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/user/layouts/app.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/user/layouts/app.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/user/lva/ajaxData.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/user/lva/ajaxData.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/user/lva/create.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/user/lva/create.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/user/lva/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/user/lva/index.blade.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -198,6 +190,8 @@
       <workItem from="1598383146437" duration="2996000" />
       <workItem from="1598523289061" duration="22677000" />
       <workItem from="1598858664007" duration="17000" />
+      <workItem from="1598866414108" duration="615000" />
+      <workItem from="1598892225842" duration="3513000" />
     </task>
     <servers />
   </component>

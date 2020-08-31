@@ -3,10 +3,11 @@
 @section('content')
     <form class="form-signin" method="POST" action="{{ route('login.user') }}">
         @csrf
-        <img src="{{ asset("images/logo_black.png") }}" alt="" width="200px" height="200px">
+        <img src="{{ asset("images/logo_black.png") }}" alt="okihub logo" width="100%" style="max-width: 10em">
         <h5 class="mb-3 font-weight-normal">
             {{__('Please use your KUSSS credentials')}}
-            <span><a href="#" class="popup" data-toggle="tooltip"
+            <span>
+                <a href="#" class="popup" data-toggle="tooltip"
                      title="{{__('The first time you log in, your credentials will be sent to the KUSSS system for verifying your identity. After this step your data is stored in our database in order to make the login process faster')}}">
                     <i class="far fa-question-circle"></i>
                 </a>

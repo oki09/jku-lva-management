@@ -1,12 +1,13 @@
 @extends('user.layouts.app')
 
 @section('content')
-    <div class="overflow-auto" style="height: 80vh">
+    <h2 class="text-center">{{__('Course overview')}}</h2>
+    <div class="overflow-auto" style="height: 75vh">
         @if(count($lvas) > 0)
-            <table class="table table-hover table-striped w-full table-sm responsive">
+            <table class="responsiveTable table table-sm">
                 <thead>
                 <th>Nr.</th>
-                <th>Name</th>
+                <th>{{__('Title')}}</th>
                 <th>ECTS</th>
                 <th>{{__('Course disabled')}}
                     <a class="popup" href="#" data-toggle="tooltip"
@@ -25,17 +26,17 @@ Green: <80%, Yellow: >=80% AND <95%, Red: >=95%')}}">
                 <tbody>
                 @foreach($lvas as $lva)
                     <tr>
-                        <th class="lvaNr">{{$lva->nr}}</th>
-                        <td>{{$lva->title}}</td>
-                        <td>{{$lva->ects}}</td>
-                        <td>
+                        <td class="lvaNr" data-label="Nr.">{{$lva->nr}}</td>
+                        <td data-label="{{__('Title')}}">{{$lva->title}}</td>
+                        <td data-label="ECTS">{{$lva->ects}}</td>
+                        <td data-label="{{__('Course disabled')}}">
                             <label class="switch">
                                 <input type="checkbox" class="disablingLva"
-                                       @if($lva->isDisabled == 'true') checked @endif>
+                                       @if($lva->isDisabled) checked @endif>
                                 <span class="slider round"></span>
                             </label>
                         </td>
-                        <td>
+                        <td data-label="{{__('Workload')}}">
                             @if($lva->workload < 80)
                                 <span class="dot-green"></span>
                             @elseif($lva->workload >= 80 && $lva->workload < 95)
@@ -58,7 +59,6 @@ Green: <80%, Yellow: >=80% AND <95%, Red: >=95%')}}">
                     $('.disablingLva').on('click', function () {
                         const lvaNr = $(this).closest('tr').find('.lvaNr').text();
                         const checked = $(this).prop('checked');
-                        console.log(checked);
                         $.post({
                             url: '{{route('lva.disable')}}',
                             data: {

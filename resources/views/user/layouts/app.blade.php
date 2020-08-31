@@ -29,6 +29,9 @@
 </head>
 
 <body>
+<div id="loader" class="spinner-border text-primary" role="status">
+    <span class="sr-only">Loading...</span>
+</div>
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
     <div class="container">
         <a class="navbar-brand" href="{{route('home')}}"><img src="{{asset('images/logo_white.png')}}" width="60px"
@@ -83,11 +86,9 @@
         </p>
     </div>
 </footer>
-<div id="loader" class="spinner-border text-primary" role="status">
-    <span class="sr-only">Loading...</span>
-</div>
 <script>
     $(document).ajaxStart(function () {
+        console.log("ajax started");
         $('#loader').show();
     });
     $(document).ajaxStop(function () {
