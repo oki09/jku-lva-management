@@ -12,6 +12,7 @@
 
     {{-- favicon --}}
     <link rel="icon" href="{{asset('favicon.ico')}}" type="image/x-icon"/>
+    <link rel="shortcut icon" href="{{asset('favicon.ico')}}">
 
     <!-- Bootstrap core CSS -->
     <link href="{{ asset('css/bootstrap.min.css') }}" rel="stylesheet">

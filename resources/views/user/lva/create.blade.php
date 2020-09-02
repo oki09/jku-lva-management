@@ -21,6 +21,8 @@
                 }).get().join('');
             }
 
+
+
             $('#lvaNr').on('keyup', function () {
                 if ($(this).val() == '') {
                     $('#searchBtn').prop('disabled', true);

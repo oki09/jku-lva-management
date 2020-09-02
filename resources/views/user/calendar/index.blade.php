@@ -26,14 +26,21 @@
                 slotLabelInterval: '00:30',
                 hiddenDays: [0],
                 headerToolbar: {
-                    right: 'timeGridWeek,listMonth',
+                    right: 'timeGridWeek,listMonth,dayGridMonth',
                     center: '',
                     left: 'prev,next'
                 },
+                listDayFormat: {
+                    month: 'long',
+                    day: 'numeric',
+                    weekday: 'short',
+                    year: 'numeric'
+                },
+                listDaySideFormat: false,
                 initialView: 'timeGridWeek',
                 themeSystem: 'bootstrap',
                 locale: 'en',
-                displayEventTime: false,
+                displayEventTime: true,
                 loading: function (isLoading) {
                     if (isLoading) {
                         $('#loader').show();

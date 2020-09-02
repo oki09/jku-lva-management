@@ -12,15 +12,16 @@
 
     {{-- favicon --}}
     <link rel="icon" href="{{asset('favicon.ico')}}" type="image/x-icon"/>
+    <link rel="shortcut icon" href="{{asset('favicon.ico')}}">
 
     <!-- Bootstrap core CSS -->
     <link href="{{ asset('css/bootstrap.min.css') }}" rel="stylesheet">
-    <link href="{{ asset('fonts/font-awesome/font-awesome.min.css') }}" rel="stylesheet">
     <link href="{{ asset('css/home.css') }}" rel="stylesheet">
     <link href="{{ asset('css/user/main.css') }}" rel="stylesheet">
     <link href="{{ asset('css/user/roundedToggleSwitch.css') }}" rel="stylesheet">
     <link href="{{ asset('css/user/calendar/main.min.css') }}" rel="stylesheet">
 
+    <script src="https://kit.fontawesome.com/6eb7acd8bf.js" crossorigin="anonymous"></script>
     <script src="{{ asset('js/jquery-3.4.1.min.js') }}"></script>
     <script src="{{ asset('js/bootstrap.bundle.min.js') }}"></script>
     <script src="{{ asset('js/moment.min.js') }}"></script>
@@ -34,9 +35,8 @@
 </div>
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
     <div class="container">
-        <a class="navbar-brand" href="{{route('home')}}"><img src="{{asset('images/logo_white.png')}}" width="60px"
-                                                              class="mr-3"><small>ECTS: {{session('totalEcts')}}</small>
-        </a>
+        <a class="navbar-brand" href="{{route('home')}}"><img src="{{asset('images/logo_white.png')}}" width="60px"></a>
+        <small class="text-white mr-2">ECTS: {{session('totalEcts')}}</small>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive"
                 aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -67,7 +67,9 @@
             <ul class="navbar-nav">
                 <form class="form-inline my-2 my-lg-0" method="POST" action="{{route('logout.user')}}">
                     @csrf
-                    <button class="btn btn-outline-light my-2 my-sm-0" type="submit">Logout</button>
+                    <button class="btn btn-outline-light my-2 my-sm-0" type="submit">
+                        Logout <i class="fas fa-sign-out-alt"></i>
+                    </button>
                 </form>
             </ul>
         </div>
