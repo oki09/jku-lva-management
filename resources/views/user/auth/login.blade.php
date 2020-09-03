@@ -1,10 +1,10 @@
-@extends('layouts.auth')
+@extends('layouts.main')
 
 @section('content')
     <form class="form-signin" method="POST" action="{{ route('login.user') }}">
         @csrf
-        <img src="{{ asset("images/logo_black.png") }}" alt="okihub logo" width="100%" style="max-width: 10em">
-        <h5 class="mb-3 font-weight-normal">
+        <img src="{{ asset("images/logo.png") }}" alt="okihub logo" width="100%" style="max-width: 10em">
+        <h5 class="my-3 font-weight-normal">
             {{__('Please use your KUSSS credentials')}}
             <span>
                 <a href="#" class="popup" data-toggle="tooltip"

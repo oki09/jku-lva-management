@@ -8,21 +8,23 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-    <meta name="description" content="The course management system for students of JKU Linz. Educate yourself smarter and save precious time.">
+    <meta name="description"
+          content="The course management system for students of JKU Linz. Educate yourself smarter and save precious time.">
     <meta name="keywords" content="jku, management, student, study, education, smart">
 
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
     {{-- favicon --}}
-    <link rel="icon" href="{{asset('favicon.ico')}}" type="image/x-icon"/>
-    <link rel="shortcut icon" href="{{asset('favicon.ico')}}">
+    <link rel="icon" href="{{asset('favicon.png')}}" type="image/x-icon"/>
+    <link rel="shortcut icon" href="{{asset('favicon.png')}}">
 
     <title>{{ config('app.name', 'Laravel') }}</title>
 
     <!-- Styles -->
     <link href="{{ asset('css/bootstrap.min.css') }}" rel="stylesheet">
     <link href="{{ asset('css/home.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/auth.css') }}" rel="stylesheet">
 
     <script src="{{ asset('js/jquery-3.4.1.min.js') }}"></script>
     <script src="{{ asset('js/bootstrap.bundle.min.js') }}"></script>
@@ -50,8 +52,7 @@
 <body>
 <nav class="navbar navbar-expand-sm navbar-dark bg-dark">
     <div class="container">
-        <a class="navbar-brand" href="{{route('home')}}"><img src="{{asset('images/logo_white.png')}}" width="100%"
-                                                              style="max-width: 4em"></a>
+        <a class="navbar-brand" href="{{route('home')}}"><img src="{{asset('images/logo.png')}}" width="100%" style="max-width: 3.5em"></a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive"
                 aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>

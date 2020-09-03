@@ -5,6 +5,8 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
+    <script data-ad-client="ca-pub-7068331585141884" async
+            src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
     {{-- favicon --}}
     <link rel="icon" href="{{asset('favicon.ico')}}" type="image/x-icon"/>
 

@@ -2,6 +2,8 @@
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 
 <head>
+    <script data-ad-client="ca-pub-7068331585141884" async
+            src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
@@ -11,8 +13,8 @@
     <title>{{ config('app.name', 'Laravel') }}</title>
 
     {{-- favicon --}}
-    <link rel="icon" href="{{asset('favicon.ico')}}" type="image/x-icon"/>
-    <link rel="shortcut icon" href="{{asset('favicon.ico')}}">
+    <link rel="icon" href="{{asset('favicon.png')}}" type="image/x-icon"/>
+    <link rel="shortcut icon" href="{{asset('favicon.png')}}">
 
     <!-- Bootstrap core CSS -->
     <link href="{{ asset('css/bootstrap.min.css') }}" rel="stylesheet">
@@ -35,7 +37,8 @@
 </div>
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
     <div class="container">
-        <a class="navbar-brand" href="{{route('home')}}"><img src="{{asset('images/logo_white.png')}}" width="60px"></a>
+        <a class="navbar-brand" href="{{route('home')}}"><img src="{{asset('images/logo.png')}}" width="100%"
+                                                              style="max-width: 3.5em"></a>
         <small class="text-white mr-2">ECTS: {{session('totalEcts')}}</small>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive"
                 aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">

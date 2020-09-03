@@ -5,6 +5,9 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
+    <script data-ad-client="ca-pub-7068331585141884" async
+            src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
@@ -16,15 +19,11 @@
 
     <!-- Bootstrap core CSS -->
     <link href="{{ asset('css/bootstrap.min.css') }}" rel="stylesheet">
-    <link href="{{ asset('fonts/font-awesome/font-awesome.min.css') }}" rel="stylesheet">
     <link rel="stylesheet" href="{{ asset('css/admin/main.css') }}">
 
-    <script src="{{ asset('js/jquery-3.4.1.min.js') }}"></script>
     <script src="{{ asset('js/bootstrap.bundle.min.js') }}"></script>
-
-    <script>
-        const base_url = "{{url('/')}}";
-    </script>
+    <script src="{{ asset('js/jquery-3.4.1.min.js') }}"></script>
+    <script src="https://kit.fontawesome.com/6eb7acd8bf.js" crossorigin="anonymous"></script>
 </head>
 
 <body>
@@ -32,13 +31,15 @@
     <!-- Sidebar Holder -->
     <nav id="sidebar">
         <div class="sidebar-header">
-            Test
+            Admin-Dashboard
         </div>
 
         <ul class="list-unstyled components">
-            <p>{{__('Menü')}}</p>
             <li>
-                <a href="{{ route('admin.index') }}">{{ __('Users') }}</a>
+                <a href="{{ route('admin.settings') }}">Settings</a>
+            </li>
+            <li>
+                <a href="{{ route('admin.index') }}">Users</a>
             </li>
         </ul>
     </nav>

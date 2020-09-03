@@ -1,9 +1,8 @@
-@extends('layouts.auth')
+@extends('layouts.main')
 
 @section('content')
     <form class="form-signin" method="POST" action="{{ route('login.admin') }}">
         @csrf
-        <img class="bd-placeholder-img" src="{{ asset("images/logo_black.png") }}" alt="" width="200px" height="200px">
         <h1 class="h3 mb-3 font-weight-normal">Admin Dashboard</h1>
         @if ( session('error'))
             <div class="alert alert-danger">

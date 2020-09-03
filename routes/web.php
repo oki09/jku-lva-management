@@ -49,4 +49,7 @@ Route::middleware(['layouts:admin'])->prefix('admin')->name('admin.')->group(fun
     Route::get('/{user}/delete', 'AdminController@destroy')->name('destroyUser');
     Route::post('/changeSemesterStart', 'AdminController@changeSemesterStart')->name('changeSemester');
     Route::post('/logout', 'LoginController@logout')->name('logout');
+
+    Route::get('/settings', 'AdminController@showSettings')->name('settings');
+    Route::get('/settings/maintenance', 'AdminController@maintenance')->name('settings.maintenance');
 });

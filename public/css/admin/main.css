@@ -44,12 +44,6 @@ a, a:hover, a:focus {
     margin: 40px 0;
 }
 
-.btn-outline-primary, .btn-outline-primary:hover, .btn-outline-primary:active, .btn-outline-primary:visited {
-    background-color: #6d7fcc !important;
-    color: white;
-    border-color: white;
-}
-
 /* ---------------------------------------------------
     SIDEBAR STYLE
 ----------------------------------------------------- */

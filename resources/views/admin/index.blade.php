@@ -32,7 +32,7 @@
                     </td>
                     <td>
                         <a href="{{route('admin.destroyUser', ['user' => $user->studentId])}}">
-                            <i class="fas fa-trash-o text-danger"></i>
+                            <i class="fas fa-trash"></i>
                         </a>
                     </td>
                 </tr>

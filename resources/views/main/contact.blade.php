@@ -10,7 +10,7 @@
             <label for="name">Name</label>
             <input class="form-control @error('name') is-invalid @enderror" autocomplete="name"
                    autofocus type="text" id="name" name="name" value="{{old('name')}}"
-                   placeholder="Your name">
+                   placeholder="{{__('Your name')}}">
             @error('name')
             <p class="invalid-feedback">{{ $message }}</p>
             @enderror
@@ -19,7 +19,7 @@
             <label for="email">E-Mail</label>
             <input class="form-control @error('email') is-invalid @enderror" autocomplete="email"
                    autofocus type="email" id="email" name="email" value="{{old('email')}}"
-                   placeholder="Your E-Mail">
+                   placeholder="{{__('Your email')}}">
             @error('email')
             <p class="invalid-feedback">{{ $message }}</p>
             @enderror

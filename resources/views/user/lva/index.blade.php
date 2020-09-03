@@ -16,8 +16,7 @@
                 </th>
                 <th class="text-center">{{__('Workload')}}
                     <a class="popup" href="#" data-toggle="tooltip"
-                       title="{{__('The ample indicator shows the relation between the capacity and the number of students intend to do this course.
-Green: <80%, Yellow: >=80% AND <95%, Red: >=95%')}}">
+                       title="{{__('The ample indicator shows the relation between the capacity and the number of students intend to do this course. Green: <80%, Yellow: >=80% AND <95%, Red: >=95%')}}">
                         <i class="far fa-question-circle"></i>
                     </a>
                 </th>
@@ -47,7 +46,7 @@ Green: <80%, Yellow: >=80% AND <95%, Red: >=95%')}}">
                         </td>
                         <td>
                             <a href="{{route('lva.destroy', ['lva' => $lva->nr])}}">
-                                <i class="fas fa-trash-o text-danger"></i>
+                                <i class="fas fa-trash text-danger"></i>
                             </a>
                         </td>
                     </tr>

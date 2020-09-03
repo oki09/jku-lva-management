@@ -3,13 +3,21 @@
     <header class="jumbotron my-4">
         <h1 class="display-3">{{__('Welcome JKU students')}} &#129299</h1>
         <p class="lead">
-            {{__('This tool should help other students who face similar problems like us.
-We are two students from the JKU and always had the problem of managing our planned courses for the upcoming semester.
-Especially, if the JKU publishes the list of available semester courses, there is no way to find overlaps between courses
-or plan the semester without wasting many hours of the day. Without wasting too much words, feel free to explore this
-CMSS (Course Management System for Students) application and if you have any feedback or feature wishes then contact us
-on the')}}
-            <a href="{{route('info.contact')}}"> {{__('Contact')}}</a>{{__('. Thank you for your support and happy planning!')}}
+            Wie ihr sicher wisst, ist die Planung des Semesters sehr mühsam und zeitaufwendig. Das Erstellen von
+            Stundenplänen, Finden von Überschneidungen, Erkennen von stressigen Phasen, usw. stellt für einige von euch
+            ein Problem dar.
+        </p>
+        <p class="lead">
+            EduSmart soll euch helfen eure Semesterplanung zu unterstützen, automatisieren und zum Teil zu erleichtern.
+            Mit wenigen Klicks können Kurse gesucht und in eine persönliche Liste hinzugefügt werden. Das coole daran
+            ist, dass im Hintergrund ein personalisierter Kalender erstellt wird, welches vorab Überschneidungen erkennt
+            und markiert.
+        </p>
+        <p class="lead">
+            Ihr könnt uns jederzeit unterstützen, indem weitere Ideen oder Wünsche eingereicht werden. Hierfür könnt ihr
+            unser <a href="{{route('info.contact')}}">Kontaktformular</a> nutzen. Wir hoffen mit EduSmart eure
+            Semesterplanung zu erleichtern und wünschen euch
+            viel Spaß beim Planen!
         </p>
         <a href="{{route('calendar.index')}}" class="btn btn-primary btn-lg col-md-2 col-12">{{__('Start now!')}}</a>
     </header>
