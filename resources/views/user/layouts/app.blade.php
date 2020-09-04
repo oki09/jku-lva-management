@@ -4,6 +4,17 @@
 <head>
     <script data-ad-client="ca-pub-7068331585141884" async
             src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-177012319-2"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() {
+            dataLayer.push(arguments);
+        }
+        gtag('js', new Date());
+        gtag('config', 'UA-177012319-2');
+    </script>
+
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
@@ -99,15 +110,15 @@
         $.blockUI({
             message: $('#loader'),
             css: {
-                padding:        0,
-                margin:         0,
-                width:          '30%',
-                top:            '40%',
-                left:           '35%',
-                textAlign:      'center',
-                color:          '#000',
-                border:         'none',
-                cursor:         'wait'
+                padding: 0,
+                margin: 0,
+                width: '30%',
+                top: '40%',
+                left: '35%',
+                textAlign: 'center',
+                color: '#000',
+                border: 'none',
+                cursor: 'wait'
             }
         });
     });
