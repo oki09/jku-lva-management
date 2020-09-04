@@ -29,6 +29,7 @@
     <script src="{{ asset('js/moment.min.js') }}"></script>
     <script src="{{ asset('js/calendar/main.min.js') }}"></script>
     <script src="{{ asset('js/calendar/locale/de.js') }}"></script>
+    <script src="{{ asset('js/jquery.blockUI.js') }}"></script>
 </head>
 
 <body>
@@ -39,7 +40,7 @@
     <div class="container">
         <a class="navbar-brand" href="{{route('home')}}"><img src="{{asset('images/logo.png')}}" width="100%"
                                                               style="max-width: 3.5em"></a>
-        <small class="text-white mr-2">ECTS: {{session('totalEcts')}}</small>
+        <small class="text-white mr-2">{{env('TERM')}} | ECTS: {{session('totalEcts')}}</small>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive"
                 aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -92,13 +93,25 @@
     </div>
 </footer>
 <script>
+    $.blockUI.defaults.css = {};
+    //$.blockUI.defaults = {message: $('#loader')};
     $(document).ajaxStart(function () {
-        console.log("ajax started");
-        $('#loader').show();
+        $.blockUI({
+            message: $('#loader'),
+            css: {
+                padding:        0,
+                margin:         0,
+                width:          '30%',
+                top:            '40%',
+                left:           '35%',
+                textAlign:      'center',
+                color:          '#000',
+                border:         'none',
+                cursor:         'wait'
+            }
+        });
     });
-    $(document).ajaxStop(function () {
-        $('#loader').hide();
-    });
+    $(document).ajaxStop($.unblockUI);
 </script>
 </body>
 

@@ -26,7 +26,7 @@
                 slotLabelInterval: '00:30',
                 hiddenDays: [0],
                 headerToolbar: {
-                    right: 'timeGridWeek,listMonth,dayGridMonth',
+                    right: 'timeGridWeek,dayGridMonth listMonth',
                     center: '',
                     left: 'prev,next'
                 },

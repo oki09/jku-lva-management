@@ -3,7 +3,7 @@
         <p class="alert-danger">{{__('Course not found')}}</p>
     @else
         <p>{{count($lvaList) . ' ' . __('Results found')}}</p>
-        <div style="height: 60vh" class="overflow-auto">
+        <div style="height: 55vh" class="overflow-auto">
             <table class="table table-hover table-striped w-full table-sm">
                 <thead>
                 <th>Nr.</th>
@@ -42,12 +42,6 @@
                 error(error) {
                     const $data = '<p class="alert-danger">' + error.errorText + '</p>';
                     $('#successHandler').hide().html($data).fadeIn();
-                },
-                beforeSend: function () {
-                    $('#loader').show();
-                },
-                complete: function () {
-                    $('#loader').hide();
                 }
             });
         });
@@ -71,12 +65,6 @@
                 error(error) {
                     const $data = '<p class="alert-danger">' + error.errorText + '</p>';
                     $('#successHandler').hide().html($data).fadeIn();
-                },
-                beforeSend: function () {
-                    $('#loader').show();
-                },
-                complete: function () {
-                    $('#loader').hide();
                 }
             });
         }

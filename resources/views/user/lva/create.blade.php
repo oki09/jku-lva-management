@@ -2,6 +2,7 @@
 
 @section('content')
     <p class="text-info">{{__('Here you can explore the courses you plan to attend. Just type in the course id or any term like you would do in the KUSSS system.')}}</p>
+    <p class="text-danger">{{__('Attention: Already added courses do not appear in the result list!')}}</p>
     <div class="form-group form-inline">
         <input id="lvaNr" type="text" class="form-control col-md-10 mr-sm-2" placeholder="Suchbegriff" autofocus>
         <button id="searchBtn" type="submit" class="btn btn-outline-primary col-md-1" disabled>{{__('Search')}}</button>
@@ -21,13 +22,21 @@
                 }).get().join('');
             }
 
-
-
+            // disable search button with no text input
             $('#lvaNr').on('keyup', function () {
                 if ($(this).val() == '') {
                     $('#searchBtn').prop('disabled', true);
                 } else {
                     $('#searchBtn').prop('disabled', false);
+                    // click button on enter key pressed
+                    $('#lvaNr').keypress(function (e) {
+                        const key = e.which;
+                        if (key == 13) // the enter key code
+                        {
+                            $('#searchBtn').click();
+                            return false;
+                        }
+                    });
                 }
             });
 
@@ -49,6 +58,8 @@
                                     const lvaSlotsUrl = encodeURIComponent($(this).find('td>b>a').attr('href'));
                                     let lvaName = $(this).find('td>a>b').text().trim();
                                     if (lvaName === 'Special Topics') lvaName = $(this).find('td:nth-child(2)').ownText().trim();
+                                    let lvaType = $(this).find('td:nth-child(3)').text().trim();
+                                    lvaName = lvaType.concat(' ', lvaName);
                                     const lvaEcts = $(this).find("td[align=\"center\"]:nth-child(7)").text().trim();
                                     lvaList.push({
                                         lvaNr: lvaNr,
@@ -71,24 +82,12 @@
                             error: function (error) {
                                 const $data = '<p class="alert-danger">' + error.errorText + '</p>';
                                 $('#searchResults').hide().html($data).fadeIn();
-                            },
-                            beforeSend: function () {
-                                $('#loader').show();
-                            },
-                            complete: function () {
-                                $('#loader').hide();
                             }
                         });
                     },
                     error: function (error) {
                         const $data = '<p class="alert-danger">' + error.errorText + '</p>';
                         $('#searchResults').hide().html($data).fadeIn();
-                    },
-                    beforeSend: function () {
-                        $('#loader').show();
-                    },
-                    complete: function () {
-                        $('#loader').hide();
                     }
                 });
             });

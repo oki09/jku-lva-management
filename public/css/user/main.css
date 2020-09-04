@@ -121,4 +121,8 @@
     .btn {
         font-size: 1em;
     }
+
+    .responsiveTable thead tr, .responsiveTable tbody tr {
+        text-align: center;
+    }
 }

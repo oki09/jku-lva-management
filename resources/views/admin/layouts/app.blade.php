@@ -14,8 +14,8 @@
     <title>{{ config('app.name', 'Laravel') }}</title>
 
     {{-- favicon --}}
-    <link rel="icon" href="{{asset('favicon.ico')}}" type="image/x-icon"/>
-    <link rel="shortcut icon" href="{{asset('favicon.ico')}}">
+    <link rel="icon" href="{{asset('favicon.png')}}" type="image/x-icon"/>
+    <link rel="shortcut icon" href="{{asset('favicon.png')}}">
 
     <!-- Bootstrap core CSS -->
     <link href="{{ asset('css/bootstrap.min.css') }}" rel="stylesheet">

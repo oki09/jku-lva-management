@@ -88,7 +88,7 @@ class LvaController extends Controller
             'title' => $data['title'],
             'ects' => $data['ects'],
             'capacity' => $data['capacity'],
-            'isDisabled' => true
+            'isDisabled' => false
         ]);
         foreach ($data['slots'] as $slot) {
             $lva->slots()->create([
@@ -135,7 +135,7 @@ class LvaController extends Controller
     {
         $user = User::find(Auth::id());
         $lva = $user->courses()->where('nr', request('lvaNr'))->first();
-        $lva->isDisabled = request('disabling') == 'false' ? false : true;
+        $lva->isDisabled = request('disabling') == 'false';
         $lva->save();
     }
 

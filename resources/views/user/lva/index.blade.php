@@ -14,7 +14,7 @@
                        title="{{__('Disabled courses do not appear in the calendar')}}"><i
                             class="far fa-question-circle"></i></a>
                 </th>
-                <th class="text-center">{{__('Workload')}}
+                <th>{{__('Workload')}}
                     <a class="popup" href="#" data-toggle="tooltip"
                        title="{{__('The ample indicator shows the relation between the capacity and the number of students intend to do this course. Green: <80%, Yellow: >=80% AND <95%, Red: >=95%')}}">
                         <i class="far fa-question-circle"></i>
@@ -29,11 +29,15 @@
                         <td data-label="{{__('Title')}}">{{$lva->title}}</td>
                         <td data-label="ECTS">{{$lva->ects}}</td>
                         <td data-label="{{__('Course disabled')}}">
-                            <label class="switch">
-                                <input type="checkbox" class="disablingLva"
-                                       @if($lva->isDisabled) checked @endif>
-                                <span class="slider round"></span>
-                            </label>
+                            @if(count($lva->slots) > 0)
+                                <label class="switch">
+                                    <input type="checkbox" class="disablingLva"
+                                           @if(!$lva->isDisabled) checked @endif>
+                                    <span class="slider round"></span>
+                                </label>
+                            @else
+                                <span class="text-danger">Keine Termine gefunden!</span>
+                            @endif
                         </td>
                         <td data-label="{{__('Workload')}}">
                             @if($lva->workload < 80)

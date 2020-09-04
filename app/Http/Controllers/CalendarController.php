@@ -23,7 +23,7 @@ class CalendarController extends Controller
         $lvas = User::find(Auth::id())->courses;
         $cnt = 0;
         foreach ($lvas as $lva) {
-            if ($lva->isDisabled) {
+            if (!$lva->isDisabled) {
                 foreach ($lva->slots as $slot) {
                     $event = [
                         'start' => $slot->start,
