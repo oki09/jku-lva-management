@@ -8,7 +8,8 @@
     <list default="true" id="08676cd1-d91e-4e08-868d-15111cd024f8" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/layouts/main.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/main.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/user/auth/login.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/user/auth/login.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/main/privacyLang/de.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/main/privacyLang/de.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/main/privacyLang/en.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/main/privacyLang/en.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/user/layouts/app.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/user/layouts/app.blade.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -189,7 +190,7 @@
       <workItem from="1599077721708" duration="3987000" />
       <workItem from="1599150134926" duration="11885000" />
       <workItem from="1599304050808" duration="4244000" />
-      <workItem from="1599319638165" duration="1092000" />
+      <workItem from="1599319638165" duration="1532000" />
     </task>
     <task id="LOCAL-00001" summary="update php mail()">
       <created>1599078225920</created>
@@ -233,7 +234,14 @@
       <option name="project" value="LOCAL" />
       <updated>1599309871627</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="added blocked login">
+      <created>1599321549059</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1599321549059</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -276,7 +284,8 @@
     <MESSAGE value="added block-ui for ajax calls&#10;changed isDisabled attribute&#10;centered lva list&#10;no slider if no slots are found&#10;search on ENTER press&#10;added term" />
     <MESSAGE value="added google analytics" />
     <MESSAGE value="changed some images&#10;changed some translations" />
-    <option name="LAST_COMMIT_MESSAGE" value="changed some images&#10;changed some translations" />
+    <MESSAGE value="added blocked login" />
+    <option name="LAST_COMMIT_MESSAGE" value="added blocked login" />
   </component>
   <component name="WindowStateProjectService">
     <state x="458" y="212" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1599152184725">
@@ -294,10 +303,10 @@
     </state>
     <state x="539" y="380" key="NewPhpFileDialog/0.0.1440.900/1440.0.1920.1080/-1920.0.1920.1080@0.0.1440.900" timestamp="1597732543530" />
     <state x="539" y="380" key="NewPhpFileDialog/0.0.1440.900@0.0.1440.900" timestamp="1598120591583" />
-    <state x="320" y="190" key="Vcs.Push.Dialog.v2" timestamp="1599309873192">
+    <state x="320" y="190" key="Vcs.Push.Dialog.v2" timestamp="1599321550912">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state x="320" y="190" key="Vcs.Push.Dialog.v2/0.0.1440.900@0.0.1440.900" timestamp="1599309873192" />
+    <state x="320" y="190" key="Vcs.Push.Dialog.v2/0.0.1440.900@0.0.1440.900" timestamp="1599321550912" />
     <state x="343" y="67" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser" timestamp="1598538820853">
       <screen x="0" y="0" width="1440" height="900" />
     </state>

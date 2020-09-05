@@ -22,7 +22,7 @@
     <span>Österreich</span>
 </p>
 <p>
-    <span>Email: oktayakguel9@gmail.com</span>
+    <span>Email: {{env('MAIL_TO_ADDRESS')}}</span>
 </p>
 <h3>II. The rights of users and data subjects</h3>
 <p>With regard to the data processing to be described in more detail below, users and data subjects have the right</p>

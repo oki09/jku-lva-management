@@ -24,7 +24,7 @@
     <span>Österreich</span>
 </p>
 <p>
-    <span>Email: oktayakguel9@gmail.com</span>
+    <span>Email: {{env('MAIL_TO_ADDRESS')}}</span>
 </p>
 <h3>II. Rechte der Nutzer und Betroffenen</h3>
 <p>Mit Blick auf die nachfolgend noch näher beschriebene Datenverarbeitung haben die Nutzer und Betroffenen das

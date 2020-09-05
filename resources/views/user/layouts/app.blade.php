@@ -101,7 +101,7 @@
             <a href="https://github.com/oki09/jku-lva-management" target="_blank">GitHub</a> |
             <a href="{{route('info.contact')}}">{{__('Contact')}}</a> |
             <a href="{{route('info.privacy')}}">{{__('Privacy')}}</a> |
-            Copyright &copy; Oktay Akgül 2020
+            Copyright &copy; okihub 2020
         </p>
     </div>
 </footer>
