@@ -19,7 +19,7 @@
                         <td id="ects">{{$lva->lvaEcts}}</td>
                         <td id="lvaSlotsUrl" class="d-none">{{$lva->lvaSlotsUrl}}</td>
                         <td class="successHandler">
-                            <button class="addLvaBtn btn btn-primary"><i class="fas fa-plus"></i></button>
+                            <button class="addLvaBtn btn btn-outline-primary"><i class="fas fa-plus"></i></button>
                         </td>
                     </tr>
                 @endforeach

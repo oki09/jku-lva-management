@@ -21,7 +21,7 @@
 
     <meta name="description"
           content="The course management system for students of JKU Linz. Educate yourself smarter and save precious time.">
-    <meta name="keywords" content="jku, management, student, study, education, smart">
+    <meta name="keywords" content="jku, management, student, study, education, smart, edusmart">
 
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">

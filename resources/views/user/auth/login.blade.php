@@ -7,8 +7,8 @@
         <h5 class="my-3 font-weight-normal">
             {{__('Please use your KUSSS credentials')}}
             <span>
-                <a href="#" class="popup" data-toggle="tooltip"
-                     title="{{__('The first time you log in, your credentials will be sent to the KUSSS system for verifying your identity. After this step your data is stored in our database in order to make the login process faster')}}">
+                <a href="#" class="popup" data-toggle="tooltip" data-html="true"
+                   title="{!! __('The first time you log in, your credentials will be sent to the KUSSS system for verifying your identity. After this step your data is stored in our database in order to make the login process faster') !!}">
                     <i class="far fa-question-circle"></i>
                 </a>
             </span>
@@ -35,7 +35,7 @@
         <button class="btn btn-lg btn-primary btn-block" type="submit">Login</button>
     </form>
     <script>
-        $(document).ready(function () {
+        $(function () {
             $('[data-toggle="tooltip"]').tooltip();
         });
     </script>

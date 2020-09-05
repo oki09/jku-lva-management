@@ -1,7 +1,7 @@
 @extends('user.layouts.app')
 
 @section('content')
-    <p class="text-info">{{__('Here you can explore the courses you plan to attend. Just type in the course id or any term like you would do in the KUSSS system.')}}</p>
+    <p class="text-info">{!! __('Here you can explore the courses you plan to attend. Just type in the course id or a specific term. A course can be added with the <i class="fas fa-plus"></i>-Button')!!}</p>
     <p class="text-danger">{{__('Attention: Already added courses do not appear in the result list!')}}</p>
     <div class="form-group form-inline">
         <input id="lvaNr" type="text" class="form-control col-md-10 mr-sm-2" placeholder="Suchbegriff" autofocus>

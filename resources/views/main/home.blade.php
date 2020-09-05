@@ -3,21 +3,14 @@
     <header class="jumbotron my-4">
         <h1 class="display-3">{{__('Welcome JKU students')}} &#129299</h1>
         <p class="lead">
-            Wie ihr sicher wisst, ist die Planung des Semesters sehr mühsam und zeitaufwendig. Das Erstellen von
-            Stundenplänen, Finden von Überschneidungen, Erkennen von stressigen Phasen, usw. stellt für einige von euch
-            ein Problem dar.
+            {!!__('The planning of the new semester is really exhausting and time-consuming &#8987. No matter if it is the creation of the timetables, the finding of overlaps or the recognizing of stressful phases. The process is always stressful.') !!}
         </p>
         <p class="lead">
-            EduSmart soll euch helfen eure Semesterplanung zu unterstützen, automatisieren und zum Teil zu erleichtern.
-            Mit wenigen Klicks können Kurse gesucht und in eine persönliche Liste hinzugefügt werden. Das coole daran
-            ist, dass im Hintergrund ein personalisierter Kalender erstellt wird, welches vorab Überschneidungen erkennt
-            und markiert.
+            {!! __('EduSmart supports, automates and partly eases the semester planning. With a few clicks, available courses can be searched and added to a personal list. Meanwhile, EduSmart generates a personal calendar, which recognizes overlaps and marks them accordingly. Pretty &#127378, right?') !!}
         </p>
         <p class="lead">
-            Ihr könnt uns jederzeit unterstützen, indem weitere Ideen oder Wünsche eingereicht werden. Hierfür könnt ihr
-            unser <a href="{{route('info.contact')}}">Kontaktformular</a> nutzen. Wir hoffen mit EduSmart eure
-            Semesterplanung zu erleichtern und wünschen euch
-            viel Spaß beim Planen!
+            {!! __('You can support us with new ideas or cool feature wishes. To contact us use the') !!} <a href="{{route('info.contact')}}">{{__('contact form')}}</a>.
+            {!! __('With EduSmart, we hope to ease the coming semester and wish you a happy planning!') !!}
         </p>
         <a href="{{route('calendar.index')}}" class="btn btn-primary btn-lg col-md-2 col-12">{{__('Start now!')}}</a>
     </header>
@@ -25,7 +18,7 @@
     <div class="row text-center">
         <div class="col-lg-4 col-md-6 mb-4">
             <div class="card">
-                <img class="card-img-bottom" src="{{asset('images/weekViewCalendar.png')}}" alt="">
+                <img class="card-img-bottom" src="{{asset('images/calendar-view.png')}}" alt="Calendar View EduSmart">
                 <div class="card-body">
                     <h4 class="card-title">{{__('Embedded calendar')}}</h4>
                     <p class="card-text">{{__('See which courses overlap in an instant. A preliminary timetable so to say.')}}</p>
@@ -35,7 +28,7 @@
 
         <div class="col-lg-4 col-md-6 mb-4">
             <div class="card">
-                <img class="card-img-bottom" src="{{asset('images/courseList.png')}}" alt="Course list">
+                <img class="card-img-bottom" src="{{asset('images/course-view.png')}}" alt="Course list view EduSmart">
                 <div class="card-body">
                     <h4 class="card-title">{{__('Course management and workload')}}</h4>
                     <p class="card-text">{{__('Add courses or delete them as you wish. Nevertheless, you always have the overview of your courses. You can also disable courses in order to be more flexible in planning.')}}
