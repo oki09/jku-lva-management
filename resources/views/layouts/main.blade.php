@@ -40,6 +40,7 @@
     <script src="{{ asset('js/jquery-3.4.1.min.js') }}"></script>
     <script src="{{ asset('js/bootstrap.bundle.min.js') }}"></script>
     <script src="https://kit.fontawesome.com/6eb7acd8bf.js" crossorigin="anonymous"></script>
+    <script src="{{ asset('js/jquery.blockUI.js') }}"></script>
 
 
     <link rel="stylesheet" type="text/css" href="https://cdn.wpcc.io/lib/1.0.2/cookieconsent.min.css"/>

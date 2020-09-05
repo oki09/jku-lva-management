@@ -107,7 +107,6 @@
 </footer>
 <script>
     $.blockUI.defaults.css = {};
-    //$.blockUI.defaults = {message: $('#loader')};
     $(document).ajaxStart(function () {
         $.blockUI({
             message: $('#loader'),

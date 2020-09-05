@@ -1,6 +1,9 @@
 @extends('layouts.main')
 
 @section('content')
+    <div id="loader" class="spinner-border text-primary" role="status" style="display: none">
+        <span class="sr-only">Loading...</span>
+    </div>
     <form class="form-signin" method="POST" action="{{ route('login.user') }}">
         @csrf
         <img src="{{ asset("images/logo.png") }}" alt="okihub logo" width="100%" style="max-width: 10em">
@@ -32,11 +35,26 @@
         <p class="invalid-feedback">{{ $message }}</p>
         @enderror
 
-        <button class="btn btn-lg btn-primary btn-block" type="submit">Login</button>
+        <button id="loginBtn" class="btn btn-lg btn-primary btn-block" type="submit">Login</button>
     </form>
     <script>
         $(function () {
             $('[data-toggle="tooltip"]').tooltip();
+            $.blockUI.defaults.css = {};
+            $('#loginBtn').on('click', function () {
+                $.blockUI({
+                    message: $('#loader'),
+                    css: {
+                        padding: 0,
+                        margin: 0,
+                        width: '30%',
+                        top: '40%',
+                        left: '35%',
+                        textAlign: 'center',
+                        cursor: 'wait'
+                    }
+                });
+            });
         });
     </script>
 @endsection
