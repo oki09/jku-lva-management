@@ -24,7 +24,7 @@ class LvaController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('layouts:user');
+        $this->middleware('auth:user');
     }
 
     /**

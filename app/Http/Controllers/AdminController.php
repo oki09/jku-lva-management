@@ -19,7 +19,7 @@ class AdminController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('layouts:admin');
+        $this->middleware('auth:admin');
     }
 
     public function index()
@@ -52,9 +52,5 @@ class AdminController extends Controller
     public function showSettings()
     {
         return view('admin.settings');
-    }
-
-    public function newsIndex() {
-
     }
 }
