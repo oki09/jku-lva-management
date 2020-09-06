@@ -5,7 +5,7 @@
     <p class="text-danger">{{__('Attention: Already added courses do not appear in the result list!')}}</p>
     <div class="form-group form-inline">
         <input id="lvaNr" type="text" class="form-control col-md-10 mr-sm-2" placeholder="Suchbegriff" autofocus>
-        <button id="searchBtn" type="submit" class="btn btn-outline-primary col-md-1" disabled>{{__('Search')}}</button>
+        <button id="searchBtn" type="submit" class="btn btn-outline-primary col-md-1">{{__('Search')}}</button>
     </div>
     <div id="searchResults">
         @include('user.lva.ajaxData')
