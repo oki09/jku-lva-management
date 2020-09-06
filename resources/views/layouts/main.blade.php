@@ -29,6 +29,7 @@
     {{-- favicon --}}
     <link rel="icon" href="{{asset('favicon.png')}}" type="image/x-icon"/>
     <link rel="shortcut icon" href="{{asset('favicon.png')}}">
+    <link rel="apple-touch-icon" href="{{asset('favicon.png')}}">
 
     <title>{{ config('app.name', 'Laravel') }}</title>
 
@@ -96,6 +97,7 @@
             <a href="https://github.com/oki09/jku-lva-management" target="_blank">GitHub</a> |
             <a href="{{route('info.contact')}}">{{__('Contact')}}</a> |
             <a href="{{route('info.privacy')}}">{{__('Privacy')}}</a> |
+            <a href="{{route('info.faq')}}">FAQ</a> |
             Copyright &copy; okihub 2020
         </p>
     </div>

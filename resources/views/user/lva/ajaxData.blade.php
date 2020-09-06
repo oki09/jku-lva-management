@@ -3,7 +3,29 @@
         <p class="alert-danger">{{__('Course not found')}}</p>
     @else
         <p>{{count($lvaList) . ' ' . __('Results found')}}</p>
-        <div style="height: 55vh" class="overflow-auto">
+        <div id="mobileView" style="height: 55vh" class="overflow-auto">
+            @foreach($lvaList as $lva)
+                <ul class="list-group my-1">
+                    <span id="lvaSlotsUrl" class="d-none">{{$lva->lvaSlotsUrl}}</span>
+                    <li class="list-group-item d-flex justify-content-between align-items-center">
+                        <span class="font-weight-bold">Nr.</span>
+                        <span id="lvaNr">{{$lva->lvaNr}}</span>
+                    </li>
+                    <li class="list-group-item d-flex justify-content-between align-items-center">
+                        <span class="font-weight-bold">{{__('Title')}}</span>
+                        <span id="title" class="text-right">{{$lva->lvaName}}</span>
+                    </li>
+                    <li class="list-group-item d-flex justify-content-between align-items-center">
+                        <span class="font-weight-bold">{{__('ECTS')}}</span>
+                        <span id="ects" class="text-right">{{$lva->lvaEcts}}</span>
+                    </li>
+                    <li class="list-group-item successHandler">
+                        <button class="addLvaBtn btn btn-outline-primary w-100"><i class="fas fa-plus"></i></button>
+                    </li>
+                </ul>
+            @endforeach
+        </div>
+        <div id="desktopView" style="height: 55vh" class="overflow-auto">
             <table class="table table-hover table-striped w-full table-sm">
                 <thead>
                 <th>Nr.</th>
@@ -19,7 +41,7 @@
                         <td id="ects">{{$lva->lvaEcts}}</td>
                         <td id="lvaSlotsUrl" class="d-none">{{$lva->lvaSlotsUrl}}</td>
                         <td class="successHandler">
-                            <button class="addLvaBtn btn btn-outline-primary"><i class="fas fa-plus"></i></button>
+                            <button class="addLvaBtn btn btn-outline-primary w-100"><i class="fas fa-plus"></i></button>
                         </td>
                     </tr>
                 @endforeach
@@ -28,8 +50,9 @@
         </div>
     @endif
     <script>
+        var isMobile = window.matchMedia("only screen and (max-width: 600px)").matches;
         $('.addLvaBtn').on('click', function () {
-            const row = $(this).closest('tr');
+            const row = isMobile ? $(this).closest('ul') : $(this).closest('tr');
             let slotsUrl = decodeURIComponent('{{ env('KUSSS_PREFIX')}}' + row.find('#lvaSlotsUrl').text());
             $.get({
                 url: getProxyRequestUrl(slotsUrl),
@@ -59,7 +82,7 @@
                 }),
                 success() {
                     const addBtn = row.find('.successHandler');
-                    const successBtn = $('<button class="btn btn-success"><i class="far fa-check-square"></i></button>');
+                    const successBtn = $('<button class="btn btn-success w-100"><i class="far fa-check-square"></i></button>');
                     addBtn.hide().html(successBtn).fadeIn();
                 },
                 error(error) {

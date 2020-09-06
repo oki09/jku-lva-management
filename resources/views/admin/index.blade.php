@@ -1,22 +1,15 @@
 @extends('admin.layouts.app')
 
 @section('content')
-    <form method="POST" action="{{route('admin.changeSemester')}}" class="form-inline">
-        @csrf
-        <div class="form-group mb-2 mr-2">
-            <label for="semesterStart" class="col-form-label mr-2">Semesterstart:</label>
-            <input type="text" id="semesterStart" class="form-control" name="semesterStart"
-                   value="{{config('app.semesterStart')}}">
-        </div>
-        <button type="submit" class="btn btn-outline-dark col-sm-2">Ändern</button>
-    </form>
+    Nr. of Users: {{count($users)}}
     <div class="mt-3">
-        <table class="table table-striped table-hover">
+        <table class="table table-striped table-hover table-sm text-center table-responsive-md">
             <thead>
             <th>Username</th>
-            <td>Created at</td>
-            <td>Updated at</td>
-            <td></td>
+            <th>Created at</th>
+            <th>Updated at</th>
+            <th># Courses</th>
+            <th></th>
             </thead>
             <tbody>
             @foreach($users as $user)
@@ -25,10 +18,18 @@
                         {{$user->studentId}}
                     </th>
                     <td>
-                        {{$user->created_at}}
+                        {{date('d.m.y H:i:s', strtotime($user->created_at))}}
                     </td>
                     <td>
-                        {{$user->updated_at}}
+                        {{date('d.m.y H:i:s', strtotime($user->updated_at))}}
+                    </td>
+                    <td>
+                        @if(isset($user->courses))
+                            {{count($user->courses)}}
+                        @else
+                            0
+                        @endif
+
                     </td>
                     <td>
                         <a href="{{route('admin.destroyUser', ['user' => $user->studentId])}}">

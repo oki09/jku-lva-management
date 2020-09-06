@@ -1,46 +1,3 @@
-@media all and (max-width: 600px) {
-    .responsiveTable thead {
-        border: none;
-        clip: rect(0 0 0 0);
-        height: 1px;
-        margin: -1px;
-        overflow: hidden;
-        padding: 0;
-        position: absolute;
-        width: 1px;
-    }
-
-    .responsiveTable tr {
-        border-top: 3px solid #ddd;
-        display: grid;
-        margin-bottom: 1em;
-    }
-
-    .responsiveTable td {
-        display: block;
-        text-align: right;
-    }
-
-    .responsiveTable td::before {
-        /*
-        * aria-label has no advantage, it won't be read inside a table
-        content: attr(aria-label);
-        */
-        content: attr(data-label);
-        float: left;
-        font-weight: bold;
-        margin-right: 5px;
-    }
-
-    .responsiveTable td:first-child {
-        border-top: 0;
-    }
-
-    .responsiveTable td:last-child {
-        border-bottom: 0;
-    }
-}
-
 #loader {
     position: absolute;
     left: 50%;
@@ -85,7 +42,23 @@
     font-size: 1.1em !important;
 }
 
+#mobileView {
+    display: block;
+}
+
+#desktopView {
+    display: none;
+}
+
 @media all and (min-width: 600px) {
+    #mobileView {
+        display: none;
+    }
+
+    #desktopView {
+        display: block;
+    }
+
     .dot-red {
         height: 24px;
         width: 24px;
@@ -122,7 +95,7 @@
         font-size: 1em;
     }
 
-    .responsiveTable thead tr, .responsiveTable tbody tr {
+    #desktopView > table thead tr, #desktopView > table tbody tr {
         text-align: center;
     }
 }

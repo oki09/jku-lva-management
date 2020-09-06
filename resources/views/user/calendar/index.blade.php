@@ -6,7 +6,7 @@
     <script>
         document.addEventListener('DOMContentLoaded', function () {
             const calendarEl = document.getElementById('calendar');
-
+            let isMobile = window.matchMedia("only screen and (max-width: 600px)").matches;
             const calendar = new FullCalendar.Calendar(calendarEl, {
                 events: {
                     url: '{{route('calendar.events')}}',
@@ -26,7 +26,7 @@
                 slotLabelInterval: '00:30',
                 hiddenDays: [0],
                 headerToolbar: {
-                    right: 'timeGridWeek,dayGridMonth listMonth',
+                    right: isMobile ? 'timeGridWeek listMonth' : 'timeGridWeek,dayGridMonth listMonth',
                     center: '',
                     left: 'prev,next'
                 },

@@ -19,6 +19,11 @@
 
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description"
+          content="The course management system for students of JKU Linz. Educate yourself smarter and save precious time.
+                    Check your personal calendar for overlaps and stressful phases. Well prepared is half the battle.">
+    <meta name="keywords" content="jku, management, student, study, education, smart, edusmart">
+
 
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
@@ -28,6 +33,7 @@
     {{-- favicon --}}
     <link rel="icon" href="{{asset('favicon.png')}}" type="image/x-icon"/>
     <link rel="shortcut icon" href="{{asset('favicon.png')}}">
+    <link rel="apple-touch-icon" href="{{asset('favicon.png')}}">
 
     <!-- Bootstrap core CSS -->
     <link href="{{ asset('css/bootstrap.min.css') }}" rel="stylesheet">
@@ -101,6 +107,7 @@
             <a href="https://github.com/oki09/jku-lva-management" target="_blank">GitHub</a> |
             <a href="{{route('info.contact')}}">{{__('Contact')}}</a> |
             <a href="{{route('info.privacy')}}">{{__('Privacy')}}</a> |
+            <a href="{{route('info.faq')}}">FAQ</a> |
             Copyright &copy; okihub 2020
         </p>
     </div>

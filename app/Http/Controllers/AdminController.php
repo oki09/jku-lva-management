@@ -24,13 +24,15 @@ class AdminController extends Controller
 
     public function index()
     {
+        date_default_timezone_set('Europe/Vienna');
         $users = User::all();
         return view('admin.index', compact('users'));
     }
 
     public function destroy(User $user)
     {
-        dd($user);
+        $user->delete();
+        return redirect(route('admin.index'));
     }
 
     public function changeSemesterStart()
@@ -49,7 +51,10 @@ class AdminController extends Controller
 
     public function showSettings()
     {
-
         return view('admin.settings');
+    }
+
+    public function newsIndex() {
+
     }
 }

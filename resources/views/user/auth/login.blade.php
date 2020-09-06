@@ -11,7 +11,7 @@
             {{__('Please use your KUSSS credentials')}}
             <span>
                 <a href="#" class="popup" data-toggle="tooltip" data-html="true"
-                   title="{!! __('The first time you log in, your credentials will be sent to the KUSSS system for verifying your identity. After this step your data is stored in our database in order to make the login process faster') !!}">
+                   title="{!! __('The KUSSS data is needed in order to verify the identity. For more information, please visit the FAQ page.') !!}">
                     <i class="far fa-question-circle"></i>
                 </a>
             </span>

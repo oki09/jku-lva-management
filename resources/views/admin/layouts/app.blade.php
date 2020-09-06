@@ -5,9 +5,6 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-    <script data-ad-client="ca-pub-7068331585141884" async
-            src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
@@ -41,12 +38,14 @@
             <li>
                 <a href="{{ route('admin.index') }}">Users</a>
             </li>
+            <li>
+                <a href="{{ route('admin.news') }}">News</a>
+            </li>
         </ul>
     </nav>
 
     <!-- Page Content Holder -->
     <div id="content">
-
         <nav class="navbar navbar-expand-lg navbar-light bg-light">
             <div class="container-fluid">
                 <button type="button" id="sidebarCollapse" class="navbar-btn">

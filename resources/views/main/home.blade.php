@@ -1,5 +1,14 @@
 @extends('layouts.main')
 @section('content')
+    <div class="alert alert-info alert-dismissible mt-3" role="alert">
+        <h4>News</h4>
+        <button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span><span
+                class="sr-only">Close</span>
+        </button>
+        <ul>
+            <li>{{__('Added FAQ section')}}</li>
+        </ul>
+    </div>
     <header class="jumbotron my-4">
         <h1 class="display-3">{{__('Welcome JKU students')}} &#129299</h1>
         <p class="lead">
@@ -9,7 +18,8 @@
             {!! __('EduSmart supports, automates and partly eases the semester planning. With a few clicks, available courses can be searched and added to a personal list. Meanwhile, EduSmart generates a personal calendar, which recognizes overlaps and marks them accordingly. Pretty &#127378, right?') !!}
         </p>
         <p class="lead">
-            {!! __('You can support us with new ideas or cool feature wishes. To contact us use the') !!} <a href="{{route('info.contact')}}">{{__('contact form')}}</a>.
+            {!! __('You can support us with new ideas or cool feature wishes. To contact us use the') !!} <a
+                href="{{route('info.contact')}}">{{__('contact form')}}</a>.
             {!! __('With EduSmart, we hope to ease the coming semester and wish you a happy planning!') !!}
         </p>
         <a href="{{route('calendar.index')}}" class="btn btn-primary btn-lg col-md-2 col-12">{{__('Start now!')}}</a>

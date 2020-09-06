@@ -24,6 +24,7 @@ Route::post('/login/admin', 'LoginController@adminLogin')->name('login.admin');
 Route::view('/contact', 'main.contact')->name('info.contact');
 Route::post('/contact', 'ContactController@submitFeedback')->name('info.contact');
 Route::get('/privacy', 'PrivacyController@show')->name('info.privacy');
+Route::view('/faq', 'main.faq')->name('info.faq');
 
 
 
@@ -52,4 +53,10 @@ Route::middleware(['layouts:admin'])->prefix('admin')->name('admin.')->group(fun
 
     Route::get('/settings', 'AdminController@showSettings')->name('settings');
     Route::get('/settings/maintenance', 'AdminController@maintenance')->name('settings.maintenance');
+
+    Route::get('/news', 'AdminController@newsIndex')->name('news.index');
+    Route::get('/news/{newsId}', 'AdminController@newsShow')->name('news.show');
+    Route::get('/news/create', 'AdminController@newsCreate')->name('news.create');
+    Route::post('/news', 'AdminController@newsStore')->name('news.store');
+    Route::get('/news/delete', 'AdminController@newsDestroy')->name('news.destroy');
 });

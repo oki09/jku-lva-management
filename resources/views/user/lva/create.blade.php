@@ -22,21 +22,12 @@
                 }).get().join('');
             }
 
-            // disable search button with no text input
-            $('#lvaNr').on('keyup', function () {
-                if ($(this).val() == '') {
-                    $('#searchBtn').prop('disabled', true);
-                } else {
-                    $('#searchBtn').prop('disabled', false);
-                    // click button on enter key pressed
-                    $('#lvaNr').keypress(function (e) {
-                        const key = e.which;
-                        if (key == 13) // the enter key code
-                        {
-                            $('#searchBtn').click();
-                            return false;
-                        }
-                    });
+            $('#lvaNr').keypress(function (e) {
+                const key = e.which;
+                if (key == 13) // the enter key code
+                {
+                    $('#searchBtn').click();
+                    return false;
                 }
             });
 
