@@ -5,8 +5,14 @@
         <button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span><span
                 class="sr-only">Close</span>
         </button>
-        {!! __('Dear students, we prepared a little questionnaire for you &#128522. We would like you to answer the six questions, so that we know if we should continue this project. Thanks in advance!') !!}
-        <a href="https://forms.gle/fYgAXJoHuB45dsYz5" target="_blank">{{__('Click here to get to the questionnaire.')}}</a>
+        <ul>
+            <li>
+                {!! __('Dear students, we prepared a little and anonymised questionnaire for you &#128522. We would like you to answer the six questions, so that we know if we should continue this project. Thanks in advance!') !!}
+                <a href="https://forms.gle/fYgAXJoHuB45dsYz5"
+                   target="_blank">{{__('Click here to get to the questionnaire.')}}</a>
+            </li>
+            <li>{{__('Added FAQ section.')}}</li>
+        </ul>
     </div>
     <header class="jumbotron my-4">
         <h1 class="display-3">{{__('Welcome JKU students')}} &#129299</h1>
