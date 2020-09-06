@@ -27,9 +27,7 @@ Route::get('/privacy', 'PrivacyController@show')->name('info.privacy');
 Route::view('/faq', 'main.faq')->name('info.faq');
 
 
-
-
-Route::middleware(['layouts:user'])->prefix('user')->group(function () {
+Route::middleware(['auth:user'])->prefix('user')->group(function () {
     Route::view('/', 'user.calendar.index')->name('calendar.index');
     Route::get('/calendar/events', 'CalendarController@getEvents')->name('calendar.events');
 
@@ -45,7 +43,7 @@ Route::middleware(['layouts:user'])->prefix('user')->group(function () {
     Route::get('/proxy', 'LvaController@proxyRequests')->name('proxy');
 });
 
-Route::middleware(['layouts:admin'])->prefix('admin')->name('admin.')->group(function () {
+Route::middleware(['auth:admin'])->prefix('admin')->name('admin.')->group(function () {
     Route::get('/', 'AdminController@index')->name('index');
     Route::get('/{user}/delete', 'AdminController@destroy')->name('destroyUser');
     Route::post('/changeSemesterStart', 'AdminController@changeSemesterStart')->name('changeSemester');
@@ -54,9 +52,9 @@ Route::middleware(['layouts:admin'])->prefix('admin')->name('admin.')->group(fun
     Route::get('/settings', 'AdminController@showSettings')->name('settings');
     Route::get('/settings/maintenance', 'AdminController@maintenance')->name('settings.maintenance');
 
-    Route::get('/news', 'AdminController@newsIndex')->name('news.index');
+    /*Route::get('/news', 'AdminController@newsIndex')->name('news.index');
     Route::get('/news/{newsId}', 'AdminController@newsShow')->name('news.show');
     Route::get('/news/create', 'AdminController@newsCreate')->name('news.create');
     Route::post('/news', 'AdminController@newsStore')->name('news.store');
-    Route::get('/news/delete', 'AdminController@newsDestroy')->name('news.destroy');
+    Route::get('/news/delete', 'AdminController@newsDestroy')->name('news.destroy');*/
 });
