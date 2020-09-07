@@ -147,8 +147,6 @@ return [
     */
 
     'attributes' => [
-        'studentId' => 'MatrikelNr.',
-        'password' => 'Passwort'
     ],
 
 ];

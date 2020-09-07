@@ -2,10 +2,26 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
+use App\News;
 
-class ContactController extends Controller
+class HomeController extends Controller
 {
+    public function index()
+    {
+        $news = News::orderBy('created_at', 'desc')->get();
+        return view('main.home', compact('news'));
+    }
+
+    public function showPrivacy()
+    {
+        if (request()->ajax()) {
+            if (request('lang') == 'de') return view('main.privacyLang.de');
+            elseif (request('lang') == 'en') return view('main.privacyLang.en');
+            else return '<p class="alert-danger">ERROR</p>';
+        }
+        return view('main.privacy');
+    }
+
     public function submitFeedback()
     {
         $feedback = request()->validate([
@@ -28,4 +44,5 @@ class ContactController extends Controller
         else
             return redirect()->route('info.contact')->with('isSent', false);
     }
+
 }

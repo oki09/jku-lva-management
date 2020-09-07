@@ -22,7 +22,7 @@
                         <li class="list-group-item d-flex justify-content-between align-items-center">
                         <span class="font-weight-bold">{{__('Course disabled')}}
                             <a class="popup" href="#" data-toggle="tooltip"
-                               title="{{__('Disabled courses do not appear in the calendar')}}">
+                               title="{{__('Disabled courses do not appear in the calendar. More info in the FAQs.')}}">
                                 <i class="far fa-question-circle"></i>
                             </a>
                         </span>
@@ -39,7 +39,7 @@
                         <li class="list-group-item d-flex justify-content-between align-items-center">
                         <span class="font-weight-bold">{{__('Workload')}}
                             <a class="popup" href="#" data-toggle="tooltip" data-html="true"
-                               title="{!! __('The ample indicator shows the relation between the capacity and the number of students intend to do this course. <br>Green: <80%<br>Yellow: >=80% AND <95%<br>Red: >=95%') !!}">
+                               title="{{ __('This indicator shows the popularity of this course. More info in the FAQs.') }}">
                                 <i class="far fa-question-circle"></i>
                             </a>
                         </span>

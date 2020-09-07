@@ -13,7 +13,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::view('/', 'main.home')->name('home');
+Route::get('/', 'HomeController@index')->name('home');
 
 Route::view('/login/user', 'user.auth.login')->name('login.user');
 Route::post('/login/user', 'LoginController@userLogin')->name('login.user');
@@ -22,8 +22,8 @@ Route::view('/login/admin', 'admin.auth.login')->name('login.admin');
 Route::post('/login/admin', 'LoginController@adminLogin')->name('login.admin');
 
 Route::view('/contact', 'main.contact')->name('info.contact');
-Route::post('/contact', 'ContactController@submitFeedback')->name('info.contact');
-Route::get('/privacy', 'PrivacyController@show')->name('info.privacy');
+Route::post('/contact', 'HomeController@submitFeedback')->name('info.contact');
+Route::get('/privacy', 'HomeController@showPrivacy')->name('info.privacy');
 Route::view('/faq', 'main.faq')->name('info.faq');
 
 
@@ -52,9 +52,11 @@ Route::middleware(['auth:admin'])->prefix('admin')->name('admin.')->group(functi
     Route::get('/settings', 'AdminController@showSettings')->name('settings');
     Route::get('/settings/maintenance', 'AdminController@maintenance')->name('settings.maintenance');
 
-    /*Route::get('/news', 'AdminController@newsIndex')->name('news.index');
-    Route::get('/news/{newsId}', 'AdminController@newsShow')->name('news.show');
-    Route::get('/news/create', 'AdminController@newsCreate')->name('news.create');
+    Route::get('/news', 'AdminController@newsIndex')->name('news');
+    Route::view('/news/create', 'admin.news.create')->name('news.create');
     Route::post('/news', 'AdminController@newsStore')->name('news.store');
-    Route::get('/news/delete', 'AdminController@newsDestroy')->name('news.destroy');*/
+
+    Route::get('/news/{id}', 'AdminController@newsShow')->name('news.edit');
+
+    Route::get('/news/{id}/delete', 'AdminController@newsDestroy')->name('news.destroy');
 });

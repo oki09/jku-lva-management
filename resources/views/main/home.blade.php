@@ -1,29 +1,33 @@
 @extends('layouts.main')
 @section('content')
     <div class="alert alert-info alert-dismissible mt-3" role="alert">
-        <h4>News</h4>
+        <h4>{{__('What\'s new?')}}</h4>
         <button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span><span
                 class="sr-only">Close</span>
         </button>
         <ul>
-            <li>
-                {!! __('Dear students, we prepared a little and anonymised questionnaire for you &#128522. We would like you to answer the six questions, so that we know if we should continue this project. Thanks in advance!') !!}
-                <a href="https://forms.gle/fYgAXJoHuB45dsYz5"
-                   target="_blank">{{__('Click here to get to the questionnaire.')}}</a>
-            </li>
-            <li>{{__('Added FAQ section.')}}</li>
+            @foreach($news as $new)
+                <li>
+                    @if(app()->getLocale() == 'de')
+                        {!! $new->de !!}
+                    @else
+                        {!! $new->en !!}
+                    @endif
+                </li>
+            @endforeach
         </ul>
     </div>
     <header class="jumbotron my-4">
         <h1 class="display-3">{{__('Welcome JKU students')}} &#129299</h1>
         <p class="lead">
-            {!!__('The planning of the new semester is really exhausting and time-consuming &#8987. No matter if it is the creation of the timetables, the finding of overlaps or the recognizing of stressful phases. The process is always stressful.') !!}
+            {!!__('The planning of the new semester is really exhausting and time-consuming &#8987. No matter if it is the creation of the timetables, the finding of overlaps or the detecting of stressful phases. The process is always stressful.') !!}
         </p>
         <p class="lead">
-            {!! __('EduSmart supports, automates and partly eases the semester planning. With a few clicks, available courses can be searched and added to a personal list. Meanwhile, EduSmart generates a personal calendar, which recognizes overlaps and marks them accordingly. Pretty &#127378, right?') !!}
+            {!! __('EduSmart aims to support, automate and partly ease the semester planning. With a few clicks, available courses can be searched and added to a personal list. Meanwhile, EduSmart generates a personal calendar, which detects overlaps and marks them accordingly. Pretty &#127378, right?') !!}
         </p>
         <p class="lead">
-            {!! __('You can support us with new ideas or cool feature wishes. To contact us use the') !!} <a
+            {!! __('If you like the idea, then support us with new ideas or cool feature wishes. To contact us use the') !!}
+            <a
                 href="{{route('info.contact')}}">{{__('contact form')}}</a>.
             {!! __('With EduSmart, we hope to ease the coming semester and wish you a happy planning!') !!}
         </p>
@@ -62,7 +66,7 @@
                 <div class="card-body">
                     <h4 class="card-title">{{__('Fully responsive')}}</h4>
                     <p class="card-text">
-                        {{__('The cherry on the top is the fully responsive design, so you can also plan with your smartphone.')}}
+                        {{__('EduSmart is optimized for mobile usage, therefore you can always change things on the go.')}}
                     </p>
                 </div>
             </div>

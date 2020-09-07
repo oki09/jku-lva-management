@@ -38,6 +38,9 @@
             <li>
                 <a href="{{ route('admin.index') }}">Users</a>
             </li>
+            <li>
+                <a href="{{ route('admin.news') }}">News</a>
+            </li>
         </ul>
     </nav>
 
