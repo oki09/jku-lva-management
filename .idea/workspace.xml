@@ -7,7 +7,7 @@
   <component name="ChangeListManager">
     <list default="true" id="08676cd1-d91e-4e08-868d-15111cd024f8" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/index.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/user/lva/ajaxData.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/user/lva/ajaxData.blade.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -189,7 +189,7 @@
       <workItem from="1599304050808" duration="4244000" />
       <workItem from="1599319638165" duration="25486000" />
       <workItem from="1599497383894" duration="10370000" />
-      <workItem from="1599579603719" duration="10690000" />
+      <workItem from="1599579603719" duration="11882000" />
     </task>
     <task id="LOCAL-00001" summary="update php mail()">
       <created>1599078225920</created>
@@ -317,7 +317,14 @@
       <option name="project" value="LOCAL" />
       <updated>1599592711521</updated>
     </task>
-    <option name="localTasksCounter" value="19" />
+    <task id="LOCAL-00019" summary="fixed error on empty courses">
+      <created>1599593455661</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1599593455661</updated>
+    </task>
+    <option name="localTasksCounter" value="20" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -370,7 +377,8 @@
     <MESSAGE value="added questionnaire and translation" />
     <MESSAGE value="added admin functions" />
     <MESSAGE value="big changes&#10;&#10;admin dashboard brand new features&#10;- Overview of users as datatables&#10;- CRUD operations on users&#10;- Delete operation on courses of users&#10;- News CRUD&#10;- FAQ CRUD&#10;- changed some images&#10;- update privacy to browser locale&#10;- delete unneccessary files&#10;- update favicons&#10;- change adminID to normal text&#10;- changed some routes" />
-    <option name="LAST_COMMIT_MESSAGE" value="big changes&#10;&#10;admin dashboard brand new features&#10;- Overview of users as datatables&#10;- CRUD operations on users&#10;- Delete operation on courses of users&#10;- News CRUD&#10;- FAQ CRUD&#10;- changed some images&#10;- update privacy to browser locale&#10;- delete unneccessary files&#10;- update favicons&#10;- change adminID to normal text&#10;- changed some routes" />
+    <MESSAGE value="fixed error on empty courses" />
+    <option name="LAST_COMMIT_MESSAGE" value="fixed error on empty courses" />
   </component>
   <component name="WindowStateProjectService">
     <state x="458" y="212" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1599152184725">
@@ -392,10 +400,10 @@
     </state>
     <state x="539" y="380" key="NewPhpFileDialog/0.0.1440.900/1440.0.1920.1080/-1920.0.1920.1080@0.0.1440.900" timestamp="1597732543530" />
     <state x="539" y="380" key="NewPhpFileDialog/0.0.1440.900@0.0.1440.900" timestamp="1598120591583" />
-    <state x="320" y="190" key="Vcs.Push.Dialog.v2" timestamp="1599592713472">
+    <state x="320" y="190" key="Vcs.Push.Dialog.v2" timestamp="1599593457554">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state x="320" y="190" key="Vcs.Push.Dialog.v2/0.0.1440.900@0.0.1440.900" timestamp="1599592713472" />
+    <state x="320" y="190" key="Vcs.Push.Dialog.v2/0.0.1440.900@0.0.1440.900" timestamp="1599593457554" />
     <state x="343" y="67" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser" timestamp="1598538820853">
       <screen x="0" y="0" width="1440" height="900" />
     </state>

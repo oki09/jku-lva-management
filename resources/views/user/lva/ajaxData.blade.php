@@ -93,6 +93,10 @@
         }
 
         function retrieveLvaCapacity(html) {
+            // we are in the registration dates
+            if(moment().utc().isSameOrAfter('{{env('REGISTRATION_START_DATE')}}')) {
+                return html.find("tr.priorityhighlighted td:nth-child(7)").text().trim();
+            }
             return html.find("tr.priorityhighlighted td:nth-child(6)").text().trim();
         }
 
