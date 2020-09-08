@@ -32,7 +32,8 @@
                     {
                         data: null,
                         render: function (data, type, full, meta) {
-                            return full.courses.length;
+                            if (full.courses) return full.courses.length;
+                            return 0;
                         }
                     },
                     {

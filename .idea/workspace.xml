@@ -6,46 +6,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="08676cd1-d91e-4e08-868d-15111cd024f8" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/app/Faq.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/css/admin/dashboard.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/css/admin/datatables.min.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/js/datatables.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/admin/faq/create.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/admin/faq/edit.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/admin/faq/index.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/admin/users/show.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/AdminController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/AdminController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/HomeController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/HomeController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/LoginController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/LoginController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/css/admin/main.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/css/auth.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/auth.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/favicon.ico" beforeDir="false" afterPath="$PROJECT_DIR$/public/favicon.ico" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/favicon.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/favicon_white.ico" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/images/calendar_landscape.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/images/calendar_portrait.png" beforeDir="false" afterPath="$PROJECT_DIR$/public/images/calendar_portrait.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/images/overview_landscape.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/images/overview_portrait.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/images/search_landscape.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/images/search_portrait.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/lang/de.json" beforeDir="false" afterPath="$PROJECT_DIR$/resources/lang/de.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/auth/login.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/auth/login.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/admin/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/index.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/layouts/app.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/layouts/app.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/news/create.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/news/create.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/news/edit.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/news/edit.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/news/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/news/index.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/errors/503.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/errors/503.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/layouts/main.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/main.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/main/faq.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/main/faq.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/main/privacy.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/main/privacy.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/main/privacyLang/de.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/main/privacy/de.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/main/privacyLang/en.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/main/privacy/en.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/user/auth/login.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/user/auth/login.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/user/calendar/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/user/calendar/index.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/user/layouts/app.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/user/layouts/app.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -227,7 +189,7 @@
       <workItem from="1599304050808" duration="4244000" />
       <workItem from="1599319638165" duration="25486000" />
       <workItem from="1599497383894" duration="10370000" />
-      <workItem from="1599579603719" duration="10042000" />
+      <workItem from="1599579603719" duration="10690000" />
     </task>
     <task id="LOCAL-00001" summary="update php mail()">
       <created>1599078225920</created>
@@ -348,7 +310,14 @@
       <option name="project" value="LOCAL" />
       <updated>1599507649526</updated>
     </task>
-    <option name="localTasksCounter" value="18" />
+    <task id="LOCAL-00018" summary="big changes&#10;&#10;admin dashboard brand new features&#10;- Overview of users as datatables&#10;- CRUD operations on users&#10;- Delete operation on courses of users&#10;- News CRUD&#10;- FAQ CRUD&#10;- changed some images&#10;- update privacy to browser locale&#10;- delete unneccessary files&#10;- update favicons&#10;- change adminID to normal text&#10;- changed some routes">
+      <created>1599592711521</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1599592711521</updated>
+    </task>
+    <option name="localTasksCounter" value="19" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -400,7 +369,8 @@
     <MESSAGE value="changed disabled button" />
     <MESSAGE value="added questionnaire and translation" />
     <MESSAGE value="added admin functions" />
-    <option name="LAST_COMMIT_MESSAGE" value="added admin functions" />
+    <MESSAGE value="big changes&#10;&#10;admin dashboard brand new features&#10;- Overview of users as datatables&#10;- CRUD operations on users&#10;- Delete operation on courses of users&#10;- News CRUD&#10;- FAQ CRUD&#10;- changed some images&#10;- update privacy to browser locale&#10;- delete unneccessary files&#10;- update favicons&#10;- change adminID to normal text&#10;- changed some routes" />
+    <option name="LAST_COMMIT_MESSAGE" value="big changes&#10;&#10;admin dashboard brand new features&#10;- Overview of users as datatables&#10;- CRUD operations on users&#10;- Delete operation on courses of users&#10;- News CRUD&#10;- FAQ CRUD&#10;- changed some images&#10;- update privacy to browser locale&#10;- delete unneccessary files&#10;- update favicons&#10;- change adminID to normal text&#10;- changed some routes" />
   </component>
   <component name="WindowStateProjectService">
     <state x="458" y="212" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1599152184725">
@@ -422,10 +392,10 @@
     </state>
     <state x="539" y="380" key="NewPhpFileDialog/0.0.1440.900/1440.0.1920.1080/-1920.0.1920.1080@0.0.1440.900" timestamp="1597732543530" />
     <state x="539" y="380" key="NewPhpFileDialog/0.0.1440.900@0.0.1440.900" timestamp="1598120591583" />
-    <state x="320" y="190" key="Vcs.Push.Dialog.v2" timestamp="1599507651276">
+    <state x="320" y="190" key="Vcs.Push.Dialog.v2" timestamp="1599592713472">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state x="320" y="190" key="Vcs.Push.Dialog.v2/0.0.1440.900@0.0.1440.900" timestamp="1599507651276" />
+    <state x="320" y="190" key="Vcs.Push.Dialog.v2/0.0.1440.900@0.0.1440.900" timestamp="1599592713472" />
     <state x="343" y="67" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser" timestamp="1598538820853">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
