@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Course;
+use App\Faq;
 use App\News;
 use App\User;
 use GuzzleHttp\Client;
@@ -36,6 +38,19 @@ class AdminController extends Controller
     {
         $user->delete();
         return redirect(route('admin.index'));
+    }
+
+    public function show(User $user)
+    {
+        $courses = $user->courses;
+        $studentId = $user->studentId;
+        return view('admin.users.show', compact('courses', 'studentId'));
+    }
+
+    public function deleteCourse(User $user)
+    {
+        $user->courses()->destroy(request('course'));
+        return redirect(route('admin.user.show', ['user' => $user->studentId]));
     }
 
     public function changeSemesterStart()
@@ -74,18 +89,57 @@ class AdminController extends Controller
         } else {
             News::create(['de' => request('de'), 'en' => request('en')])->save();
         }
-        return redirect(route('admin.news'));
+        return redirect(route('admin.news.index'));
     }
 
     public function newsDestroy($news)
     {
         News::destroy($news);
-        return redirect(route('admin.news'));
+        return redirect(route('admin.news.index'));
     }
 
     public function newsShow($news)
     {
         $news = News::find($news);
         return view('admin.news.edit', compact('news'));
+    }
+
+    public function faqIndex()
+    {
+        $faqs = Faq::all();
+        return view('admin.faq.index', compact('faqs'));
+    }
+
+    public function faqStore()
+    {
+        $id = request('id');
+        if (isset($id)) {
+            $faq = Faq::find($id);
+            $faq->question_de = request('question_de');
+            $faq->question_en = request('question_en');
+            $faq->answer_en = request('answer_en');
+            $faq->answer_de = request('answer_de');
+            $faq->save();
+        } else {
+            Faq::create([
+                'question_en' => request('question_en'),
+                'answer_en' => request('answer_en'),
+                'question_de' => request('question_de'),
+                'answer_de' => request('answer_de')
+            ])->save();
+        }
+        return redirect(route('admin.faq.index'));
+    }
+
+    public function faqShow($faq)
+    {
+        $faq = Faq::find($faq);
+        return view('admin.faq.edit', compact('faq'));
+    }
+
+    public function faqDestroy($faq)
+    {
+        Faq::destroy($faq);
+        return redirect(route('admin.faq.index'));
     }
 }

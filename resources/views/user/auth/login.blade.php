@@ -4,9 +4,9 @@
     <div id="loader" class="spinner-border text-primary" role="status" style="display: none">
         <span class="sr-only">Loading...</span>
     </div>
-    <form class="form-signin" method="POST" action="{{ route('login.user') }}">
+    <form class="form-signin d-flex flex-column justify-content-center align-items-center py-3" method="POST" action="{{ route('login.user') }}">
         @csrf
-        <img src="{{ asset("images/logo.png") }}" alt="okihub logo" width="100%" style="max-width: 10em">
+        <img src="{{ asset("images/logo.png") }}" alt="EduSmart logo" width="100%" style="max-width: 10em">
         <h5 class="my-3 font-weight-normal">
             {{__('Please use your KUSSS credentials')}}
             <span>
@@ -21,21 +21,23 @@
                 {{ session('error') }}
             </div>
         @endif
-        <label for="studentId" class="sr-only">{{__('Student ID')}}</label>
-        <input id="studentId" type="text" class="form-control @error('studentId') is-invalid @enderror" name="studentId"
-               value="{{ old('studentId') }}" placeholder="{{__('Student ID')}}" autofocus>
-        @error('studentId')
-        <p class="invalid-feedback">{{ $message }}</p>
-        @enderror
+        <div class="col-md-5">
+            <label for="studentId" class="sr-only">{{__('Student ID')}}</label>
+            <input id="studentId" type="text" class="form-control @error('studentId') is-invalid @enderror"
+                   name="studentId"
+                   value="{{ old('studentId') }}" placeholder="{{__('Student ID')}}" autofocus>
+            @error('studentId')
+            <p class="invalid-feedback">{{ $message }}</p>
+            @enderror
+            <label for="password" class="sr-only">{{__('Password')}}</label>
+            <input id="password" type="password" class="form-control @error('password') is-invalid @enderror"
+                   name="password" placeholder="{{__('Password')}}" autocomplete="current-password">
+            @error('password')
+            <p class="invalid-feedback">{{ $message }}</p>
+            @enderror
+            <button id="loginBtn" class="btn btn-lg btn-primary btn-block" type="submit">Login</button>
+        </div>
 
-        <label for="password" class="sr-only">{{__('Password')}}</label>
-        <input id="password" type="password" class="form-control @error('password') is-invalid @enderror"
-               name="password" placeholder="{{__('Password')}}" autocomplete="current-password">
-        @error('password')
-        <p class="invalid-feedback">{{ $message }}</p>
-        @enderror
-
-        <button id="loginBtn" class="btn btn-lg btn-primary btn-block" type="submit">Login</button>
     </form>
     <script>
         $(function () {

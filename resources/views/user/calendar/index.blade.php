@@ -4,6 +4,7 @@
     <div id="calendar"></div>
 
     <script>
+        let myPopover;
         document.addEventListener('DOMContentLoaded', function () {
             const calendarEl = document.getElementById('calendar');
             let isMobile = window.matchMedia("only screen and (max-width: 600px)").matches;
@@ -19,7 +20,7 @@
                 lazyFetching: true,
                 slotEventOverlap: true,
                 expandRows: true,
-                height: '80vh',
+                height: '100vh',
                 allDaySlot: false,
                 slotMinTime: '08:00:00',
                 slotMaxTime: '21:00:00',
@@ -47,6 +48,17 @@
                     } else {
                         $('#loader').hide();
                     }
+                },
+                eventClick: function (info) {
+                    const $html = $(info.el);
+                    // init popover
+                    $html.popover({
+                        title: info.event.title,
+                        placement: 'top',
+                        container: 'body',
+                        trigger: 'click',
+                        content: 'LVA-Nr: ' + info.event.extendedProps.nr
+                    });
                 },
                 eventDidMount: function (info) {
                     if (isOverlapping(info.event, calendar.getEvents())) {

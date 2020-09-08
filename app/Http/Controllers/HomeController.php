@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Faq;
 use App\News;
 
 class HomeController extends Controller
@@ -10,16 +11,6 @@ class HomeController extends Controller
     {
         $news = News::orderBy('created_at', 'desc')->get();
         return view('main.home', compact('news'));
-    }
-
-    public function showPrivacy()
-    {
-        if (request()->ajax()) {
-            if (request('lang') == 'de') return view('main.privacyLang.de');
-            elseif (request('lang') == 'en') return view('main.privacyLang.en');
-            else return '<p class="alert-danger">ERROR</p>';
-        }
-        return view('main.privacy');
     }
 
     public function submitFeedback()
@@ -43,6 +34,12 @@ class HomeController extends Controller
             return redirect()->route('info.contact')->with('isSent', true);
         else
             return redirect()->route('info.contact')->with('isSent', false);
+    }
+
+    public function faqs()
+    {
+        $faqs = Faq::all();
+        return view('main.faq', compact('faqs'));
     }
 
 }

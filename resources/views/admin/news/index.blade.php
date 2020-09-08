@@ -2,7 +2,7 @@
 
 @section('content')
     <a class="btn btn-outline-primary" href="{{route('admin.news.create')}}">Add</a>
-    <table class="table">
+    <table class="table mt-3">
         <thead>
         <th>Id</th>
         <th>German version</th>

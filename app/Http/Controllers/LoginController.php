@@ -57,7 +57,7 @@ class LoginController extends Controller
     public function adminLogin()
     {
         $credentials = request()->validate([
-            'adminId' => 'required|starts_with:k,K',
+            'adminId' => 'required',
             'password' => 'required'
         ]);
         $adminId = $credentials['adminId'];

@@ -1,44 +1,50 @@
 @extends('admin.layouts.app')
 
 @section('content')
-    Nr. of Users: {{count($users)}}
     <div class="mt-3">
-        <table class="table table-striped table-hover table-sm text-center table-responsive-md">
+        <table id="usersTable" class="table table-striped table-hover table-sm text-center table-responsive-md">
             <thead>
-            <th>Username</th>
+            <th>Student ID</th>
             <th>Created at</th>
             <th>Updated at</th>
             <th># Courses</th>
             <th></th>
             </thead>
-            <tbody>
-            @foreach($users as $user)
-                <tr>
-                    <th>
-                        {{$user->studentId}}
-                    </th>
-                    <td>
-                        {{date('d.m.y H:i:s', strtotime($user->created_at))}}
-                    </td>
-                    <td>
-                        {{date('d.m.y H:i:s', strtotime($user->updated_at))}}
-                    </td>
-                    <td>
-                        @if(isset($user->courses))
-                            {{count($user->courses)}}
-                        @else
-                            0
-                        @endif
-
-                    </td>
-                    <td>
-                        <a href="{{route('admin.destroyUser', ['user' => $user->studentId])}}">
-                            <i class="fas fa-trash"></i>
-                        </a>
-                    </td>
-                </tr>
-            @endforeach
-            </tbody>
         </table>
     </div>
+
+    <script>
+        $(function () {
+            $('#usersTable').DataTable({
+                order: [[3, 'desc'], [1, 'desc']],
+                ordering: true,
+                data: @json($users),
+                columns: [
+                    {
+                        data: 'studentId',
+                        render: function (data, type, full, meta) {
+                            const showUrl = "{{route('admin.user.show', ['user' => ':id'])}}".replace(':id', data);
+                            return '<a href="' + showUrl + '">' + data + '</a>';
+                        }
+                    },
+                    {data: 'created_at'},
+                    {data: 'updated_at'},
+                    {
+                        data: null,
+                        render: function (data, type, full, meta) {
+                            return full.courses.length;
+                        }
+                    },
+                    {
+                        data: null,
+                        orderable: false,
+                        render: function (data, type, full, meta) {
+                            const deleteUrl = "{{route('admin.user.destroy', ['user' => ':id'])}}".replace(':id', full.studentId);
+                            return '<a href="' + deleteUrl + '"><i class="fas fa-trash"></i></a>';
+                        }
+                    }
+                ]
+            });
+        });
+    </script>
 @endsection

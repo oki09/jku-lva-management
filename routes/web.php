@@ -23,8 +23,8 @@ Route::post('/login/admin', 'LoginController@adminLogin')->name('login.admin');
 
 Route::view('/contact', 'main.contact')->name('info.contact');
 Route::post('/contact', 'HomeController@submitFeedback')->name('info.contact');
-Route::get('/privacy', 'HomeController@showPrivacy')->name('info.privacy');
-Route::view('/faq', 'main.faq')->name('info.faq');
+Route::view('/privacy', 'main.privacy')->name('info.privacy');
+Route::get('/faq', 'HomeController@faqs')->name('info.faq');
 
 
 Route::middleware(['auth:user'])->prefix('user')->group(function () {
@@ -45,18 +45,30 @@ Route::middleware(['auth:user'])->prefix('user')->group(function () {
 
 Route::middleware(['auth:admin'])->prefix('admin')->name('admin.')->group(function () {
     Route::get('/', 'AdminController@index')->name('index');
-    Route::get('/{user}/delete', 'AdminController@destroy')->name('destroyUser');
     Route::post('/changeSemesterStart', 'AdminController@changeSemesterStart')->name('changeSemester');
     Route::post('/logout', 'LoginController@logout')->name('logout');
 
     Route::get('/settings', 'AdminController@showSettings')->name('settings');
     Route::get('/settings/maintenance', 'AdminController@maintenance')->name('settings.maintenance');
 
-    Route::get('/news', 'AdminController@newsIndex')->name('news');
-    Route::view('/news/create', 'admin.news.create')->name('news.create');
-    Route::post('/news', 'AdminController@newsStore')->name('news.store');
 
-    Route::get('/news/{id}', 'AdminController@newsShow')->name('news.edit');
+    Route::prefix('news')->name('news.')->group(function () {
+        Route::get('/', 'AdminController@newsIndex')->name('index');
+        Route::post('/', 'AdminController@newsStore')->name('store');
+        Route::view('/create', 'admin.news.create')->name('create');
+        Route::get('/{id}', 'AdminController@newsShow')->name('edit');
+        Route::get('/{id}/delete', 'AdminController@newsDestroy')->name('destroy');
+    });
 
-    Route::get('/news/{id}/delete', 'AdminController@newsDestroy')->name('news.destroy');
+    Route::prefix('faq')->name('faq.')->group(function () {
+        Route::get('/', 'AdminController@faqIndex')->name('index');
+        Route::post('/', 'AdminController@faqStore')->name('store');
+        Route::view('/create', 'admin.faq.create')->name('create');
+        Route::get('/{id}', 'AdminController@faqShow')->name('edit');
+        Route::get('/{id}/delete', 'AdminController@faqDestroy')->name('destroy');
+    });
+
+    Route::get('/{user}', 'AdminController@show')->name('user.show');
+    Route::get('/{user}/delete', 'AdminController@destroy')->name('user.destroy');
+    Route::get('/{user}/course/delete', 'AdminController@deleteCourse')->name('user.course.destroy');
 });

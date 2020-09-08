@@ -31,9 +31,10 @@
     <title>{{ config('app.name', 'Laravel') }}</title>
 
     {{-- favicon --}}
-    <link rel="icon" href="{{asset('favicon.png')}}" type="image/x-icon"/>
-    <link rel="shortcut icon" href="{{asset('favicon.png')}}">
-    <link rel="apple-touch-icon" href="{{asset('favicon.png')}}">
+    <link rel="shortcut icon" href="{{asset('favicon.ico')}}">
+    <link rel="icon" href="{{asset('images/logo.png')}}" type="image/x-icon" sizes="32x32"/>
+    <link rel="icon" href="{{asset('images/logo.png')}}" type="image/x-icon" sizes="96x96"/>
+    <link rel="apple-touch-icon" sizes="180x180" href="{{asset('images/logo.png')}}">
 
     <!-- Bootstrap core CSS -->
     <link href="{{ asset('css/bootstrap.min.css') }}" rel="stylesheet">
