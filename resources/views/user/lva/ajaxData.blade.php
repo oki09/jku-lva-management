@@ -1,103 +1,82 @@
 @if(isset($lvaList))
     @if(count($lvaList) == 0)
-        <p class="alert-danger">{{__('Course not found')}}</p>
+        <p class="alert-danger">{{__('No courses found')}}</p>
     @else
         <p>{{count($lvaList) . ' ' . __('Results found')}}</p>
-        <div id="mobileView" style="height: 55vh" class="overflow-auto">
+        <div class="row">
             @foreach($lvaList as $lva)
-                <ul class="list-group my-1">
-                    <span id="lvaSlotsUrl" class="d-none">{{$lva->lvaSlotsUrl}}</span>
-                    <li class="list-group-item d-flex justify-content-between align-items-center">
-                        <span class="font-weight-bold">Nr.</span>
-                        <span id="lvaNr">{{$lva->lvaNr}}</span>
-                    </li>
-                    <li class="list-group-item d-flex justify-content-between align-items-center">
-                        <span class="font-weight-bold">{{__('Title')}}</span>
-                        <span id="title" class="text-right">{{$lva->lvaName}}</span>
-                    </li>
-                    <li class="list-group-item d-flex justify-content-between align-items-center">
-                        <span class="font-weight-bold">{{__('ECTS')}}</span>
-                        <span id="ects" class="text-right">{{$lva->lvaEcts}}</span>
-                    </li>
-                    <li class="list-group-item successHandler">
-                        <button class="addLvaBtn btn btn-outline-primary w-100"><i class="fas fa-plus"></i></button>
-                    </li>
-                </ul>
+                <div class="col-md-3 mb-3">
+                    <div class="card border-dark mb-3">
+                        <div class="card-body">
+                            <span class="d-none lvaSlotsUrl">{{$lva->lvaSlotsUrl}}</span>
+                            <h5 class="card-title title">{{$lva->lvaName}}</h5>
+                            <h6 class="card-subtitle mb-2 text-muted"><span class="lvaNr">{{$lva->lvaNr}}</span>
+                                | <span class="ects">{{$lva->lvaEcts}}</span> ECTS
+                            </h6>
+                        </div>
+                        <div class="card-footer successHandler">
+                            @if(!$lva->isAdded)
+                                <button class="addLvaBtn btn btn-outline-primary w-100">{{__('Add')}}</i>
+                                </button>
+                            @else
+                                <span class="text-danger">{{__('already added')}}</span>
+                            @endif
+                        </div>
+                    </div>
+                </div>
             @endforeach
-        </div>
-        <div id="desktopView" style="height: 55vh" class="overflow-auto">
-            <table class="table table-hover table-striped w-full table-sm">
-                <thead>
-                <th>Nr.</th>
-                <th>Name</th>
-                <th>ECTS</th>
-                <th></th>
-                </thead>
-                <tbody>
-                @foreach($lvaList as $lva)
-                    <tr>
-                        <th id="lvaNr">{{$lva->lvaNr}}</th>
-                        <td id="title">{{$lva->lvaName}}</td>
-                        <td id="ects">{{$lva->lvaEcts}}</td>
-                        <td id="lvaSlotsUrl" class="d-none">{{$lva->lvaSlotsUrl}}</td>
-                        <td class="successHandler">
-                            <button class="addLvaBtn btn btn-outline-primary w-100"><i class="fas fa-plus"></i></button>
-                        </td>
-                    </tr>
-                @endforeach
-                </tbody>
-            </table>
         </div>
     @endif
     <script>
-        var isMobile = window.matchMedia("only screen and (max-width: 600px)").matches;
         $('.addLvaBtn').on('click', function () {
-            const row = isMobile ? $(this).closest('ul') : $(this).closest('tr');
-            let slotsUrl = decodeURIComponent('{{ env('KUSSS_PREFIX')}}' + row.find('#lvaSlotsUrl').text());
+            const row = $(this).closest('.card');
+            let slotsUrl = decodeURIComponent('{{ env('KUSSS_PREFIX')}}' + row.find('.lvaSlotsUrl').text());
             $.get({
                 url: getProxyRequestUrl(slotsUrl),
                 success(response) {
                     const parsedHtml = $($.parseHTML(response));
                     const slots = retrieveSlots(parsedHtml);
                     const capacity = retrieveLvaCapacity(parsedHtml);
-                    storeSelectedLva(row, slots, capacity);
+                    const handBookUrl = retrieveLvaHandbookUrl(parsedHtml);
+                    console.log(handBookUrl);
+                    storeSelectedLva(row, slots, capacity, handBookUrl);
                 },
                 error(error) {
                     const $data = '<p class="alert-danger">' + error.errorText + '</p>';
-                    $('#successHandler').hide().html($data).fadeIn();
+                    row.find('.successHandler').hide().html($data).show();
                 }
             });
         });
 
-        function storeSelectedLva(row, slots, capacity) {
+        function storeSelectedLva(row, slots, capacity, handbookUrl) {
             $.post({
                 url: '{{route('lva.store')}}',
                 headers: {'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')},
                 data: JSON.stringify({
-                    nr: row.find('#lvaNr').text(),
-                    title: row.find('#title').text(),
-                    ects: row.find('#ects').text(),
+                    nr: row.find('.lvaNr').text(),
+                    title: row.find('.title').text(),
+                    ects: row.find('.ects').text(),
                     capacity: capacity,
-                    slots: slots
+                    slots: slots,
+                    handbookUrl: handbookUrl
                 }),
                 success() {
-                    const addBtn = row.find('.successHandler');
-                    const successBtn = $('<button class="btn btn-success w-100"><i class="far fa-check-square"></i></button>');
-                    addBtn.hide().html(successBtn).fadeIn();
+                    const successBtn = $('<button class="btn btn-success w-100"><i class="fas fa-check"></i></button>');
+                    row.find('.successHandler').hide().html(successBtn).slideDown();
                 },
                 error(error) {
-                    const $data = '<p class="alert-danger">' + error.errorText + '</p>';
-                    $('#successHandler').hide().html($data).fadeIn();
+                    const $data = '<span class="alert-danger">{{__("Something went wrong :/")}}</span>';
+                    row.find('.successHandler').hide().html($data).show();
                 }
             });
         }
 
         function retrieveLvaCapacity(html) {
-            // we are in the registration dates
-            if(moment().utc().isSameOrAfter('{{env('REGISTRATION_START_DATE')}}')) {
-                return html.find("tr.priorityhighlighted td:nth-child(7)").text().trim();
-            }
-            return html.find("tr.priorityhighlighted td:nth-child(6)").text().trim();
+            return html.find("tr.priorityhighlighted td:nth-last-child(4)").text().trim();
+        }
+
+        function retrieveLvaHandbookUrl(html) {
+            return html.find("div.contentcell>table>tbody>tr>td>a").attr('href');
         }
 
         function retrieveSlots(html) {

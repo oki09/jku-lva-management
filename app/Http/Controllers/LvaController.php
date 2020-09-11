@@ -2,18 +2,15 @@
 
 namespace App\Http\Controllers;
 
-use App\Course;
+use App\User;
 use App\Helpers\Util;
 use App\Helpers\WkoMiddlewareHelper;
-use App\User;
-use GuzzleHttp\Exception\InvalidArgumentException;
 use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Contracts\View\Factory;
 use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Http\Response;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\View\View;
-use PHPUnit\Framework\Error\Error;
 
 class LvaController extends Controller
 {
@@ -67,9 +64,11 @@ class LvaController extends Controller
         $lvaData = request()->json()->all();
         $lvaList = new Collection();
         foreach ($lvaData as $lva) {
-            if (!$this->lvaExists($lva['lvaNr'])) {
+            $lva['isAdded'] = $this->lvaExists($lva['lvaNr']);
+            /*if (!$this->lvaExists($lva['lvaNr'])) {
                 $lvaList->push((object)$lva);
-            }
+            }*/
+            $lvaList->push((object)$lva);
         }
         return view('user.lva.ajaxData', compact('lvaList'));
     }
@@ -77,7 +76,7 @@ class LvaController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @return Response
+     * @return void
      */
     public function store()
     {
@@ -88,7 +87,8 @@ class LvaController extends Controller
             'title' => $data['title'],
             'ects' => $data['ects'],
             'capacity' => $data['capacity'],
-            'isDisabled' => false
+            'isDisabled' => false,
+            'handbookUrl' => $data['handbookUrl']
         ]);
         foreach ($data['slots'] as $slot) {
             $lva->slots()->create([
@@ -164,10 +164,7 @@ class LvaController extends Controller
                 ['courses.nr', '=', $lva->nr],
                 ['studentId', '!=', Auth::id()]
             ])->get();
-            if ($lva->capacity != 0)
-                $lva->workload = round($otherUsers->count() / $lva->capacity * 100, PHP_ROUND_HALF_UP);
-            else
-                $lva->workload = 0;
+            $lva->workload = $otherUsers->count();
             $lvas->push($lva);
         }
         return $lvas;

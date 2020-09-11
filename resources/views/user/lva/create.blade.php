@@ -1,16 +1,20 @@
 @extends('user.layouts.app')
 
 @section('content')
-    <p class="text-info">{!! __('Here you can explore the courses you plan to attend. Just type in the course id or a specific term. A course can be added with the <i class="fas fa-plus"></i>-Button')!!}</p>
-    <p class="text-danger">{{__('Attention: Already added courses do not appear in the result list!')}}</p>
-    <div class="form-group form-inline">
-        <input id="lvaNr" type="text" class="form-control col-md-10 mr-sm-2" placeholder="Suchbegriff" autofocus>
-        <button id="searchBtn" type="submit" class="btn btn-outline-primary col-md-1">{{__('Search')}}</button>
+    <div class="input-group mb-2">
+        <input id="lvaNr" type="text" class="form-control" placeholder="{{__('Query')}}">
+        <div class="input-group-append">
+            <button id="searchBtn" type="submit" class="btn btn-outline-primary" style="width: 5em">
+                <i class="fas fa-search"></i>
+            </button>
+        </div>
     </div>
     <div id="searchResults">
         @include('user.lva.ajaxData')
     </div>
-
+    <button class="btn btn-primary" id="toTheTopBtn">
+        <i class="fas fa-chevron-up"></i>
+    </button>
     <script>
         $(function () {
             //https://stackoverflow.com/questions/23415360/jquery-how-to-edit-html-text-only-for-current-level
@@ -21,6 +25,21 @@
                     return this.nodeValue;
                 }).get().join('');
             }
+
+            const $btn = $('#toTheTopBtn');
+
+            window.onscroll = function () {
+                if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+                    $btn.show();
+                } else {
+                    $btn.hide();
+                }
+            };
+
+            $('#toTheTopBtn').on('click', function () {
+                // this changes the scrolling behavior to "smooth"
+                window.scrollTo({top: 0, behavior: 'smooth'});
+            });
 
             $('#lvaNr').keypress(function (e) {
                 const key = e.which;
@@ -68,17 +87,17 @@
                             data: JSON.stringify(lvaList),
                             success: function (data) {
                                 const $data = $(data);
-                                $('#searchResults').hide().html($data).fadeIn();
+                                $('#searchResults').hide().html($data).show();
                             },
                             error: function (error) {
                                 const $data = '<p class="alert-danger">' + error.errorText + '</p>';
-                                $('#searchResults').hide().html($data).fadeIn();
+                                $('#searchResults').hide().html($data).show();
                             }
                         });
                     },
                     error: function (error) {
                         const $data = '<p class="alert-danger">' + error.errorText + '</p>';
-                        $('#searchResults').hide().html($data).fadeIn();
+                        $('#searchResults').hide().html($data).show();
                     }
                 });
             });

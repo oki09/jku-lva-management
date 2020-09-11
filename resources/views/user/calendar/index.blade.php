@@ -27,8 +27,8 @@
                 slotLabelInterval: '00:30',
                 hiddenDays: [0],
                 headerToolbar: {
-                    right: isMobile ? 'timeGridWeek listMonth' : 'timeGridWeek,dayGridMonth listMonth',
-                    center: '',
+                    right: 'timeGridWeek,dayGridMonth listMonth',
+                    center: 'title',
                     left: 'prev,next'
                 },
                 listDayFormat: {
@@ -40,7 +40,6 @@
                 listDaySideFormat: false,
                 initialView: 'timeGridWeek',
                 themeSystem: 'bootstrap',
-                locale: 'en',
                 displayEventTime: true,
                 loading: function (isLoading) {
                     if (isLoading) {
@@ -62,8 +61,10 @@
                 },
                 eventDidMount: function (info) {
                     if (isOverlapping(info.event, calendar.getEvents())) {
-                        info.event.setProp('borderColor', 'red');
+                        info.event.setProp('color', 'red');
                     }
+                    info.event.title = 'test';
+                    $('button.fc-listMonth-button').html('<i class="fa fa-bars"></i>');
                 }
             });
 
@@ -71,6 +72,8 @@
             calendar.setOption('locale', lang);
 
             calendar.render();
+
+            $('button.fc-listMonth-button').html('<i class="fa fa-bars"></i>');
 
             /***
              * This method checks if the eventToCheck is overlapping with any of the events in the events array.

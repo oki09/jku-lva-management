@@ -28,7 +28,7 @@ Route::get('/faq', 'HomeController@faqs')->name('info.faq');
 
 
 Route::middleware(['auth:user'])->prefix('user')->group(function () {
-    Route::view('/', 'user.calendar.index')->name('calendar.index');
+    Route::view('/calendar', 'user.calendar.index')->name('calendar.index');
     Route::get('/calendar/events', 'CalendarController@getEvents')->name('calendar.events');
 
     Route::get('/lvas/delete', 'LvaController@destroy')->name('lva.destroy');

@@ -7,7 +7,20 @@
   <component name="ChangeListManager">
     <list default="true" id="08676cd1-d91e-4e08-868d-15111cd024f8" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Course.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Course.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Helpers/KusssAuthenticationHelper.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Helpers/KusssAuthenticationHelper.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/LvaController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/LvaController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Middleware/VerifyCsrfToken.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Middleware/VerifyCsrfToken.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/css/user/main.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/user/main.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/js/calendar/locale/de.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/calendar/locale/de.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/lang/de.json" beforeDir="false" afterPath="$PROJECT_DIR$/resources/lang/de.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/user/auth/login.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/user/auth/login.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/user/calendar/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/user/calendar/index.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/user/layouts/app.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/user/layouts/app.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/user/lva/ajaxData.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/user/lva/ajaxData.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/user/lva/create.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/user/lva/create.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/user/lva/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/user/lva/index.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -140,6 +153,7 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/public/images" />
     <property name="nodejs_package_manager_path" value="npm" />
+    <property name="settings.editor.selected.configurable" value="preferences.keymap" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
@@ -189,7 +203,8 @@
       <workItem from="1599304050808" duration="4244000" />
       <workItem from="1599319638165" duration="25486000" />
       <workItem from="1599497383894" duration="10370000" />
-      <workItem from="1599579603719" duration="11882000" />
+      <workItem from="1599579603719" duration="12229000" />
+      <workItem from="1599764557374" duration="17149000" />
     </task>
     <task id="LOCAL-00001" summary="update php mail()">
       <created>1599078225920</created>
@@ -324,7 +339,14 @@
       <option name="project" value="LOCAL" />
       <updated>1599593455661</updated>
     </task>
-    <option name="localTasksCounter" value="20" />
+    <task id="LOCAL-00020" summary="fix retrieveCapacity after registration dates begin">
+      <created>1599594891214</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1599594891214</updated>
+    </task>
+    <option name="localTasksCounter" value="21" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -378,7 +400,8 @@
     <MESSAGE value="added admin functions" />
     <MESSAGE value="big changes&#10;&#10;admin dashboard brand new features&#10;- Overview of users as datatables&#10;- CRUD operations on users&#10;- Delete operation on courses of users&#10;- News CRUD&#10;- FAQ CRUD&#10;- changed some images&#10;- update privacy to browser locale&#10;- delete unneccessary files&#10;- update favicons&#10;- change adminID to normal text&#10;- changed some routes" />
     <MESSAGE value="fixed error on empty courses" />
-    <option name="LAST_COMMIT_MESSAGE" value="fixed error on empty courses" />
+    <MESSAGE value="fix retrieveCapacity after registration dates begin" />
+    <option name="LAST_COMMIT_MESSAGE" value="fix retrieveCapacity after registration dates begin" />
   </component>
   <component name="WindowStateProjectService">
     <state x="458" y="212" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1599152184725">
@@ -400,10 +423,14 @@
     </state>
     <state x="539" y="380" key="NewPhpFileDialog/0.0.1440.900/1440.0.1920.1080/-1920.0.1920.1080@0.0.1440.900" timestamp="1597732543530" />
     <state x="539" y="380" key="NewPhpFileDialog/0.0.1440.900@0.0.1440.900" timestamp="1598120591583" />
-    <state x="320" y="190" key="Vcs.Push.Dialog.v2" timestamp="1599593457554">
+    <state x="221" y="89" key="SettingsEditor" timestamp="1599848585272">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state x="320" y="190" key="Vcs.Push.Dialog.v2/0.0.1440.900@0.0.1440.900" timestamp="1599593457554" />
+    <state x="221" y="89" key="SettingsEditor/0.0.1440.900@0.0.1440.900" timestamp="1599848585272" />
+    <state x="320" y="190" key="Vcs.Push.Dialog.v2" timestamp="1599594892548">
+      <screen x="0" y="0" width="1440" height="900" />
+    </state>
+    <state x="320" y="190" key="Vcs.Push.Dialog.v2/0.0.1440.900@0.0.1440.900" timestamp="1599594892548" />
     <state x="343" y="67" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser" timestamp="1598538820853">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
@@ -416,6 +443,10 @@
       <screen x="0" y="0" width="1440" height="900" />
     </state>
     <state x="421" y="229" width="598" height="548" key="find.popup/0.0.1440.900@0.0.1440.900" timestamp="1599585897660" />
+    <state width="600" height="428" key="javadoc.popup" timestamp="1599848950766">
+      <screen x="0" y="0" width="1440" height="900" />
+    </state>
+    <state width="600" height="428" key="javadoc.popup/0.0.1440.900@0.0.1440.900" timestamp="1599848950766" />
     <state x="385" y="196" width="670" height="676" key="search.everywhere.popup" timestamp="1599320771927">
       <screen x="0" y="0" width="1440" height="900" />
     </state>

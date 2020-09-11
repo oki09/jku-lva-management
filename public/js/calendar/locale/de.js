@@ -20,7 +20,7 @@ FullCalendar.globalLocales.push(function () {
       month: "Monat",
       week: "Woche",
       day: "Tag",
-      list: "Terminübersicht"
+      list: "Liste"
     },
     weekText: "KW",
     allDayText: "Ganztägig",

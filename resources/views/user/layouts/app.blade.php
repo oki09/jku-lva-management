@@ -74,7 +74,17 @@
                         <span class="sr-only">(current)</span>
                     </a>
                 </li>
-                <li class="nav-item dropdown">
+                <li class="nav-item">
+                    <a class="nav-link" href="{{route('lva.index')}}">
+                        <i class="fas fa-bars"></i> {{__('My courses')}}
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{route('lva.create')}}">
+                        <i class="fas fa-plus"></i> {{__('Add course')}}
+                    </a>
+                </li>
+                {{--<li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
                        data-toggle="dropdown"
                        aria-haspopup="true" aria-expanded="false">
@@ -86,7 +96,7 @@
                         <a class="dropdown-item" href="{{route('lva.index')}}">{{__('My courses')}}</a>
                         <a class="dropdown-item" href="{{route('lva.create')}}">{{__('Add course')}}</a>
                     </div>
-                </li>
+                </li>--}}
             </ul>
             <ul class="navbar-nav">
                 <form class="form-inline my-2 my-lg-0" method="POST" action="{{route('logout.user')}}">

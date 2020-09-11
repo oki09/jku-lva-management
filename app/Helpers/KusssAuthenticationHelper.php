@@ -3,7 +3,6 @@
 
 namespace App\Helpers;
 
-
 use GuzzleHttp\Client;
 use GuzzleHttp\Cookie\CookieJar;
 use GuzzleHttp\Exception\ClientException;
