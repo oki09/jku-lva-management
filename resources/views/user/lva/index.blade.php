@@ -7,7 +7,7 @@
         </button>
         <div class="row">
             @foreach($lvas as $lva)
-                <div class="col-md-3 mb-3">
+                <div class="col-md-4 col-lg-3 mb-3">
                     <div class="card border-dark h-100">
                         <div class="card-body">
                             <div class="d-flex align-items-baseline">
@@ -27,7 +27,11 @@
                                 | {{$lva->ects}} ECTS | {{$lva->capacity}} {{__('mögl.')}}
                             </h6>
                             <p class="card-text">
-                                +{{$lva->workload}} {{__('weitere Studenten')}}<br>
+                                @if($lva->workload == 1)
+                                    +{{$lva->workload}} {{__('other student')}}<br>
+                                @else
+                                    +{{$lva->workload}} {{__('other students')}}<br>
+                                @endif
                                 @if(isset($lva->handbookUrl))
                                     <a target="_blank" href="{{$lva->handbookUrl}}">{{__('Study Handbook')}}</a>
                                 @endif
@@ -45,21 +49,6 @@
         </div>
         <script>
             $(function () {
-                const $btn = $('#toTheTopBtn');
-
-                window.onscroll = function () {
-                    if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
-                        $btn.show();
-                    } else {
-                        $btn.hide();
-                    }
-                };
-
-                $('#toTheTopBtn').on('click', function () {
-                    // this changes the scrolling behavior to "smooth"
-                    window.scrollTo({top: 0, behavior: 'smooth'});
-                });
-
                 $('.lvaDestroy').on('click', function () {
                     $.blockUI({
                         message: $('#loader'),
@@ -103,4 +92,5 @@
             $('[data-toggle="tooltip"]').tooltip();
         });
     </script>
+    <script src="{{ asset('js/scrollToTop.js') }}"></script>
 @endsection

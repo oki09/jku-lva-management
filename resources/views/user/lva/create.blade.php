@@ -10,7 +10,7 @@
         </div>
     </div>
     <div id="searchResults">
-        @include('user.lva.ajaxData')
+        @include('user.lva.addLVAAjax')
     </div>
     <button class="btn btn-primary" id="toTheTopBtn">
         <i class="fas fa-chevron-up"></i>
@@ -25,21 +25,6 @@
                     return this.nodeValue;
                 }).get().join('');
             }
-
-            const $btn = $('#toTheTopBtn');
-
-            window.onscroll = function () {
-                if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
-                    $btn.show();
-                } else {
-                    $btn.hide();
-                }
-            };
-
-            $('#toTheTopBtn').on('click', function () {
-                // this changes the scrolling behavior to "smooth"
-                window.scrollTo({top: 0, behavior: 'smooth'});
-            });
 
             $('#lvaNr').keypress(function (e) {
                 const key = e.which;
@@ -103,5 +88,5 @@
             });
         });
     </script>
-
+    <script src="{{ asset('js/scrollToTop.js') }}"></script>
 @endsection

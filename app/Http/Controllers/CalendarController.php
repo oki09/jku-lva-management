@@ -21,7 +21,7 @@ class CalendarController extends Controller
     {
         $events = [];
         $lvas = User::find(Auth::id())->courses;
-        $cnt = 0;
+        $cnt = 1;
         foreach ($lvas as $lva) {
             if (!$lva->isDisabled) {
                 foreach ($lva->slots as $slot) {
@@ -29,9 +29,10 @@ class CalendarController extends Controller
                         'start' => $slot->start,
                         'end' => $slot->end,
                         'title' => $lva->title,
-                        'nr' => $lva->nr
+                        'nr' => $lva->nr,
+                        'color' => $lva->color
                     ];
-                    // check if same lva with same time exists
+                    // check if same lva with same time exists (exclude multiple identical slots)
                     if (!$this->inArray($slot->start, $slot->end, $lva->title, $events)) {
                         $event['id'] = $cnt++;
                         array_push($events, $event);
@@ -39,7 +40,26 @@ class CalendarController extends Controller
                 }
             }
         }
-        return $events;
+        return $this->markOverlaps($events);
+    }
+
+    private function markOverlaps($events)
+    {
+        $newEvents = [];
+        foreach ($events as $event) {
+            foreach ($events as $event2Check) {
+                if ($event['nr'] != $event2Check['nr']) {
+                    if (($event2Check['start'] >= $event['start'] && $event2Check['start'] <= $event['end']) ||
+                        ($event2Check['end'] >= $event['start'] && $event2Check['end'] <= $event['end']) ||
+                        ($event2Check['start'] >= $event['start'] && $event2Check['end'] <= $event['end'])) {
+                        //$event2Check['color'] = 'red';
+                        $event['color'] = 'red';
+                    }
+                }
+            }
+            array_push($newEvents, $event);
+        }
+        return $newEvents;
     }
 
     /***

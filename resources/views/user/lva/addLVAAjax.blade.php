@@ -5,8 +5,8 @@
         <p>{{count($lvaList) . ' ' . __('Results found')}}</p>
         <div class="row">
             @foreach($lvaList as $lva)
-                <div class="col-md-3 mb-3">
-                    <div class="card border-dark mb-3">
+                <div class="col-md-4 col-lg-3 mb-3">
+                    <div class="card border-dark mb-3 h-100">
                         <div class="card-body">
                             <span class="d-none lvaSlotsUrl">{{$lva->lvaSlotsUrl}}</span>
                             <h5 class="card-title title">{{$lva->lvaName}}</h5>
@@ -38,7 +38,6 @@
                     const slots = retrieveSlots(parsedHtml);
                     const capacity = retrieveLvaCapacity(parsedHtml);
                     const handBookUrl = retrieveLvaHandbookUrl(parsedHtml);
-                    console.log(handBookUrl);
                     storeSelectedLva(row, slots, capacity, handBookUrl);
                 },
                 error(error) {

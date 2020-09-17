@@ -23,7 +23,7 @@
                 {{ session('error') }}
             </div>
         @endif
-        <div class="col-md-5">
+        <div class="col-md-4">
             <label for="studentId" class="sr-only">{{__('Student ID')}}</label>
             <input id="studentId" type="text" class="form-control @error('studentId') is-invalid @enderror"
                    name="studentId"

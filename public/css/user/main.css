@@ -6,36 +6,20 @@
     display: none;
 }
 
-.dot-red {
-    height: 12px;
-    width: 12px;
-    background-color: red;
-    border-radius: 50%;
-    display: inline-block;
-}
-
-.dot-yellow {
-    height: 12px;
-    width: 12px;
-    background-color: yellow;
-    border-radius: 50%;
-    display: inline-block;
-}
-
-.dot-green {
-    height: 12px;
-    width: 12px;
-    background-color: green;
-    border-radius: 50%;
-    display: inline-block;
-}
-
 .fc {
     font-size: 0.9em !important;
 }
 
 .fc-toolbar-title {
     font-size: 1.2em !important;
+}
+
+.fc-event-time {
+    white-space: normal !important;
+}
+
+.fc-event-title {
+    word-break: break-all;
 }
 
 .btn {
@@ -56,29 +40,6 @@
 }
 
 @media all and (min-width: 600px) {
-    .dot-red {
-        height: 24px;
-        width: 24px;
-        background-color: red;
-        border-radius: 50%;
-        display: inline-block;
-    }
-
-    .dot-yellow {
-        height: 24px;
-        width: 24px;
-        background-color: yellow;
-        border-radius: 50%;
-        display: inline-block;
-    }
-
-    .dot-green {
-        height: 24px;
-        width: 24px;
-        background-color: green;
-        border-radius: 50%;
-        display: inline-block;
-    }
 
     .fc {
         font-size: 1em !important;

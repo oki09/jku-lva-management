@@ -65,12 +65,9 @@ class LvaController extends Controller
         $lvaList = new Collection();
         foreach ($lvaData as $lva) {
             $lva['isAdded'] = $this->lvaExists($lva['lvaNr']);
-            /*if (!$this->lvaExists($lva['lvaNr'])) {
-                $lvaList->push((object)$lva);
-            }*/
             $lvaList->push((object)$lva);
         }
-        return view('user.lva.ajaxData', compact('lvaList'));
+        return view('user.lva.addLVAAjax', compact('lvaList'));
     }
 
     /**
@@ -82,13 +79,15 @@ class LvaController extends Controller
     {
         $user = User::find(Auth::id());
         $data = request()->json()->all();
+        $color = $this->getRandomColor();
         $lva = $user->courses()->create([
             'nr' => $data['nr'],
             'title' => $data['title'],
             'ects' => $data['ects'],
             'capacity' => $data['capacity'],
             'isDisabled' => false,
-            'handbookUrl' => $data['handbookUrl']
+            'handbookUrl' => $data['handbookUrl'],
+            'color' => $color
         ]);
         foreach ($data['slots'] as $slot) {
             $lva->slots()->create([
@@ -168,5 +167,15 @@ class LvaController extends Controller
             $lvas->push($lva);
         }
         return $lvas;
+    }
+
+    private function getRandomColor()
+    {
+        $color = sprintf('#%06X', mt_rand(0, 0xFFFFFF));
+        // we do not want red color
+        while($color == '#FF0000') {
+            $color = sprintf('#%06X', mt_rand(0, 0xFFFFFF));
+        }
+        return $color;
     }
 }

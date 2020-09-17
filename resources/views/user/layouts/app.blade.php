@@ -38,10 +38,10 @@
 
     <!-- Bootstrap core CSS -->
     <link href="{{ asset('css/bootstrap.min.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/user/calendar/main.min.css') }}" rel="stylesheet">
     <link href="{{ asset('css/home.css') }}" rel="stylesheet">
     <link href="{{ asset('css/user/main.css') }}" rel="stylesheet">
     <link href="{{ asset('css/user/roundedToggleSwitch.css') }}" rel="stylesheet">
-    <link href="{{ asset('css/user/calendar/main.min.css') }}" rel="stylesheet">
 
     <script src="https://kit.fontawesome.com/6eb7acd8bf.js" crossorigin="anonymous"></script>
     <script src="{{ asset('js/jquery-3.4.1.min.js') }}"></script>

@@ -22,6 +22,6 @@ class Course extends Model
      * @var array
      */
     protected $fillable = [
-        'nr', 'title', 'ects', 'isDisabled', 'capacity', 'handbookUrl'
+        'nr', 'title', 'ects', 'isDisabled', 'capacity', 'handbookUrl', 'color'
     ];
 }

@@ -2,7 +2,9 @@
 
 @section('content')
     <div id="calendar"></div>
-
+    <button class="btn btn-primary" id="toTheTopBtn">
+        <i class="fas fa-chevron-up"></i>
+    </button>
     <script>
         let myPopover;
         document.addEventListener('DOMContentLoaded', function () {
@@ -12,35 +14,46 @@
                 events: {
                     url: '{{route('calendar.events')}}',
                     failure: function (error) {
+                        $('#calendar').html('<p class="alert-danger text-center">{{__('An error occurred, while loading the data. Please consult the admin.')}}</p>').show();
                         console.error(error);
                     }
                 },
-                timeZone: 'UTC',
-                initialDate: '{{config('app.semesterStart')}}',
-                lazyFetching: true,
-                slotEventOverlap: true,
-                expandRows: true,
-                height: '100vh',
-                allDaySlot: false,
-                slotMinTime: '08:00:00',
-                slotMaxTime: '21:00:00',
-                slotLabelInterval: '00:30',
-                hiddenDays: [0],
+                eventDisplay: 'block',
                 headerToolbar: {
                     right: 'timeGridWeek,dayGridMonth listMonth',
                     center: 'title',
                     left: 'prev,next'
                 },
-                listDayFormat: {
-                    month: 'long',
-                    day: 'numeric',
-                    weekday: 'short',
-                    year: 'numeric'
+                views: {
+                    dayGridMonth: {
+                        displayEventTime: false
+                    },
+                    listMonth: {
+                        listDayFormat: {
+                            month: 'long',
+                            day: 'numeric',
+                            weekday: 'short',
+                            year: 'numeric'
+                        },
+                        listDaySideFormat: false
+                    },
+                    timeGridWeek: {
+                        displayEventTime: true,
+                        slotMinTime: '08:00:00',
+                        slotMaxTime: '21:00:00',
+                        slotLabelInterval: '00:30',
+                        slotEventOverlap: false
+                    }
                 },
-                listDaySideFormat: false,
+                timeZone: 'UTC',
+                initialDate: '{{config('app.semesterStart')}}',
+                lazyFetching: true,
+                expandRows: true,
+                contentHeight: '180vh',
+                allDaySlot: false,
+                hiddenDays: [0], // hide sundays
                 initialView: 'timeGridWeek',
                 themeSystem: 'bootstrap',
-                displayEventTime: true,
                 loading: function (isLoading) {
                     if (isLoading) {
                         $('#loader').show();
@@ -48,22 +61,10 @@
                         $('#loader').hide();
                     }
                 },
-                eventClick: function (info) {
-                    const $html = $(info.el);
-                    // init popover
-                    $html.popover({
-                        title: info.event.title,
-                        placement: 'top',
-                        container: 'body',
-                        trigger: 'click',
-                        content: 'LVA-Nr: ' + info.event.extendedProps.nr
-                    });
-                },
                 eventDidMount: function (info) {
-                    if (isOverlapping(info.event, calendar.getEvents())) {
+                    /*if (isOverlapping(info.event, calendar.getEvents())) {
                         info.event.setProp('color', 'red');
-                    }
-                    info.event.title = 'test';
+                    }*/
                     $('button.fc-listMonth-button').html('<i class="fa fa-bars"></i>');
                 }
             });
@@ -103,4 +104,5 @@
             }
         });
     </script>
+    <script src="{{ asset('js/scrollToTop.js') }}"></script>
 @endsection

@@ -31,7 +31,7 @@
                 href="{{route('info.contact')}}">{{__('contact form')}}</a>.
             {!! __('With EduSmart, we hope to ease the coming semester and wish you a happy planning!') !!}
         </p>
-        <a href="{{route('calendar.index')}}" class="btn btn-primary btn-lg col-md-2 col-12">{{__('Start now!')}}</a>
+        <a href="{{route('calendar.index')}}" class="btn btn-primary btn-lg col-md-3 col-12">{{__('Start now!')}}</a>
     </header>
 
     <div class="row text-center">
@@ -49,11 +49,8 @@
             <div class="card">
                 <img class="card-img-bottom" src="{{asset('images/course-view.png')}}" alt="Course list view EduSmart">
                 <div class="card-body">
-                    <h4 class="card-title">{{__('Course management and workload')}}</h4>
-                    <p class="card-text">{{__('Add courses or delete them as you wish. Nevertheless, you always have the overview of your courses. You can also disable courses in order to be more flexible in planning.')}}
-                    </p>
-                    <p class="card-text">
-                        {{__('See how many other students intend to visit the course you selected. This could provide students a second guess of whether they really want to attend the course and give others a better chance.')}}
+                    <h4 class="card-title">{{__('Course management')}}</h4>
+                    <p class="card-text">{{__('Managing your courses was never easier. Add, delete or disable your courses as you wish. The main goal is to be more flexible during the planning.')}}
                     </p>
                 </div>
             </div>
