@@ -44,6 +44,7 @@
     <link href="{{ asset('css/user/roundedToggleSwitch.css') }}" rel="stylesheet">
 
     <script src="https://kit.fontawesome.com/6eb7acd8bf.js" crossorigin="anonymous"></script>
+    <script src="{{ asset('js/smoothscroll.min.js') }}"></script>
     <script src="{{ asset('js/jquery-3.4.1.min.js') }}"></script>
     <script src="{{ asset('js/bootstrap.bundle.min.js') }}"></script>
     <script src="{{ asset('js/moment.min.js') }}"></script>

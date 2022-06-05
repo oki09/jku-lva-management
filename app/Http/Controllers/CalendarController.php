@@ -52,7 +52,6 @@ class CalendarController extends Controller
                     if (($event2Check['start'] >= $event['start'] && $event2Check['start'] <= $event['end']) ||
                         ($event2Check['end'] >= $event['start'] && $event2Check['end'] <= $event['end']) ||
                         ($event2Check['start'] >= $event['start'] && $event2Check['end'] <= $event['end'])) {
-                        //$event2Check['color'] = 'red';
                         $event['color'] = 'red';
                     }
                 }

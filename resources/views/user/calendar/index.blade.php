@@ -20,7 +20,7 @@
                 },
                 eventDisplay: 'block',
                 headerToolbar: {
-                    right: 'timeGridWeek,dayGridMonth listMonth',
+                    right: isMobile ? 'dayGridMonth listMonth' : 'timeGridWeek,dayGridMonth listMonth',
                     center: 'title',
                     left: 'prev,next'
                 },
@@ -41,18 +41,18 @@
                         displayEventTime: true,
                         slotMinTime: '08:00:00',
                         slotMaxTime: '21:00:00',
-                        slotLabelInterval: '00:30',
+                        slotLabelInterval: '02:00',
                         slotEventOverlap: false
                     }
                 },
                 timeZone: 'UTC',
-                initialDate: '{{config('app.semesterStart')}}',
+                initialDate: '{{env('CALENDAR_START_DATE')}}',
                 lazyFetching: true,
                 expandRows: true,
-                contentHeight: '180vh',
+                contentHeight: '90vh',
                 allDaySlot: false,
                 hiddenDays: [0], // hide sundays
-                initialView: 'timeGridWeek',
+                initialView: isMobile ? 'listMonth' : 'timeGridWeek',
                 themeSystem: 'bootstrap',
                 loading: function (isLoading) {
                     if (isLoading) {

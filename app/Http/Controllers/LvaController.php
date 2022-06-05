@@ -27,32 +27,17 @@ class LvaController extends Controller
     /**
      * Display a listing of the resource.
      *
-     * @return Response
+     * @return Application|Factory|\Illuminate\Contracts\View\View
      */
     public function index()
     {
         $courses = User::find(Auth::id())->courses;
-        $lvas = $this->getWorkload($courses);
-        return view('user.lva.index', compact('lvas'));
-    }
-
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return Response
-     */
-    public function create()
-    {
+        $lvas = $this->sortLVAList($this->getWorkload($courses), 'desc', 'created_at');
         if (request()->ajax()) {
-            $lvaData = (object)[
-                'lvaNr' => request('lvaNr'),
-                'lvaName' => request('lvaName'),
-                'lvaEcts' => request('lvaEcts'),
-                'lvaSlotsUrl' => request('lvaSlotsUrl')
-            ];
-            return !$this->lvaExists($lvaData->lvaNr) ? view('user.lva.ajaxData', compact('lvaData')) : '<p class="alert-danger">Course already added</p>';
+            $lvas = $this->sortLVAList($lvas, request('sortType'), request('sortAttr'));
+            return view('user.lva.sortedIndex', compact('lvas'));
         }
-        return view('user.lva.create');
+        return view('user.lva.index', compact('lvas'));
     }
 
     /***
@@ -86,8 +71,9 @@ class LvaController extends Controller
             'ects' => $data['ects'],
             'capacity' => $data['capacity'],
             'isDisabled' => false,
-            'handbookUrl' => $data['handbookUrl'],
-            'color' => $color
+            'color' => $color,
+            'type' => $data['type'],
+            'teachers' => $data['teachers']
         ]);
         foreach ($data['slots'] as $slot) {
             $lva->slots()->create([
@@ -102,7 +88,7 @@ class LvaController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @return Response
+     * @return Application|\Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector
      */
     public function destroy()
     {
@@ -173,9 +159,34 @@ class LvaController extends Controller
     {
         $color = sprintf('#%06X', mt_rand(0, 0xFFFFFF));
         // we do not want red color
-        while($color == '#FF0000') {
+        while ($color == '#FF0000') {
             $color = sprintf('#%06X', mt_rand(0, 0xFFFFFF));
         }
         return $color;
+    }
+
+    private function sortLVAList($list, $sortMode, $sortAttr)
+    {
+        if ($sortMode == 'desc') {
+            if ($sortAttr == 'slotCount') {
+                return $list->sortByDesc(function ($lva) {
+                    return count($lva->slots);
+                });
+            } else if ($sortAttr == 'title') {
+                return $list->sortBy($sortAttr);
+            } else {
+                return $list->sortByDesc($sortAttr);
+            }
+        } else {
+            if ($sortAttr == 'slotCount') {
+                return $list->sortBy(function ($lva) {
+                    return count($lva->slots);
+                });
+            } else if ($sortAttr == 'title') {
+                return $list->sortByDesc($sortAttr);
+            } else {
+                return $list->sortBy($sortAttr);
+            }
+        }
     }
 }

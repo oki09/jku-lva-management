@@ -28,7 +28,7 @@
 
             $('#lvaNr').keypress(function (e) {
                 const key = e.which;
-                if (key == 13) // the enter key code
+                if (key === 13) // the enter key code
                 {
                     $('#searchBtn').click();
                     return false;
@@ -37,8 +37,8 @@
 
             $('#searchBtn').on('click', function () {
                 let searchQuery = $('#lvaNr').val().trim();
-                searchQuery = searchQuery.replaceAll(' ', '+');
-                let url = '{{env('KUSSS_LVA_SEARCH')}}'.replaceAll('&amp;', '&') + searchQuery;
+                searchQuery = searchQuery.replace(/\s/g, '+');
+                let url = '{{env('KUSSS_LVA_SEARCH')}}'.replace(/&amp;/g, '&') + searchQuery;
                 url = '{{ route('proxy') }}?url=' + encodeURIComponent(url);
                 $.get({
                     url: url,
@@ -53,14 +53,26 @@
                                     const lvaSlotsUrl = encodeURIComponent($(this).find('td>b>a').attr('href'));
                                     let lvaName = $(this).find('td>a>b').text().trim();
                                     if (lvaName === 'Special Topics') lvaName = $(this).find('td:nth-child(2)').ownText().trim();
-                                    let lvaType = $(this).find('td:nth-child(3)').text().trim();
-                                    lvaName = lvaType.concat(' ', lvaName);
-                                    const lvaEcts = $(this).find("td[align=\"center\"]:nth-child(7)").text().trim();
+                                    const lvaType = $(this).find('td:nth-child(3)').text().trim();
+                                    const lvaEcts = $(this).find('td:nth-child(7)').text().trim();
+                                    const lvaTeachers = $(this).find('td:nth-child(5) a');
+                                    let teachers = '';
+                                    if (lvaTeachers.length === 1)
+                                        teachers += lvaTeachers.text().trim();
+                                    else {
+                                        lvaTeachers.each(function (i) {
+                                            teachers += $(this).text().trim();
+                                            if (i !== lvaTeachers.length - 1)
+                                                teachers += '&';
+                                        });
+                                    }
                                     lvaList.push({
                                         lvaNr: lvaNr,
                                         lvaSlotsUrl: lvaSlotsUrl,
                                         lvaName: lvaName,
-                                        lvaEcts: lvaEcts
+                                        lvaEcts: lvaEcts,
+                                        lvaType: lvaType,
+                                        lvaTeacher: teachers
                                     });
                                 }
                             }
@@ -72,7 +84,7 @@
                             data: JSON.stringify(lvaList),
                             success: function (data) {
                                 const $data = $(data);
-                                $('#searchResults').hide().html($data).show();
+                                $('#searchResults').hide().html($data).fadeIn();
                             },
                             error: function (error) {
                                 const $data = '<p class="alert-danger">' + error.errorText + '</p>';

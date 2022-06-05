@@ -1,16 +1,14 @@
 @extends('layouts.main')
 
 @section('content')
-    <p class="text-info mt-2">{{__('Have you detected bugs or encountered features that you wish, then simply drop us a message below. If the feedback form should not work for some reasons, then you can also send your inquiry manually to')}}
-        <mark><a href="mailto: {{env('MAIL_TO_ADDRESS')}}"> {{env('MAIL_TO_ADDRESS')}}</a></mark>.
-    </p>
+    <p class="text-info mt-2">{{__('You want to drop us a message? Feel free to use the contact form below.')}}</p>
     <form method="POST" action="{{route('info.contact')}}">
         @csrf
         <div class="form-group">
             <label for="name">Name</label>
             <input class="form-control @error('name') is-invalid @enderror" autocomplete="name"
                    autofocus type="text" id="name" name="name" value="{{old('name')}}"
-                   placeholder="{{__('Your name')}}">
+                   placeholder="{{__('Your name')}}" required>
             @error('name')
             <p class="invalid-feedback">{{ $message }}</p>
             @enderror
@@ -19,7 +17,7 @@
             <label for="email">E-Mail</label>
             <input class="form-control @error('email') is-invalid @enderror" autocomplete="email"
                    autofocus type="email" id="email" name="email" value="{{old('email')}}"
-                   placeholder="{{__('Your email')}}">
+                   placeholder="{{__('Your email')}}" required>
             @error('email')
             <p class="invalid-feedback">{{ $message }}</p>
             @enderror
@@ -29,7 +27,7 @@
             <textarea class="form-control @error('message') is-invalid @enderror" type="text" id="message"
                       name="message"
                       placeholder="{{__('Your message')}}..."
-                      rows="5">{{old('message')}}</textarea>
+                      rows="5" required>{{old('message')}}</textarea>
             @error('message')
             <p class="invalid-feedback">{{ $message }}</p>
             @enderror
@@ -38,9 +36,12 @@
     </form>
     @if(session()->has('isSent'))
         @if(session('isSent'))
-            <p class="text-success mt-2">{{__('Thank you for your feedback. Your message will soon arrive at the admins.')}}</p>
+            <p class="text-success mt-2">{{__('Thank you for your feedback. Your message will reach us shortly.')}}</p>
         @else
-            <p class="text-danger mt-2">{{__('Something went wrong. This incident will be reported to the admins.')}}</p>
+            <p class="text-danger mt-2">
+                {{__('Something went wrong, while sending the message. Please contact us on')}}:
+                <mark><a href="mailto: {{env('MAIL_TO_ADDRESS')}}"> {{env('MAIL_TO_ADDRESS')}}</a></mark>
+            </p>
         @endif
     @endif
 @endsection

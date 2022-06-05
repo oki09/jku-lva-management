@@ -6,15 +6,22 @@
         <div class="row">
             @foreach($lvaList as $lva)
                 <div class="col-md-4 col-lg-3 mb-3">
-                    <div class="card border-dark mb-3 h-100">
+                    <div class="card @if(!$lva->isAdded) border-dark @else border-danger @endif mb-3 h-100">
                         <div class="card-body">
                             <span class="d-none lvaSlotsUrl">{{$lva->lvaSlotsUrl}}</span>
                             <h5 class="card-title title">{{$lva->lvaName}}</h5>
                             <h6 class="card-subtitle mb-2 text-muted"><span class="lvaNr">{{$lva->lvaNr}}</span>
-                                | <span class="ects">{{$lva->lvaEcts}}</span> ECTS
+                                &middot; <span class="ects">{{$lva->lvaEcts}}</span> ECTS &middot; <span class="type">{{$lva->lvaType}}</span>
                             </h6>
+                            <div class="card-text">
+                                <span class="d-none teacher">{{$lva->lvaTeacher}}</span>
+                                <span class="font-weight-bolder">{{__('Teachers')}}:</span><br>
+                                @foreach(explode('&', $lva->lvaTeacher) as $teacher)
+                                    {{$teacher}}@if (!$loop->last),@endif
+                                @endforeach
+                            </div>
                         </div>
-                        <div class="card-footer successHandler">
+                        <div class="card-footer successHandler text-center">
                             @if(!$lva->isAdded)
                                 <button class="addLvaBtn btn btn-outline-primary w-100">{{__('Add')}}</i>
                                 </button>
@@ -37,8 +44,7 @@
                     const parsedHtml = $($.parseHTML(response));
                     const slots = retrieveSlots(parsedHtml);
                     const capacity = retrieveLvaCapacity(parsedHtml);
-                    const handBookUrl = retrieveLvaHandbookUrl(parsedHtml);
-                    storeSelectedLva(row, slots, capacity, handBookUrl);
+                    storeSelectedLva(row, slots, capacity);
                 },
                 error(error) {
                     const $data = '<p class="alert-danger">' + error.errorText + '</p>';
@@ -47,7 +53,7 @@
             });
         });
 
-        function storeSelectedLva(row, slots, capacity, handbookUrl) {
+        function storeSelectedLva(row, slots, capacity) {
             $.post({
                 url: '{{route('lva.store')}}',
                 headers: {'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')},
@@ -57,11 +63,13 @@
                     ects: row.find('.ects').text(),
                     capacity: capacity,
                     slots: slots,
-                    handbookUrl: handbookUrl
+                    type: row.find('.type').text(),
+                    teachers: row.find('.teacher').text(),
                 }),
                 success() {
                     const successBtn = $('<button class="btn btn-success w-100"><i class="fas fa-check"></i></button>');
-                    row.find('.successHandler').hide().html(successBtn).slideDown();
+                    row.find('.successHandler').hide().html(successBtn).fadeIn();
+                    row.toggleClass('border-dark border-success');
                 },
                 error(error) {
                     const $data = '<span class="alert-danger">{{__("Something went wrong :/")}}</span>';
@@ -74,10 +82,6 @@
             return html.find("tr.priorityhighlighted td:nth-last-child(4)").text().trim();
         }
 
-        function retrieveLvaHandbookUrl(html) {
-            return html.find("div.contentcell>table>tbody>tr>td>a").attr('href');
-        }
-
         function retrieveSlots(html) {
             const slotsTable = html.find("div.contentcell>table>tbody>tr>td>table>tbody>tr>td>table>tbody>tr>td>table>tbody tr");
             const totalLength = slotsTable.length;
@@ -85,7 +89,7 @@
             if (totalLength > 3) {
                 slotsTable.each(function (i) {
                     // we just need every odd row
-                    if (i % 2 != 0 && i != totalLength - 1) {
+                    if (i % 2 !== 0 && i !== totalLength - 1) {
                         // get 2nd td-element, which is the date
                         const dateString = $(this).find('td').eq(1).text().trim();
                         // get 3rd td-element which is the time
@@ -103,8 +107,8 @@
          * Returns the object, which specifies the start and end time of an event
          * Input date format: dd.mm.yy
          * Input time format: hh:mm
-         * @param date
-         * @param time
+         * @param dateString
+         * @param timeString
          */
         function getStartEndTimes(dateString, timeString) {
             const dateComponents = dateString.split('.');

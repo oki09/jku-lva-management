@@ -32,7 +32,7 @@ Route::middleware(['auth:user'])->prefix('user')->group(function () {
     Route::get('/calendar/events', 'CalendarController@getEvents')->name('calendar.events');
 
     Route::get('/lvas/delete', 'LvaController@destroy')->name('lva.destroy');
-    Route::get('/lvas/create', 'LvaController@create')->name('lva.create');
+    Route::view('/lvas/create', 'user.lva.create')->name('lva.create');
     Route::get('/lvas', 'LvaController@index')->name('lva.index');
     Route::post('/lvas/disable', 'LvaController@disable')->name('lva.disable');
     Route::post('/lvas', 'LvaController@store')->name('lva.store');
